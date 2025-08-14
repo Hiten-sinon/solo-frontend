@@ -1,0 +1,13 @@
+export { default as Logo } from "./logo.svg";
+export { default as BannerOne } from "./banner.webp";
+export { default as ShapeOne } from "./shape-1.webp";
+export { default as ShapeTwo } from "./shape-2.webp";
+export { default as Feauture } from "./feauture.webp";
+export { default as FeautureTwo } from "./feauture-02.webp";
+export { default as FeautureThree } from "./feauture-03.webp";
+export { default as Dreams } from "./dream.webp";
+export { default as TeamOne } from "./team-1.webp";
+export { default as TeamTwo } from "./team-2.webp";
+export { default as TeamThree } from "./team-3.webp";
+export { default as PartnerLogo } from "./partner-logo.webp";
+export { default as LogoDark } from "./logo-dark.webp";

@@ -1,0 +1,306 @@
+@font-face {
+    font-family: 'Montreal';
+    src: url('./assets/fonts/MontrealBold-Bold.eot');
+    src: url('./assets/fonts/MontrealBold-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealBold-Bold.woff2') format('woff2'),
+        url('./assets/fonts/MontrealBold-Bold.woff') format('woff'),
+        url('./assets/fonts/MontrealBold-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal Oblique';
+    src: url('./assets/fonts/MontrealOblique-Italic.eot');
+    src: url('./assets/fonts/MontrealOblique-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealOblique-Italic.woff2') format('woff2'),
+        url('./assets/fonts/MontrealOblique-Italic.woff') format('woff'),
+        url('./assets/fonts/MontrealOblique-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal MediumOblique';
+    src: url('./assets/fonts/MontrealMediumOblique-Italic.eot');
+    src: url('./assets/fonts/MontrealMediumOblique-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealMediumOblique-Italic.woff2') format('woff2'),
+        url('./assets/fonts/MontrealMediumOblique-Italic.woff') format('woff'),
+        url('./assets/fonts/MontrealMediumOblique-Italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url('./assets/fonts/Montreal.eot');
+    src: url('./assets/fonts/Montreal.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/Montreal.woff2') format('woff2'),
+        url('./assets/fonts/Montreal.woff') format('woff'),
+        url('./assets/fonts/Montreal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal ThinOblique';
+    src: url('./assets/fonts/MontrealThinOblique-Italic.eot');
+    src: url('./assets/fonts/MontrealThinOblique-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealThinOblique-Italic.woff2') format('woff2'),
+        url('./assets/fonts/MontrealThinOblique-Italic.woff') format('woff'),
+        url('./assets/fonts/MontrealThinOblique-Italic.ttf') format('truetype');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal LightOblique';
+    src: url('./assets/fonts/MontrealLightOblique-Italic.eot');
+    src: url('./assets/fonts/MontrealLightOblique-Italic.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealLightOblique-Italic.woff2') format('woff2'),
+        url('./assets/fonts/MontrealLightOblique-Italic.woff') format('woff'),
+        url('./assets/fonts/MontrealLightOblique-Italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url('./assets/fonts/MontrealThin.eot');
+    src: url('./assets/fonts/MontrealThin.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealThin.woff2') format('woff2'),
+        url('./assets/fonts/MontrealThin.woff') format('woff'),
+        url('./assets/fonts/MontrealThin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url('./assets/fonts/MontrealMedium.eot');
+    src: url('./assets/fonts/MontrealMedium.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealMedium.woff2') format('woff2'),
+        url('./assets/fonts/MontrealMedium.woff') format('woff'),
+        url('./assets/fonts/MontrealMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal';
+    src: url('./assets/fonts/MontrealLight.eot');
+    src: url('./assets/fonts/MontrealLight.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealLight.woff2') format('woff2'),
+        url('./assets/fonts/MontrealLight.woff') format('woff'),
+        url('./assets/fonts/MontrealLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montreal BoldOblique';
+    src: url('./assets/fonts/MontrealBoldOblique-BoldItalic.eot');
+    src: url('./assets/fonts/MontrealBoldOblique-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/MontrealBoldOblique-BoldItalic.woff2') format('woff2'),
+        url('./assets/fonts/MontrealBoldOblique-BoldItalic.woff') format('woff'),
+        url('./assets/fonts/MontrealBoldOblique-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/BebasNeueRegular.eot');
+    src: url('./assets/fonts/BebasNeueRegular.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasNeueRegular.woff2') format('woff2'),
+        url('./assets/fonts/BebasNeueRegular.woff') format('woff'),
+        url('./assets/fonts/BebasNeueRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue Book';
+    src: url('./assets/fonts/BebasNeueBook.eot');
+    src: url('./assets/fonts/BebasNeueBook.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasNeueBook.woff2') format('woff2'),
+        url('./assets/fonts/BebasNeueBook.woff') format('woff'),
+        url('./assets/fonts/BebasNeueBook.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/BebasNeue-Thin.eot');
+    src: url('./assets/fonts/BebasNeue-Thin.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasNeue-Thin.woff2') format('woff2'),
+        url('./assets/fonts/BebasNeue-Thin.woff') format('woff'),
+        url('./assets/fonts/BebasNeue-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/BebasNeueBold.eot');
+    src: url('./assets/fonts/BebasNeueBold.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasNeueBold.woff2') format('woff2'),
+        url('./assets/fonts/BebasNeueBold.woff') format('woff'),
+        url('./assets/fonts/BebasNeueBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('./assets/fonts/BebasNeueLight.eot');
+    src: url('./assets/fonts/BebasNeueLight.eot?#iefix') format('embedded-opentype'),
+        url('./assets/fonts/BebasNeueLight.woff2') format('woff2'),
+        url('./assets/fonts/BebasNeueLight.woff') format('woff'),
+        url('./assets/fonts/BebasNeueLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Define CSS Variables */
+
+:root {
+  --background-light: #fff;
+  --background-teal: #2EA19B;
+  --background-dark: #1E1E1E;
+  --text-color: #fff;
+  --text-dark: #1E1E1E;
+  --text-teal: #2EA19B;
+  --button-border: 1px solid black;
+  --border-radius: 10px;
+  --box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  --transition: 0.3s ease-in-out;
+  --font-family: 'Montreal';
+  --font-family-secondary:'Bebas Neue Book';
+  --font-family-tertiary: "Montserrat", sans-serif;
+  --greycolor:#888888;
+  --border-white:1px solid #fff;
+}
+body{
+  width: 100%;
+  background-color: var(--background-dark);
+  font-family: var(--font-family);
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+span,
+button
+{
+  font-family:var(--font-family);
+  line-height: normal;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+
+}
+ul{padding-left: 0;
+  margin-bottom: 0;}
+
+ul li{
+  list-style: none;
+}
+.form-group{
+  margin-bottom: 10px;
+}
+.form-control{
+  font-size: 18px;
+  font-weight: 600;
+  color: #000 !important;
+}
+.form-control:focus, .form-control:focus-visible{
+  outline: none;
+  box-shadow: none !important;
+}
+::placeholder{
+  color: var(--background-dark) !important;
+  font-weight: 700;
+}
+input{
+  height: 60px ;
+  border:none !important;
+  border-radius: 0px !important;
+}
+select{
+  height: 60px;
+  border-radius: 0px !important;
+  border:none !important;
+}
+textarea{
+  height: 130px;
+  border-radius: 0px !important;
+  border:none !important;
+  resize: none;
+}
+.heading-title {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.slick-next:before {
+  content: '\F138';
+  font-family: "bootstrap-icons" !important;
+  opacity: 1;
+  color: #000;
+}
+.slick-prev:before {
+  content: '\F12F';
+  font-family: "bootstrap-icons" !important;
+  opacity: 1;
+  color: #000;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+a.navbar-brand img {
+    width: 200px;
+}
+
+.footer-logo img {
+    width: 200px;
+}
+
+.nav-menu.navbar-nav a {
+    color: #fff;
+    padding: 5px 13px;
+}
