@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Homepage from './page/Homepage'
 import Header from './component/layout/Header'
@@ -11,8 +10,7 @@ import './App.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
 
   return (
     <>

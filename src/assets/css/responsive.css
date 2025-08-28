@@ -1,0 +1,360 @@
+@media (max-width: 1599px) {
+  .banner-text-info h1 {
+    font-size: 120px;
+    line-height: 110px;
+  }
+  .banner-content p {
+    font-size: 18px;
+    width: 45%;
+    margin-bottom: 50px;
+  }
+  .number-title h2 {
+    font-size: 120px;
+    line-height: 110px;
+    width: 40%;
+  }
+  .dream-text h3 {
+    font-size: 78px;
+  }
+  .team-sec h3 {
+    font-size: 120px;
+    line-height: 110px;
+  }
+  .partner h2 {
+    font-size: 120px;
+    line-height: 110px;
+  }
+}
+@media (max-width: 1299px) {
+  .header .navbar-nav a {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  .header .navbar-nav .btn.btn-teal {
+    height: 45px;
+    line-height: 45px;
+  }
+  .banner-text-info h1 {
+    font-size: 90px;
+    line-height: 80px;
+    margin-bottom: 30px;
+  }
+
+  .banner-content p {
+    font-size: 16px;
+    width: 40%;
+    margin-bottom: 30px;
+  }
+  .number-title h2 {
+    font-size: 90px;
+    line-height: 80px;
+    width: 30%;
+    margin-bottom: 30px;
+  }
+  .number-title p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .box-number h3 {
+    font-size: 64px;
+  }
+  .dream-text h3 {
+    font-size: 90px;
+    line-height: 80px;
+  }
+  .dream-text {
+    width: 40%;
+  }
+  .team-sec h3 {
+    font-size: 90px;
+    line-height: 80px;
+    margin-bottom: 30px;
+  }
+  .solo-member-text p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .partner h2 {
+    font-size: 90px;
+    line-height: 80px;
+  }
+  .partner p {
+    font-size: 16px;
+    list-style: normal;
+    margin-bottom: 50px;
+    width: 45%;
+  }
+}
+@media (max-width: 1199px) {
+  .header .navbar-nav a {
+    font-size: 16px;
+    padding: 10px 10px;
+  }
+
+  .number-title p {
+    font-size: 16px;
+  }
+  .box-number h3 {
+    font-size: 48px;
+  }
+  .dream-text {
+    width: 55%;
+  }
+  .team-image {
+    height: 350px;
+  }
+  .team-content {
+    margin-top: 30px;
+  }
+  .footer-logo h4 {
+    font-size: 68px;
+    line-height: 68px;
+  }
+  .footer-logo img {
+    margin-bottom: 30px;
+  }
+  .contact-link ul li a {
+    font-size: 16px;
+  }
+  .navigation ul li a {
+    font-size: 16px;
+  }
+  .footer-bottom p {
+    font-size: 16px;
+  }
+  .feature li.nav-item .nav-link {
+    width: 300px;
+    height: 70px;
+    line-height: normal;
+    font-size: 18px;
+  }
+  .feature li.nav-item .nav-link.active:before,
+  .feature li.nav-item .nav-link.active::after {
+    top: 12px;
+  }
+}
+@media (max-width: 991px) {
+  .navbar-toggler {
+    background-color: var(--background-teal);
+    padding: 5px;
+  }
+  .navbar-toggler .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+    width: 25px;
+    height: 25px;
+  }
+  .navbar-toggler:focus,
+  .navbar-toggler:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .offcanvas.show {
+    width: 300px !important;
+  }
+  .offcanvas-body .navbar-nav a {
+    padding: 10px 0px;
+    color: var(--text-dark);
+    line-height: normal;
+    font-size: 16px;
+  }
+  .navbar-nav .nav-link.active,
+  .navbar-nav .nav-link.show {
+    color: var(--text-dark) !important;
+  }
+  .offcanvas-body .navbar-nav .btn.btn-teal {
+    padding: 1px 20px;
+    height: 45px;
+    line-height: 45px;
+    min-width: auto;
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: var(--text-color);
+    margin-top: 10px;
+  }
+  .offcanvas-body .navbar-nav .dropdown-menu.show .dropdown-item {
+    padding: 10px;
+  }
+  .banner-text-info h1 {
+    font-size: 78px;
+    line-height: 68px;
+  }
+  .banner-content p {
+    width: 65%;
+  }
+  .banner-text-info .btn-teal {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    padding: 0 15px;
+    min-width: auto;
+  }
+  .arrow-btn {
+    width: 40px;
+    height: 40px;
+  }
+  .number-title h2 {
+    font-size: 78px;
+    line-height: 68px;
+    width: 35%;
+  }
+  .number-title p {
+    width: 50%;
+  }
+  .dream-text h3 {
+    font-size: 78px;
+    line-height: 68px;
+  }
+  .dream-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+  .team-sec h3 {
+    font-size: 78px;
+    line-height: 68px;
+  }
+  .team-content.team-join .team-image img {
+    object-position: left 10%;
+  }
+  .partner h2 {
+    font-size: 78px;
+    line-height: 68px;
+  }
+  .partner p {
+    width: 55%;
+  }
+  .footer-logo h4 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  .footer-logo img {
+    height: 100px;
+  }
+  .navigation h5 {
+    margin-bottom: 15px;
+  }
+  .contact-link h5 {
+    margin-bottom: 15px;
+  }
+  .contact-link ul,
+  .navigation ul {
+    column-count: 1;
+  }
+  .feature li.nav-item .nav-link.active:before,
+  .feature li.nav-item .nav-link.active::after {
+    top: 0px;
+  }
+  .feature li.nav-item .nav-link.active::after {
+    width: 160px;
+  }
+  .feature li.nav-item .nav-link {
+    width: 200px;
+    height: 40px;
+  }
+  .feature li.nav-item .nav-link.active:before {
+    display: none;
+  }
+  .future-info {
+    width: 80%;
+  }
+  .future-info p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 767px) {
+  .banner-content p {
+    width: 75%;
+    font-size: 14px;
+  }
+  .number-title p {
+    width: 70%;
+  }
+  .dream-text {
+    width: 70%;
+  }
+  .number-title h2 {
+    width: 45%;
+  }
+  .team-content.team-join {
+    margin-top: 80px;
+  }
+  .partner p {
+    width: 75%;
+  }
+  .future-image img {
+    min-height: 450px;
+    object-fit: cover;
+  }
+  .feature li.nav-item .nav-link {
+    width: 160px;
+  }
+  .feature ul {
+    justify-content: center;
+  }
+  .feature li.nav-item .nav-link.active::after {
+    width: 140px;
+  }
+}
+@media (max-width: 575px) {
+  .banner .slick-dots {
+    position: absolute;
+    top: auto;
+    right: 0;
+    left: 0;
+    bottom: 30px;
+    transform: unset;
+    display: block !important;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .banner .slick-dots li.slick-active button:before {
+    height: 17px;
+    width: 45px;
+  }
+  .banner .slick-dots li.slick-active {
+    height: 17px;
+    width: 45px;
+  }
+  .banner-content p {
+    width: 90%;
+  }
+  .number-title p {
+    width: 90%;
+  }
+  .dream-text {
+    width: 100%;
+  }
+  .dream-text h3 {
+    font-size: 48px;
+    line-height: 48px;
+  }
+  .dream-image img {
+    height: 400px;
+  }
+  .banner-text-info .btn-teal {
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+  }
+  .team-content .team-image img {
+    object-position: left 10%;
+  }
+  .partner p {
+    width: 90%;
+  }
+  .footer-logo {
+    margin-bottom: 40px;
+  }
+
+  .feature li.nav-item .nav-link {
+    font-size: 16px;
+    width: 130px;
+  }
+  .feature li.nav-item .nav-link.active::after {
+    width: 125px;
+  }
+
+  .tab-content {
+    margin-top: -110px;
+  }
+}

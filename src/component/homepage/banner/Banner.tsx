@@ -1,31 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { Button, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { BannerOne } from "../../../assets/images";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSlider } from "../../../redux/slice/sliderSlice";
+import type { AppDispatch, RootState } from "../../../redux/store";
 
-const slides = [
-  {
-    img: BannerOne,
-    title: "Interior Design",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-  },
-  {
-    img: BannerOne,
-    title: "Interior Design",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-  },
-  {
-    img: BannerOne,
-    title: "Interior Design",
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-  },
-];
-
-export default function Banner() {
+const Banner: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { t, i18n } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { data: slides, loading, error } = useSelector(
+    (state: RootState) => state.slider
+  );
+
+  useEffect(() => {
+    dispatch(fetchSlider());
+  }, [dispatch]);
 
   const settings = {
     dots: true,
@@ -34,42 +29,60 @@ export default function Banner() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: "ondemand" as "ondemand",
+    rtl: i18n.language === "ar",
     beforeChange: (_current: number, next: number) => {
       setActiveIndex(next);
     },
   };
 
+  if (loading) return <p>Loading slider...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <section className="banner">
       <Slider {...settings}>
-        {slides.map((slide, index) => (
-          <div key={index}>
-            <div className="banner-content">
-              <div className="banner-image">
-                <Image src={slide.img} alt={`Banner ${index + 1}`} />
-              </div>
-              <Container>
-                <div
-                  className={`banner-text-info fade-left ${
-                    activeIndex === index ? "visible" : ""
-                  }`}
-                >
-                  <h1>{slide.title}</h1>
-                  <p>{slide.desc}</p>
-                  <Link to="#" className="banner-btn">
-                    <Button className="btn btn-teal">
-                      Have your solo moment now
-                    </Button>
-                    <span className="arrow-btn">
-                      <i className="bi bi-arrow-right"></i>
-                    </span>
-                  </Link>
+        {slides.length > 0 &&
+          slides.map((slide, index) => (
+            <div key={slide.id}>
+              <div className="banner-content">
+                <div className="banner-image">
+                  <Image src={slide.images_url} alt={slide.title_en} fluid loading="lazy" />
                 </div>
-              </Container>
+                <Container>
+                  <div className="banner-text-info">
+                    <div
+                      className={`${
+                        i18n.language === "ar" ? "fade-right" : "fade-left"
+                      } ${activeIndex === index ? "visible" : ""}`}
+                    >
+                      <h1>
+                        {i18n.language === "ar"
+                          ? slide.title_ar
+                          : slide.title_en}
+                      </h1>
+                      <p>
+                        {i18n.language === "ar"
+                          ? slide.sub_title_ar
+                          : slide.sub_title_en}
+                      </p>
+                      <Link to="#" className="banner-btn">
+                        <Button className="btn btn-teal">
+                          {t("banner.button")}
+                        </Button>
+                        <span className="arrow-btn">
+                          <i className="bi bi-arrow-right"></i>
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </Container>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </Slider>
     </section>
   );
-}
+};
+
+export default Banner;

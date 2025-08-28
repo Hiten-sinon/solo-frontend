@@ -1,0 +1,104 @@
+{
+  "menu": "Menu",
+  "home": "Home",
+  "services": "Services",
+  "more": "More",
+  "team": "Team",
+  "careers": "Careers",
+  "about": "About Us",
+  "contact": "Contact Us",
+  "inquiry": "Inquiry form",
+  "banner": {
+    "slides": [
+      {
+        "title": "Interior Design",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+      },
+      {
+        "title": "Interior Design",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+      },
+      {
+        "title": "Interior Design",
+        "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. It has survived not only five centuries, but also the leap into electronic typesetting."
+      }
+    ],
+    "button": "Have your solo moment now"
+  },
+  "feature": {
+    "tabs": {
+      "create": {
+        "title": "We Create",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      },
+      "inspire": {
+        "title": "We Inspire",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      },
+      "deliver": {
+        "title": "We Deliver",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+      }
+    }
+  },
+  "number": {
+    "title": "Solo Numbers",
+    "desc": "A Success career must have a trusted partners to help you though the journey",
+    "stats": [
+      {
+        "value": 130,
+        "text": "Success project that tells the full story of our client dream"
+      },
+      {
+        "value": 40,
+        "text": "Success project that tells the full story of our client dream"
+      },
+      {
+        "value": 1000,
+        "text": "Success project that tells the full story of our client dream"
+      },
+      {
+        "value": 15,
+        "text": "Success project that tells the full story of our client dream"
+      }
+    ]
+  },
+  "dream": {
+    "title": "Your Dream Building Awaits!"
+  },
+  "team_sec": {
+    "title": "Solo Team",
+    "description": "Our people who can make magic",
+    "allTeam": "All Team",
+    "maybeYou": "Maybe You -",
+    "bePart": "Be part of our team",
+    "applyNow": "Apply Now",
+    "members": [
+      { "name": "Full Name", "title": "Job Title" },
+      { "name": "Full Name", "title": "Job Title" },
+      { "name": "Full Name", "title": "Job Title" }
+    ]
+  },
+  "partner": {
+    "title": "Our Partners",
+    "description": "A Success career must have a trusted partners to help you through the journey"
+  },
+  "footer": {
+    "workWithUs": "Want to work With Us!",
+    "inquiryBtn": "Inquiry Forum",
+    "navigationTitle": "Navigation",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "projects": "Projects"
+    },
+    "contactTitle": "Contact us",
+    "contact": {
+      "phone": "+1 891 989-11-91",
+      "email": "hello@logoipsum.com",
+      "address": "2972 Westheimer Rd. Santa Ana, Illinois 85486"
+    },
+    "copyright": "© 2025 Copyright"
+  }
+}

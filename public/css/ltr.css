@@ -1,0 +1,71 @@
+html,
+body {
+  direction: ltr;
+  text-align: left;
+}
+
+.header .navbar-brand img {
+  margin-left: 0;
+  object-position: left;
+}
+.header {
+  left: 0;
+}
+.banner-btn:hover .arrow-btn {
+  margin-left: 10px;
+}
+.banner .slick-dots {
+  top: 50%;
+  right: 20px;
+  left: auto;
+  bottom: auto;
+}
+.future-info {
+  left: 100px;
+}
+.feature li.nav-item .nav-link.active:before {
+  left: 0;
+}
+.box-number h3,
+.box-number h3 span {
+  text-align: left;
+}
+.box-number p {
+  text-align: left;
+}
+.team-content {
+  padding-left: 40px;
+}
+.team-title {
+  left: 10px;   
+  transform: rotate(180deg);
+
+}
+.team-slider .slick-dots {
+  text-align: left;
+  padding-left: 30px;
+}
+.footer-logo img {
+  object-position: left;
+}
+.apply-btn {
+  right: 0px;
+}
+.apply-btn::before {
+  right: 0;
+  transform: scaleY(-1.6);
+}
+.nav-item .dropdown-toggle::after {
+  margin-left: 0.255em;
+}
+@media(max-width:1199px){
+  .future-info {
+    left: 50px;
+    bottom: 50px;
+  }
+}
+@media(max-width:575px){
+  .future-info {
+    left: 30px;
+  }
+}

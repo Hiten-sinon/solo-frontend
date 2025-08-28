@@ -1,17 +1,25 @@
-import React from 'react'
-import { Dreams } from '../../../assets/images'
+import React from "react";
+import { Dreams } from "../../../assets/images";
+import useScrollAnimation from "../../../../useScrollAnimation";
+import { useTranslation } from "react-i18next";
 
-const Dream = () => {
+const Dream: React.FC = () => {
+  const [dreamRef, isVisible] = useScrollAnimation<HTMLDivElement>();
+  const { t } = useTranslation();
+
   return (
-    <section className='dream'>
-        <div className='dream-image'>
-            <img src={Dreams} alt="dream photo"/>
-        </div>
-        <div className='dream-text'>
-            <h3>Your Dream Building Awaits!</h3>
-        </div>
+    <section
+      ref={dreamRef}
+      className={`dream fade-up ${isVisible ? "visible" : ""}`}
+    >
+      <div className="dream-image">
+        <img src={Dreams} alt={t("dream.title")} loading="lazy"/>
+      </div>
+      <div className="dream-text">
+        <h3>{t("dream.title")}</h3>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default Dream
+export default Dream;

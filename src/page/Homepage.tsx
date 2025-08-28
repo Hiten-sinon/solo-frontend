@@ -6,15 +6,15 @@ import Dream from '../component/homepage/dreambanner/Dream'
 import Team from '../component/homepage/teams/Team'
 import Partner from '../component/homepage/partners/Partner'
 
-const Homepage = () => {
+const Homepage: React.FC = () => {
   return (
     <div>
-       <Banner />
+       {/* <Banner /> */}
        <Feature />
-       <Number />
+       {/* <Number />
        <Dream />
        <Team />
-       <Partner />
+       <Partner /> */}
     </div>
   )
 }

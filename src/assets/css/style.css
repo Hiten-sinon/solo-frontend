@@ -1,7 +1,6 @@
 body {
   background-color: var(--background-dark);
 }
-
 .btn-teal {
   font-size: 16px;
   text-transform: uppercase;
@@ -13,23 +12,11 @@ body {
   min-width: 300px;
   font-family: var(--font-family-tertiary);
 }
-
-.header {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 11;
-}
-
 .header .navbar-brand img {
   height: 75px;
-  margin-left: 0;
   object-fit: contain;
-  object-position: left;
 }
-
-.header .navbar-nav a {
+.offcanvas-body .navbar-nav a {
   font-size: 18px;
   color: #fff;
   font-weight: 300;
@@ -52,7 +39,7 @@ body {
 .navbar-nav .nav-link.show {
   color: var(--text-color) !important;
 }
-.header .navbar-nav .btn.btn-teal {
+.offcanvas-body .navbar-nav .btn.btn-teal {
   padding: 1px 20px;
   height: 50px;
   line-height: 50px;
@@ -60,22 +47,19 @@ body {
   font-family: var(--font-family);
   font-size: 16px;
 }
-.header .navbar-nav .btn.btn-teal:hover,
-.header .navbar-nav .btn.btn-teal:focus,
-.header .navbar-nav .btn.btn-teal:active {
+.offcanvas-body .navbar-nav .btn.btn-teal:hover,
+.offcanvas-body .navbar-nav .btn.btn-teal:focus,
+.offcanvas-body .navbar-nav .btn.btn-teal:active {
   background-color: transparent;
 }
-.navbar-nav .dropdown-menu.show .dropdown-item {
+.offcanvas-body .navbar-nav .dropdown-menu.show .dropdown-item {
   color: #000;
 }
-
 .navbar-expand-lg .offcanvas .offcanvas-body {
   align-items: center;
 }
-/* header.css */
 .header {
   position: absolute;
-  left: 0;
   top: 0;
   z-index: 2;
   background-color: transparent !important;
@@ -83,7 +67,6 @@ body {
   height: 100px;
   transition: all 0.3s ease-in-out;
 }
-
 .header.sticky {
   position: fixed;
   top: 0;
@@ -95,8 +78,6 @@ body {
   animation: slideDown 0.8s ease-in-out forwards;
   height: 100px;
 }
-
-/* Animation */
 @keyframes slideDown {
   from {
     transform: translateY(-100%);
@@ -106,13 +87,12 @@ body {
     transform: translateY(0%);
     opacity: 1;
   }
-}
-
-/* Banner */
+} /* Banner */
 .banner {
   height: 100vh;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 .banner .slick-prev,
 .banner .slick-next {
@@ -150,10 +130,9 @@ body {
   object-fit: cover;
   object-position: bottom;
 }
-
 .banner-text-info {
   position: absolute;
-  transform: translateY(-50%);
+  transform: translateY(-50%) !important;
   top: 50%;
   z-index: 1;
 }
@@ -214,21 +193,22 @@ body {
 }
 .banner-btn:hover .arrow-btn {
   opacity: 1;
-  margin-left: 10px;
 }
-
-.btn-teal-two {
-  background-color: var(--background-teal);
-  color: var(--text-color);
-  font-family: var(--font-family);
-}
-
 .banner .slick-dots {
-  right: -25%;
-  left: auto;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  width: 100%;
+  position: absolute;
+  transform: translateY(-50%);
+  display: flex !important;
+  flex-direction: column;
+  gap: 10px;
+  width: auto;
+}
+.banner .slick-dots li.slick-active button:before {
+  height: 45px;
+  width: 17px;
+}
+.banner .slick-dots li.slick-active {
+  height: 45px;
+  width: 17px;
 }
 .slick-dots li.slick-active {
   height: 17px;
@@ -252,20 +232,17 @@ body {
   height: 17px;
   width: 17px;
   border-radius: 50%;
-}
-
+} 
 /* fueture */
-.feuture {
+.feature {
   padding: 100px 0;
 }
-
-.feuture li.nav-item .nav-link {
+.feature li.nav-item .nav-link {
   background: transparent;
   border: 0;
   position: relative;
 }
-
-.feuture li.nav-item .nav-link.active:before {
+.feature li.nav-item .nav-link.active:before {
   content: "";
   position: absolute;
   background: url(../images/shape-2.webp);
@@ -274,11 +251,9 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   top: 3px;
-  left: 0;
   z-index: -1;
 }
-
-.feuture li.nav-item .nav-link {
+.feature li.nav-item .nav-link {
   background: transparent;
   border: 0;
   position: relative;
@@ -292,12 +267,10 @@ body {
   line-height: 35px;
   font-size: 20px;
 }
-
-.feuture li.nav-item .nav-link.active {
+.feature li.nav-item .nav-link.active {
   color: #fff;
 }
-
-.feuture li.nav-item .nav-link.active::after {
+.feature li.nav-item .nav-link.active::after {
   width: 200px;
   background: #2ea19b;
   content: "";
@@ -310,42 +283,34 @@ body {
   top: 9px;
   z-index: -1;
 }
-
 .tab-content {
   margin-top: -72px;
   position: relative;
 }
-
-.feuture ul {
+.feature ul {
   position: relative;
   z-index: 1;
   margin: 0;
   border: 0;
 }
-
-.feuture li.nav-item {
+.feature li.nav-item {
   position: relative;
   z-index: 11;
 }
-
 .future-image img {
   border-radius: 50px;
   width: 100%;
 }
-
 .future-info p {
   color: #fff;
   line-height: 23px;
   font-size: 16px;
 }
-
 .future-info {
   position: absolute;
   bottom: 100px;
-  left: 100px;
   width: 60%;
 }
-
 .tab-content:before {
   content: "";
   position: absolute;
@@ -360,10 +325,8 @@ body {
   height: 200px;
   bottom: 0;
   border-radius: 50px;
-}
-
+} 
 /* counter */
-
 .number-title h2 {
   font-size: 170px;
   width: 50%;
@@ -372,7 +335,6 @@ body {
   color: var(--text-color);
   margin-bottom: 50px;
 }
-
 .number-title p {
   color: var(--text-color);
   font-size: 18px;
@@ -380,39 +342,29 @@ body {
   width: 30%;
   margin-bottom: 95px;
 }
-
 .number {
   position: relative;
   z-index: 1;
 }
-
 .box-number {
   padding: 22px;
   border-radius: 20px;
 }
-
 .box-number h3,
 .box-number h3 span {
-  text-align: left;
   font-size: 80px;
   font-family: var(--font-family-secondary) !important;
   color: #1c1c1c;
   margin-bottom: 0;
 }
-
 .box-number p {
-  text-align: left;
   font-size: 16px;
   font-family: var(--font-family-tertiary);
   margin-bottom: 0;
-}
-
-/* Dream section */
-
+} /* Dream section */
 .dream-image img {
   width: 100%;
 }
-
 .dream:before {
   content: "";
   position: absolute;
@@ -422,19 +374,16 @@ body {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
 }
-
 .dream {
   position: relative;
   margin-top: -70px;
   z-index: 0;
 }
-
 .dream-text h3 {
   font-size: 100px;
   color: var(--text-color);
   font-family: var(--font-family-secondary);
 }
-
 .dream-text {
   width: 29%;
   position: absolute;
@@ -442,9 +391,10 @@ body {
   transform: translate(-50%, -50%);
   left: 50%;
   text-align: center;
+} /* Team Section */
+.team-sec {
+  padding: 100px 0;
 }
-
-/* Team Section */
 .team-sec h3 {
   font-size: 170px;
   color: #fff;
@@ -452,18 +402,12 @@ body {
   line-height: 160px;
   margin-bottom: 50px;
 }
-
-.team-sec {
-  padding: 100px 0;
-}
-
 .solo-member-text p {
   color: #fff;
   margin-bottom: 50px;
   font-size: 18px;
   font-family: var(--font-family-tertiary);
 }
-
 .slider-patner .slick-prev,
 .slider-patner .slick-next,
 .team-sec .slick-prev,
@@ -488,10 +432,9 @@ body {
 }
 .team-content {
   position: relative;
-  padding-left: 40px;
 }
 .team-title h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--text-color);
   line-height: normal;
@@ -503,24 +446,23 @@ body {
 }
 .team-title {
   position: absolute;
-  left: -65px;
-  bottom: 20%;
-  transform: rotate(-90deg);
+  bottom: 15px;      
   z-index: 1;
+  writing-mode: vertical-rl; 
+  white-space: nowrap;
+  text-transform: capitalize;
 }
+
 .team-slider .slick-dots {
-  text-align: left;
-  padding-left: 30px;
   bottom: -45px;
 }
 .apply-btn {
   position: absolute;
-  right: 0px;
   bottom: 0;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
   transition: all 0.4s ease-in-out;
 }
 .apply-btn button {
@@ -534,7 +476,6 @@ body {
 .apply-btn::before {
   content: "";
   position: absolute;
-  right: 0;
   bottom: 15px;
   background-image: url("../images/shape-1.webp");
   background-size: cover;
@@ -542,18 +483,16 @@ body {
   background-repeat: no-repeat;
   width: 170px;
   height: 50px;
-  transform: scaleY(-1.6);
 }
 .team-content:hover .apply-btn {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-/* Partner Section */
+ /* Partner Section */
 .partner {
   padding: 0 0 100px;
 }
-
 .partner p {
   color: #fff;
   text-align: center;
@@ -562,7 +501,6 @@ body {
   margin: auto;
   margin-bottom: 60px;
 }
-
 .partner h2 {
   font-size: 100px;
   color: #fff;
@@ -570,7 +508,6 @@ body {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .partner-image-box img {
   position: absolute;
   left: 0;
@@ -578,23 +515,20 @@ body {
   margin: auto;
   top: 50%;
   transform: translateY(-50%);
+  height: 100%;
 }
-
 .partner-image-box {
   width: 90%;
   background: #fff;
   height: 130px;
   border-radius: 20px;
   position: relative;
-}
-
-/* Footer */
-
+  padding: 10px;
+} /* Footer */
 .footer {
   background: #fff;
   padding: 50px 0 10px;
 }
-
 .footer-logo h4 {
   font-size: 80px;
   font-family: "Bebas Neue Book";
@@ -602,12 +536,13 @@ body {
   margin-bottom: 31px;
   width: 70%;
 }
-
 .footer-logo img {
   margin-bottom: 62px;
   height: 150px;
   object-fit: contain;
-  object-position: left;
+}
+.navigation {
+  margin-bottom: 30px;
 }
 .navigation h5 {
   font-size: 16px;
@@ -617,7 +552,6 @@ body {
   line-height: normal;
   font-family: var(--font-family-tertiary);
 }
-
 .navigation ul li a {
   font-size: 20px;
   font-weight: 400;
@@ -659,7 +593,7 @@ body {
   padding: 0 20px;
 }
 .footer-bottom {
-  padding: 30px 0 0;
+  padding: 17px 0 10px;
   margin-top: 50px;
   border-top: 1px solid var(--background-dark);
   display: flex;
@@ -684,13 +618,12 @@ body {
   font-size: 20px;
   color: #000;
   display: block;
-}
-
+} 
 /*======animation======*/
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(40px);
+    transform: translateX(80%);
   }
   to {
     opacity: 1;
@@ -700,7 +633,7 @@ body {
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-40px);
+    transform: translateX(-80%);
   }
   to {
     opacity: 1;
@@ -710,7 +643,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(80%);
   }
   to {
     opacity: 1;
@@ -720,45 +653,42 @@ body {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-80%);
   }
   to {
     opacity: 1;
     transform: none;
   }
-}
+} 
 
-/* Start hidden */
 .fade-right,
 .fade-left,
 .fade-up,
 .fade-bottom {
   opacity: 0;
 }
-
-/* When .visible is added, run the animation and keep final state */
 .fade-right.visible {
   animation: fadeInRight 0.8s ease-out forwards;
+  opacity: 1;
 }
 .fade-left.visible {
   animation: fadeInLeft 0.8s ease-out forwards;
+  opacity: 1;
 }
 .fade-up.visible {
   animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 1;
 }
 .fade-bottom.visible {
   animation: fadeInDown 0.8s ease-out forwards;
+  opacity: 1;
 }
-
-/* Optional: easy stagger using a CSS var */
 .fade-right.visible,
 .fade-left.visible,
 .fade-up.visible,
 .fade-bottom.visible {
-  animation-delay: var(--delay, 0ms);
+  animation-delay: 0ms;
 }
-
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .fade-right,
   .fade-left,
