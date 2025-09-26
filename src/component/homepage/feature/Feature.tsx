@@ -1,55 +1,61 @@
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 import { Container, Tab, Tabs } from "react-bootstrap";
-import {  Feauture, FeautureThree, FeautureTwo } from '../../../assets/images';
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchFeatures } from "../../../redux/slice/featureSlice";
+import type { AppDispatch, RootState } from "../../../redux/store";
+import { useTranslation } from "react-i18next";
 
 function Feature() {
-    const [key, setKey] = useState<string>('create');
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading, error } = useSelector(
+    (state: RootState) => state.features
+  );
+  const [key, setKey] = useState<string>("0");
 
-    return (
-        <div className='feuture'>
-            <Container className='position-relative'>
-                <Tabs
-                    id="controlled-tab-example"
-                    activeKey={key}
-                    onSelect={(k) => setKey(k as string)}
-                    className="mb-3"
-                >
-                    <Tab eventKey="create" title="We Create">
-                        <div className='feauture-content '>
-                            <div className='future-image'>
-                                <img src={Feauture} alt='tabbing-image' />
-                            </div>
-                            <div className='future-info'>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="inspire" title="We Inspire">
-                        <div className='feauture-content'>
-                            <div className='future-image'>
-                                <img src={FeautureTwo} alt='tabbing-image' />
-                            </div>
-                            <div className='future-info'>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            </div>
-                        </div>
-                    </Tab>
-                    <Tab eventKey="deliver" title="We Deliver">
-                        <div className='feauture-content'>
-                            <div className='future-image'>
-                                <img src={FeautureThree} alt='tabbing-image' />
-                            </div>
-                            <div className='future-info'>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                            </div>
-                        </div>
-                    </Tab>
-                </Tabs>
-            </Container>
-        </div>
+  const { i18n } = useTranslation();
+  const currentLang = i18n.language;
 
-    );
+  useEffect(() => {
+    dispatch(fetchFeatures());
+  }, [dispatch]);
+
+  if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center text-danger">{error}</p>;
+
+  return (
+    <div className="feature">
+      <Container className="position-relative">
+        <Tabs
+          id="controlled-tab-example"
+          activeKey={key}
+          onSelect={(k) => setKey(k as string)}
+          className="mb-3"
+        >
+          {data.map((feature, index) => {
+            const title =
+              currentLang === "ar" ? feature.title_ar : feature.title_en;
+            const subTitle =
+              currentLang === "ar"
+                ? feature.sub_title_ar
+                : feature.sub_title_en;
+
+            return (
+              <Tab key={feature.id} eventKey={String(index)} title={title}>
+                <div className="feauture-content">
+                  <div className="future-image">
+                    <img src={feature.images_url} alt={title} loading="lazy" />
+                  </div>
+                  <div className="future-info">
+                    <p>{subTitle}</p>
+                  </div>
+                </div>
+              </Tab>
+            );
+          })}
+        </Tabs>
+      </Container>
+    </div>
+  );
 }
 
 export default Feature;
