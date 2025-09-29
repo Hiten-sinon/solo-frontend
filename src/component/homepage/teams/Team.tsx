@@ -41,7 +41,10 @@ const Team: React.FC = () => {
   };
 
   return (
-    <section className="team-sec">
+    <section
+      ref={teamRef}
+      className={`team-sec fade-up ${isVisible ? "visible" : ""}`}
+    >
       <Container>
         <Row>
           <Col className="col-md-12 col-lg-3">
