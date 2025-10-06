@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Container, Tab, Tabs } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFeatures } from "../../../redux/slice/featureSlice";
+import { fetchFeatures } from "../../../redux/slice/homepage/featureSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
 import { useTranslation } from "react-i18next";
 
-function Feature() {
+const Feature: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { data, loading, error } = useSelector(
     (state: RootState) => state.features
@@ -42,10 +42,10 @@ function Feature() {
             return (
               <Tab key={feature.id} eventKey={String(index)} title={title}>
                 <div className="feauture-content">
-                  <div className="future-image">
+                  <div className="feature-image">
                     <img src={feature.images_url} alt={title} loading="lazy" />
                   </div>
-                  <div className="future-info">
+                  <div className="feature-info">
                     <p>{subTitle}</p>
                   </div>
                 </div>

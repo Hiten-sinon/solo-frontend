@@ -5,16 +5,14 @@ import AboutCounter from '../component/aboutpage/aboutcounter/AboutCounter'
 import Team from '../component/homepage/teams/Team'
 import Testimonial from '../component/aboutpage/testimonial/Testimonial'
 
-const Aboutpage = () => {
+const Aboutpage: React.FC = () => {
   return (
     <>
         <AboutBanner />
         <Partnership />
         <AboutCounter />
         <Team />
-        <Testimonial />
-
-        
+        <Testimonial />        
     </>
   )
 }

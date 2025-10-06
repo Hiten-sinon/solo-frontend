@@ -59,7 +59,7 @@ const videoContent = [
     },
 ];
 
-const VideoList = () => {
+const VideoList: React.FC = () => {
     return (
         <section className='video-lists'>
             <Container>

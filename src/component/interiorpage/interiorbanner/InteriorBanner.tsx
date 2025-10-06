@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Modal } from 'react-bootstrap'
 import { InteriorB } from '../../../assets/images'
 
-const InteriorBanner = () => {
+const InteriorBanner: React.FC = () => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);

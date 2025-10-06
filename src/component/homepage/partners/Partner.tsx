@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPartners } from "../../../redux/slice/partnersSlice";
+import { fetchPartners } from "../../../redux/slice/homepage/partnersSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
 
 const Partner: React.FC = () => {

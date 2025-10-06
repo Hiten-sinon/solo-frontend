@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import { BBanner } from '../../assets/images'
 
-const BlogBanner = () => {
+const BlogBanner: React.FC = () => {
     return (
         <section className="blog-banner-section">
             <Container>

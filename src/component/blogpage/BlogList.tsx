@@ -41,7 +41,7 @@ const blogPosts = [
   },
 ];
 
-const BlogList = () => {
+const BlogList: React.FC = () => {
   return (
     <section className="blog-list-section">
       <Container>

@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Button } from "react-bootstrap";
 import Slider from "react-slick";
-import { BlogOne } from "../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchBlogPosts} from "../../redux/slice/servicepage/blogSlice ";
+import type { BlogPost } from "../../redux/slice/servicepage/blogSlice ";
+import type { RootState, AppDispatch } from "../../redux/store";
 
 const ServiceBlog: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { posts, loading, error } = useSelector(
+    (state: RootState) => state.blogSlice
+  );
+
+  useEffect(() => {
+    dispatch(fetchBlogPosts());
+  }, [dispatch]);
+
   const settings = {
     dots: true,
     arrows: false,
@@ -23,45 +35,8 @@ const ServiceBlog: React.FC = () => {
     ],
   };
 
-  const Blog = [
-    {
-      id: 1,
-      image: BlogOne,
-      title:
-        "The difference between alternative wood material and real wood",
-      author: "Ahemd Salen",
-    },
-    {
-      id: 2,
-      image: BlogOne,
-      title: "Sustainable furniture trends in 2025",
-      author: "Sara Ali",
-    },
-    {
-      id: 3,
-      image: BlogOne,
-      title: "Why eco-friendly materials matter in interior design",
-      author: "John Doe",
-    },
-    {
-      id: 4,
-      image: BlogOne,
-      title: "Top 5 tips for maintaining wooden furniture",
-      author: "Ahemd Salen",
-    },
-    {
-      id: 5,
-      image: BlogOne,
-      title: "The rise of alternative building materials",
-      author: "Sara Ali",
-    },
-    {
-      id: 6,
-      image: BlogOne,
-      title: "Choosing the right wood finish for your home",
-      author: "John Doe",
-    },
-  ];
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <section className="service-blog">
@@ -71,12 +46,12 @@ const ServiceBlog: React.FC = () => {
         </div>
         <div className="service-blog-content">
           <Slider {...settings}>
-            {Blog.map((post) => (
+            {posts.map((post: BlogPost) => (
               <div className="blog-item" key={post.id}>
-                <img src={post.image} alt={post.title} />
+                <img src={post.images_url} alt={post.blog_title_en} />
                 <div className="blog-text-list">
-                  <h3>{post.title}</h3>
-                  <p>By {post.author}</p>
+                  <h3>{post.blog_title_en}</h3>
+                  <p>By {post.author_en}</p>
                 </div>
               </div>
             ))}

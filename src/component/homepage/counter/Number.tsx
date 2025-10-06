@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchNumbers } from "../../../redux/slice/numbersSlice";
+import { fetchNumbers } from "../../../redux/slice/homepage/numbersSlice";
 import type { RootState, AppDispatch } from "../../../redux/store";
 
 const Number: React.FC = () => {

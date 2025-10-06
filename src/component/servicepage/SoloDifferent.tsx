@@ -1,125 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import SoloDifferentImg from "../../assets/images/feauture.webp";
-import Communication from "../../assets/images/Communication.svg";
-import Eye from "../../assets/images/Eye.svg";
-import Gear from "../../assets/images/Gear.svg";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "../../redux/store";
+import { fetchSoloDifferent } from "../../redux/slice/servicepage/soloDifferentSlice";
+import type { SoloDifferentItem } from "../../redux/slice/servicepage/soloDifferentSlice";
+
 const SoloDifferent: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { data, loading, error } = useSelector(
+    (state: RootState) => state.soloDifferent
+  );
+
+  useEffect(() => {
+    dispatch(fetchSoloDifferent());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const mainService = data.find((item) => item.type === "main_service");
+  const subServices = data.filter((item) => item.type === "sub_service");
+
   return (
     <section className="solo-different">
       <Container>
-        <div className="solo-different-content">
-          <img src={SoloDifferentImg} alt="solo-different" loading="lazy" />
-          <div className="solo-different-text">
-            <h2>
-              What makes
-              <br />
-              Solo different
-            </h2>
+        {mainService && (
+          <div className="solo-different-content">
+            <img
+              src={mainService.images_url}
+              alt="solo-different"
+              loading="lazy"
+            />
+            <div className="solo-different-text">
+              <h2>{mainService.title_en}</h2>
+            </div>
           </div>
-        </div>
+        )}
+
         <div className="solo-different-list">
           <Row>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img
-                    src={Communication}
-                    alt="open-communication"
-                    loading="lazy"
-                  />
+            {subServices.map((service: SoloDifferentItem) => (
+              <Col lg={4} md={6} sm={12} key={service.id}>
+                <div className="solo-different-list-item">
+                  <div className="solo-different-list-item-icon">
+                    <img
+                      src={service.images_url}
+                      alt={service.title_en}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="solo-different-list-item-text">
+                    <h3>{service.title_en}</h3>
+                    <p>{service.description_en}</p>
+                  </div>
                 </div>
-                <div className="solo-different-list-item-text">
-                  <h3>Open Communication</h3>
-                  <p>
-                    We value transparency and clear communication with our
-                    clients, ensuring you understand every step of the process.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img src={Gear} alt="open-communication" loading="lazy" />
-                </div>
-                <div className="solo-different-list-item-text">
-                  <h3>Practical experience</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img src={Eye} alt="open-communication" loading="lazy" />
-                </div>
-                <div className="solo-different-list-item-text">
-                  <h3>urban vision</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img
-                    src={Communication}
-                    alt="open-communication"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="solo-different-list-item-text">
-                  <h3>Open Communication</h3>
-                  <p>
-                    We value transparency and clear communication with our
-                    clients, ensuring you understand every step of the process.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img src={Gear} alt="open-communication" loading="lazy" />
-                </div>
-                <div className="solo-different-list-item-text">
-                  <h3>Practical experience</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </Col>
-            <Col lg={4} md={6} sm={12}>
-              <div className="solo-different-list-item">
-                <div className="solo-different-list-item-icon">
-                  <img src={Eye} alt="open-communication" loading="lazy" />
-                </div>
-                <div className="solo-different-list-item-text">
-                  <h3>urban vision</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                </div>
-              </div>
-            </Col>
+              </Col>
+            ))}
             <Col md={12}>
-            <div className="solo-different-list-btn">
-              <Button className="btn btn-teal">Inquiry forum</Button>
-            </div>
+              <div className="solo-different-list-btn">
+                <Button className="btn btn-teal">Inquiry form</Button>
+              </div>
             </Col>
           </Row>
         </div>

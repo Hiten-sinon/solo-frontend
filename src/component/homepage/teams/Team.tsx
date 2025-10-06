@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTeams } from "../../../redux/slice/teamsSlice";
+import { fetchTeams } from "../../../redux/slice/homepage/teamsSlice";
 import type { RootState, AppDispatch } from "../../../redux/store";
 import teamImage from "../../../assets/images/team-3.webp";
 
@@ -41,10 +41,7 @@ const Team: React.FC = () => {
   };
 
   return (
-    <section
-      ref={teamRef}
-      className={`team-sec fade-up ${isVisible ? "visible" : ""}`}
-    >
+    <section className="team-sec">
       <Container>
         <Row>
           <Col className="col-md-12 col-lg-3">
