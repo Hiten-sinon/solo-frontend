@@ -48,7 +48,7 @@ const Partnership: React.FC = () => {
           <Row>
             {section2Items &&
               section2Items.map((item, index) => (
-                <Col lg={3} key={index}>
+                <Col lg={3} md={6} key={index}>
                   <div className="partner-box">
                     <div className="partner-image">
                       <img src={item.icon} alt={`Partner ${index + 1}`} loading="lazy" />

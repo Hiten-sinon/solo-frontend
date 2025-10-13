@@ -51,7 +51,7 @@ const BlogList: React.FC = () => {
         <div className="blog-list-items">
           <Row>
             {blogPosts.map((post) => (
-              <Col md={4} key={post.id}>
+              <Col md={6} lg={4} key={post.id}>
                 <div className="blog-item">
                   <img src={post.image} alt={post.title} />
                   <div className="blog-text-list">

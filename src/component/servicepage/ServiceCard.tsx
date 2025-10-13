@@ -22,7 +22,7 @@ const ServiceCard: React.FC = () => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         <Row>
           {services.map((service) => (
-            <Col key={service.id} md={12} lg={4}>
+            <Col key={service.id} md={6} lg={4}>
               <div className="service-card-item">
                 <img src={service.images_url} alt={service.title_en} />
                 <div className="service-card-content">

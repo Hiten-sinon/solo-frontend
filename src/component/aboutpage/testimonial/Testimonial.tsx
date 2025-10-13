@@ -24,6 +24,22 @@ const Testimonial: React.FC = () => {
         slidesToScroll: 1,
         responsive: [
             {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    dots: true,
+                },
+            },
+            {
                 breakpoint: 575,
                 settings: {
                     slidesToShow: 1,
