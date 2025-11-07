@@ -1,0 +1,272 @@
+html,
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+.header .navbar-brand img {
+  margin-right: 0;
+  object-position: right;
+}
+.header {
+  right: 0;
+}
+.banner-btn:hover .arrow-btn {
+  margin-right: 10px;
+}
+.banner .slick-dots {
+  top: 50%;
+  left: 20px;
+  right: auto;
+  bottom: auto;
+}
+.feature li.nav-item .nav-link.active:before {
+  right: 0;
+}
+.feature-info {
+  right: 100px;
+}
+.box-number h3,
+.box-number h3 span {
+  text-align: right;
+}
+.box-number p {
+  text-align: right;
+}
+.team-content {
+  padding-right: 40px;
+}
+
+.team-slider .slick-dots {
+  text-align: right;
+  padding-right: 30px;
+}
+.footer-logo img {
+  object-position: right;
+}
+.apply-btn {
+  left: 0px;
+}
+.apply-btn::before {
+  left: 0;
+  transform: scaleY(-1.6) scaleX(-1);
+}
+.arrow-btn i {
+  transform: scaleX(-1);
+}
+.nav-item .dropdown-toggle::after {
+  margin-right: 0.255em;
+}
+.banner-text-info {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+.banner-image:before {
+  background: linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0.21) 100%
+  );
+}
+.banner-content h1 {
+  margin-left: auto;
+}
+.banner-content p {
+  margin-left: auto;
+}
+.banner-btn {
+  display: flex;
+  align-items: center;
+}
+.team-title {
+  right: 10px;
+  transform: rotate(0deg);
+}
+.offcanvas-body .navbar-nav .dropdown-menu.show .dropdown-item {
+  text-align: right;
+}
+.header .navbar-brand {
+  margin-right: 0px !important;
+}
+.blogdetails-banner.blog-banner-section .blog-content:before {
+  right: -1px;
+  transform: scaleX(1);
+}
+.blogdetails-banner.blog-banner-section .blog-content .blog-text {
+  right: 0;
+  padding: 30px 0px 10px 30px;
+}
+.blog-details-quotes img {
+  margin-left: 40px;
+}
+.blog-slider .slick-slide .blog-item:before {
+  transform: scaleX(-1);
+  left: -1px;
+  right: auto;
+}
+.blog-slider .slick-slide .blog-item .blog-text-list {
+  left: 5px;
+  right: auto;
+}
+.blog-slider .slick-slide .blog-item .blog-text-list h3 {
+  text-align: left;
+}
+.blog-details-quotes img {
+  transform: scaleX(-1);
+}
+
+.service-banner .banner-img::before {
+  right: 0;
+}
+.service-card-content .service-card-link {
+  left: 60px;
+}
+.service-tab-content > .nav-tabs > .nav-item {
+  margin-left: 20px;
+}
+.servicetab-btn li.nav-item .nav-link.active:before {
+  transform: scaleX(-1);
+}
+.solo-different-text {
+  right: 0;
+}
+.solo-different-text h2 {
+  margin-right: -1px;
+}
+.solo-different-text h2::before {
+  right: 0;
+  transform: scaleX(-1);
+}
+.service-blog-content .slick-dots {
+  text-align: right !important;
+}
+.service-blog-content .blog-list-items-button {
+  left: 0;
+}
+.solo-different-content::before {
+  right: -1px;
+  transform: scaleX(-1);
+}
+.ab-info:before {
+  right: 0;
+  transform: scaleX(-1);
+}
+.ab-info:after {
+  right: 0;
+  transform: scaleX(-1);
+}
+.ab-info .about-text {
+  right: 0;
+}
+.ab-info .about-btn {
+  right: 0;
+}
+.ct-info:before {
+  right: -2px;
+  transform: scaleX(-1);
+}
+.ct-info .ct-text {
+  right: 0;
+}
+.ct-right {
+  left: 0;
+}
+.ct-right ul li {
+  margin-left: 10px;
+}
+.het-right {
+  float: left;
+  text-align: left;
+}
+.contact-title h2 i {
+  margin-right: 15px;
+}
+.bi-arrow-right-circle::before {
+  transform: scaleX(-1);
+}
+.form-textarea img {
+  transform: scaleX(-1);
+}
+.blog-content:before {
+  left: -2px;
+  transform: scaleX(-1);
+}
+.blog-text {
+  left: 0;
+  padding: 30px 95px 10px 30px;
+  text-align: left;
+}
+.blog-item:before {
+  left: 0px;
+  transform: scaleX(-1);
+}
+.blog-text-list {
+  left: 5px;
+}
+.blogdetails-banner.blog-banner-section .blog-content .blog-text{
+  text-align: right;
+}
+.blog-item.video-item:before {
+  right: 0;
+  transform: scaleX(-1);
+}
+.blog-text-list.video-text-list {
+  right: 10px;
+}
+.interior-banner-text h1 {
+  right: 0;
+}
+.interior-banner-text {
+  text-align:right;
+  right: 0;
+}
+@media (max-width: 1199px) {
+  .feature-info {
+    right: 50px;
+    bottom: 50px;
+  }
+  .blogdetails-banner.blog-banner-section .blog-content:before {
+    right: 0;
+  }
+}
+@media (max-width: 991px) {
+  .offcanvas-header .btn-close {
+    margin-right: auto !important;
+    margin-left: 0px !important;
+  }
+  .offcanvas-header .btn-close:focus,
+  .offcanvas-header .btn-close:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  .blog-details-content {
+    padding-right: 20px;
+  }
+  .blog-slider .slick-slide .blog-item:before {
+    left: -1px;
+  }
+}
+@media (max-width: 767px) {
+  .blog-details-iconlist li {
+    margin-left: 15px;
+  }
+  .blog-details-content {
+    padding-right: 0;
+  }
+  .blog-details-quotes img {
+    margin-right: 0px;
+  }
+  .blog-slider .slick-slide .blog-item:before {
+    left: -1px;
+  }
+}
+@media (max-width: 575px) {
+  .feature-info {
+    right: 30px;
+  }
+  .blog-slider .slick-slide .blog-item:before {
+    left: -1px;
+  }
+}

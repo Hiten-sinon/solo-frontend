@@ -1,0 +1,215 @@
+{
+  "menu": "القائمة",
+  "home": "الرئيسية",
+  "services": "الخدمات",
+  "more": "المزيد",
+  "team": "الفريق",
+  "careers": "الوظائف",
+  "about": "معلومات عنا",
+  "blog": "الأخبار",
+  "interior": "التصميم الداخلي",
+  "contact": "اتصل بنا",
+  "inquiry": "نموذج الاستفسار",
+  "banner": {
+    "slides": [
+      {
+        "title": "تصميم داخلي",
+        "desc": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. كان لوريم إيبسوم النص الوهمي القياسي في الصناعة منذ القرن الخامس عشر."
+      },
+      {
+        "title": "تصميم داخلي",
+        "desc": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لقد نجا ليس فقط خمسة قرون، ولكن أيضًا قفزة إلى التنضيد الإلكتروني."
+      },
+      {
+        "title": "تصميم داخلي",
+        "desc": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لقد ظل دون تغيير جوهري عبر القرون."
+      }
+    ],
+    "button": "احصل على لحظتك الخاصة الآن"
+  },
+  "feature": {
+    "tabs": {
+      "create": {
+        "title": "نحن نبدع",
+        "text": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد..."
+      },
+      "inspire": {
+        "title": "نحن نلهم",
+        "text": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد..."
+      },
+      "deliver": {
+        "title": "نحن ننجز",
+        "text": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد..."
+      }
+    }
+  },
+  "number": {
+    "title": "أرقام سولو",
+    "desc": "يجب أن تحتوي المسيرة الناجحة على شركاء موثوقين لمساعدتك خلال الرحلة",
+    "stats": [
+      {
+        "value": 130,
+        "text": "مشروع ناجح يروي القصة الكاملة لحلم عميلنا"
+      },
+      {
+        "value": 40,
+        "text": "مشروع ناجح يروي القصة الكاملة لحلم عميلنا"
+      },
+      {
+        "value": 1000,
+        "text": "مشروع ناجح يروي القصة الكاملة لحلم عميلنا"
+      },
+      {
+        "value": 15,
+        "text": "مشروع ناجح يروي القصة الكاملة لحلم عميلنا"
+      }
+    ]
+  },
+  "dream": {
+    "title": "مبناك الحلم بانتظارك!"
+  },
+  "team_sec": {
+    "title": "فريق سولو",
+    "description": "أشخاصنا الذين يصنعون السحر",
+    "allTeam": "كل الفريق",
+    "maybeYou": "ربما أنت -",
+    "bePart": "كن جزءًا من فريقنا",
+    "applyNow": "قدّم الآن",
+    "members": [
+      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" },
+      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" },
+      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" }
+    ]
+  },
+  "partner": {
+    "title": "شركاؤنا",
+    "description": "يجب أن يكون للمسيرة الناجحة شركاء موثوقون لمساعدتك خلال الرحلة"
+  },
+  "footer": {
+    "workWithUs": "هل تريد العمل معنا!",
+    "inquiryBtn": "نموذج الاستفسار",
+    "navigationTitle": "التنقل",
+    "navigation": {
+      "home": "الرئيسية",
+      "about": "معلومات عنا",
+      "services": "الخدمات",
+      "projects": "المشاريع"
+    },
+    "contactTitle": "اتصل بنا",
+    "contact": {
+      "phone": "+1 891 989-11-91",
+      "email": "hello@logoipsum.com",
+      "address": "2972 شارع ويستهايمر، سانتا آنا، إلينوي 85486"
+    },
+    "copyright": "© 2025 جميع الحقوق محفوظة"
+  },
+  "ConstructionWorkForm": {
+    "title": "أعمال البناء",
+    "fullname": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "residency": "الإقامة",
+    "enter_residency": "أدخل الإقامة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "project_area": "منطقة المشروع",
+    "enter_project_area": "أدخل منطقة المشروع",
+    "type_of_space": "نوع المساحة",
+    "administratitive": "إداري",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "note": "ملحوظة",
+    "contruction_note": "يجب تعبئة النموذج بالكامل. لا تترك أي حقول مطلوبة فارغة.",
+    "submit": "إرسال"
+  },
+  "DesignWorkForm": {
+    "title": "أعمال التصميم",
+    "personal_info_tab_title": "المعلومات الشخصية",
+    "fullname": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "city": "مدينة",
+    "enter_city": "أدخل المدينة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "next": "التالي"
+  },
+  "ProjectInfoForm": {
+    "title": "معلومات المشروع",
+    "project_type": "نوع المشروع",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "area": "المساحة (بالقدم المربع)",
+    "enter_area": "أدخل المساحة",
+    "preferred_colors": "الألوان المفضلة",
+    "is_an_architectural_plan_available": "هل تتوفر خطة معمارية؟",
+    "yes": "نعم",
+    "no": "لا",
+    "next": "التالي",
+    "back": "خلف"
+  },
+  "DesingInfoForm": {
+    "title": "معلومات التصميم",
+    "number_of_main_users_of_the_space": "عدد المستخدمين الرئيسيين للمساحة",
+    "age_range_of_users": "الفئة العمرية للمستخدمين",
+    "special_notes": "ملاحظات خاصة",
+    "other_notes": "ملاحظات أخرى",
+    "previous": "سابق",
+    "next": "التالي"
+  },
+  "DesignTypeForm": {
+    "title": "نوع التصميم",
+    "design_style": "نوع التصميم",
+    "select_design_style": "حدد نوع التصميم ومدرسة الهندسة المعمارية التي تريدها",
+    "submit": "إرسال",
+    "previous": "سابق",
+    "see_examples": "انظر الأمثلة",
+    "design": "تصميم"
+  },
+  "FinishingWorkForm": {
+    "title": "أعمال التشطيب",
+    "full_name": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "residency": "الإقامة",
+    "enter_residency": "أدخل الإقامة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "project_area": "منطقة المشروع",
+    "enter_project_area": "أدخل منطقة المشروع",
+    "vacuum_type": "نوع الفراغ",
+    "administratitive": "إداري",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "note": "ملحوظة",
+    "fininsh_work_note": "يجب تعبئة النموذج بالكامل. لا تترك أي حقول مطلوبة فارغة.",
+    "submit": "يُقدِّم"
+  },
+  "SoloLearnForm": {
+    "title": "سولوليرن",
+    "full_name": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "date_of_birth": "تاريخ الميلاد",
+    "place_of_residence": "مكان الإقامة",
+    "enter_place_of_residence": "أدخل مكان الإقامة",
+    "college_major": "الكلية/التخصص",
+    "enter_college_major": "دخول الكلية/التخصص",
+    "status": "حالة",
+    "student": "طالب",
+    "graduate": "متخرج",
+    "year_of_graduation": "سنة التخرج",
+    "enter_year_of_graduation": "أدخل سنة التخرج",
+    "worked_in_finishing_field": "هل سبق لك العمل أو المشاركة في مجال التشطيب؟",
+    "yes": "نعم",
+    "no": "لا",
+    "submit": "يُقدِّم"
+  },
+  "InquiryForm": {
+    "title": "نموذج الاستفسار"
+  }
+}
