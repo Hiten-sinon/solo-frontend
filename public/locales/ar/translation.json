@@ -211,5 +211,8 @@
   },
   "InquiryForm": {
     "title": "نموذج الاستفسار"
+  },
+  "ExteriorPage": {
+    "title": "الخارج"
   }
 }

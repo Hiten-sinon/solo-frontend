@@ -7,7 +7,7 @@ import { fetchBlogs } from "../../redux/slice/blogSlice";
 
 const BlogList: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { posts, loading, error } = useSelector(
+  const { posts, blogcardloading, error } = useSelector(
     (state: RootState) => state.blogSlice
   );
 
@@ -15,7 +15,7 @@ const BlogList: React.FC = () => {
     dispatch(fetchBlogs());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
+  if (blogcardloading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (

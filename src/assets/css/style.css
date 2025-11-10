@@ -27,7 +27,7 @@ body {
   text-decoration: none;
   font-family: var(--font-family);
   text-transform: uppercase;
-  line-height: 34px;
+  line-height: 24px;
 }
 
 .language-dropdown .dropdown-item:hover,
@@ -2120,6 +2120,7 @@ ul#tabbing-form-design li button {
   color: #1c1c1c;
   font-family: var(--font-family-tertiary);
   width: 100%;
+  border: none;
 }
 
 ul#tabbing-form-design li button.active {
@@ -2306,4 +2307,44 @@ ul#tabbing-form-design li button.active {
     height: 250px;
     width: 100%;
     object-fit: cover;
+}
+
+.new-image-interior {
+    width: 25%;
+    padding: 0;
+}
+
+.personal-info-box input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #000 !important;
+   font-weight: 300 !important;
+}
+.personal-info-box input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #000 !important;
+   font-weight: 300 !important;
+   opacity:  1;
+}
+.personal-info-box input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #000 !important;
+   font-weight: 300 !important;
+   opacity:  1;
+}
+.personal-info-box input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #000 !important;
+   font-weight: 300 !important;
+}
+.personal-info-box input::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #000 !important;
+   font-weight: 300 !important;
+}
+
+.personal-info-box input::placeholder { /* Most modern browsers support this now. */
+   color:    #000 !important;
+   font-weight: 300 !important;
+}
+
+.btn-black {
+    width: 120px;
+    border-radius: 30px;
+    background: #000;
+    text-transform: uppercase;
 }

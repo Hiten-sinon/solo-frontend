@@ -21,6 +21,7 @@ import './App.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
 import Inquirypage from './page/Inquirypage'
+import Exteriorpage from './page/Exteriorpage'
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const App: React.FC = () => {
           <Route path="/blog/:id" element={<BlogDetailspage />} />
           <Route path="/interior" element={<Interiorpage />} />
           <Route path="/inquiry" element={<Inquirypage />} />
+          <Route path="/exterior" element={<Exteriorpage />} />
         </Route>
       </Routes>
       <Footer />

@@ -14,6 +14,7 @@ import aboutBannerReducer from "./slice/aboutpage/aboutBannerSlice";
 import clientSayReducer from "./slice/clientsay/clientSaySlice";
 import blogdetailsReducer from "./slice/blogdetailsSlice";
 import inquiryReducer from "./slice/inquirySlice";
+import exteriorReducer from "./slice/exteriorSlice";
 export const store = configureStore({
   reducer: {
     partners: partnersReducer,
@@ -31,6 +32,7 @@ export const store = configureStore({
     clientSay: clientSayReducer,
     blogdetails: blogdetailsReducer,
     inquiry: inquiryReducer,
+    exterior: exteriorReducer,
   },
 });
 

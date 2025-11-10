@@ -19,14 +19,14 @@ import {
   submitDesignInquiry,
   submitFinishingInquiry,
   submitSoloLearnInquiry,
-} from "../../redux/slice/inquirySlice";
-import { InquryDesign } from "../../assets/images";
+} from "../../redux/slice/exteriorSlice";
+import { ExteriourDesign } from "../../assets/images";
 
 type DesignExamples = {
   [key: string]: string[];
 };
 
-function InquiryForm() {
+function ExteriorForm() {
   const dispatch = useDispatch<AppDispatch>();
   const inquiryState = useSelector((state: RootState) => state.inquiry);
   const designExamples: DesignExamples = {
@@ -196,20 +196,7 @@ function InquiryForm() {
   });
 
   // Solo Learn form
-  const [soloForm, setSoloForm] = useState<
-  {
-    full_name: string;
-    phone_number: string;
-    date_of_birth: string;
-    place_of_residence: string;
-    college_major: string;
-    status: string;
-    year_of_graduation: string;
-    worked_in_finishing_field: boolean;
-    project_location: string;
-    site_area: string;
-    vehicle_type: string;
-  }>({
+  const [soloForm, setSoloForm] = useState({
     full_name: "",
     phone_number: "",
     date_of_birth: "",
@@ -217,8 +204,8 @@ function InquiryForm() {
     college_major: "",
     status: "",
     year_of_graduation: "",
-    worked_in_finishing_field: false,
     project_location: "",
+    worked_in_finishing_field: false,
     site_area: "",
     vehicle_type: "",
   });
@@ -315,11 +302,9 @@ function InquiryForm() {
     try {
       const res: any = await dispatch(submitInquiry(constructionForm) as any);
       const payload = res?.payload;
-
       // Determine success or failure based on presence of errors
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
-
       // Build error message if errors exist
       let messageText = "";
       if (isError) {
@@ -329,7 +314,6 @@ function InquiryForm() {
       } else {
         messageText = payload?.message || "Submitted successfully!";
       }
-
       setMessage({
         type: isSuccess ? "success" : "danger",
         text: messageText,
@@ -355,25 +339,18 @@ function InquiryForm() {
   const handleDesignSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateDesignStep("designinfo")) return;
-
     try {
-      const payload = {
+      const payload: any = {
         ...designForm,
         design_style: selectedStyle || designForm.design_style,
-        //selected_examples: selectedImages.map((img) => img.split("/").pop()),
-        selected_examples: selectedImages
-          .map((img) => img.split("/").pop())
-          .filter((x): x is string => Boolean(x)),
+        selected_examples: selectedImages.map((img) => img.split("/").pop()),
       };
-
       const res: any = await dispatch(submitDesignInquiry(payload) as any);
       const apiResponse = res?.payload || res;
-
       // Determine success or failure
       const isError = !!apiResponse?.errors;
       const isSuccess =
         (!isError && !!apiResponse?.data) || apiResponse?.status === true;
-
       // Build message text
       let messageText = "";
       if (isError) {
@@ -430,13 +407,10 @@ function InquiryForm() {
       const res: any = await dispatch(
         submitFinishingInquiry(finishingForm) as any
       );
-
       const payload = res?.payload;
-
       // Detect success or failure based on the presence of 'errors'
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
-
       // Prepare message text
       let messageText = "";
       if (isError) {
@@ -481,16 +455,12 @@ function InquiryForm() {
   const handleSoloSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateSolo()) return;
-
     try {
       const res: any = await dispatch(submitSoloLearnInquiry(soloForm) as any);
-
       // handle both unwrap() and regular dispatch cases
       const payload = res?.payload || res;
-
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
-
       let messageText = "";
       if (isError) {
         const errorMessages = Object.values(payload.errors).flat().join(" ");
@@ -511,7 +481,7 @@ function InquiryForm() {
           full_name: "",
           phone_number: "",
           place_of_residence: "",
-          project_location: "",
+          project_location: "New York",
           site_area: "",
           vehicle_type: "",
         });
@@ -552,10 +522,10 @@ function InquiryForm() {
             dismissible
             className="mt-2"
           >
-            {message.text}
+            {" "}
+            {message.text}{" "}
           </Alert>
         )}
-
         <Tabs defaultActiveKey="design" id="tabbing-form" className="mb-3">
           {/* ---------------- CONSTRUCTION TAB ---------------- */}
           <Tab eventKey="construction" title={t("ConstructionWorkForm.title")}>
@@ -568,6 +538,7 @@ function InquiryForm() {
                       controlId="constructionFullName"
                     >
                       <Form.Label>
+                        {" "}
                         {t("ConstructionWorkForm.fullname")}
                       </Form.Label>
                       <Form.Control
@@ -584,6 +555,7 @@ function InquiryForm() {
                       />
                       {constructionErrors.name && (
                         <small className="text-danger">
+                          {" "}
                           {constructionErrors.name}
                         </small>
                       )}
@@ -593,6 +565,7 @@ function InquiryForm() {
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="constructionPhone">
                       <Form.Label>
+                        {" "}
                         {t("ConstructionWorkForm.phone_number")}
                       </Form.Label>
                       <Form.Control
@@ -623,6 +596,7 @@ function InquiryForm() {
                       controlId="constructionResidency"
                     >
                       <Form.Label>
+                        {" "}
                         {t("ConstructionWorkForm.residency")}
                       </Form.Label>
                       <Form.Control
@@ -639,6 +613,7 @@ function InquiryForm() {
                       />
                       {constructionErrors.place_of_residence && (
                         <small className="text-danger">
+                          {" "}
                           {constructionErrors.place_of_residence}
                         </small>
                       )}
@@ -651,6 +626,7 @@ function InquiryForm() {
                       controlId="constructionProjectLocation"
                     >
                       <Form.Label>
+                        {" "}
                         {t("ConstructionWorkForm.project_location")}
                       </Form.Label>
                       <Form.Control
@@ -669,6 +645,7 @@ function InquiryForm() {
                       />
                       {constructionErrors.project_location && (
                         <small className="text-danger">
+                          {" "}
                           {constructionErrors.project_location}
                         </small>
                       )}
@@ -676,16 +653,19 @@ function InquiryForm() {
                   </Col>
 
                   <Col md={12}>
-                    <Form.Group className="mb-3">
-                      <Form.Label htmlFor="constructionProjectArea1">
-                        {t("ConstructionWorkForm.project_area")}
+                    <Form.Group
+                      className="mb-3"
+                      controlId="constructionProjectArea"
+                    >
+                      <Form.Label>
+                        {" "}
+                        {t("ConstructionWorkForm.project_area")}{" "}
                       </Form.Label>
                       <Row>
                         <Col md={4}>
                           <Form.Control
-                            id="constructionProjectArea1"
                             type="number"
-                            name="project_area_length"
+                            name="project_area"
                             placeholder={t(
                               "ConstructionWorkForm.enter_project_area"
                             )}
@@ -700,9 +680,8 @@ function InquiryForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
-                            id="constructionProjectArea2"
                             type="number"
-                            name="project_area_width"
+                            name="project_area"
                             placeholder={t(
                               "ConstructionWorkForm.enter_project_area"
                             )}
@@ -717,9 +696,8 @@ function InquiryForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
-                            id="constructionProjectArea3"
                             type="number"
-                            name="project_area_height"
+                            name="project_area"
                             placeholder={t(
                               "ConstructionWorkForm.enter_project_area"
                             )}
@@ -852,6 +830,7 @@ function InquiryForm() {
                             controlId="designFullName"
                           >
                             <Form.Label>
+                              {" "}
                               {t("DesignWorkForm.fullname")}
                             </Form.Label>
                             <Form.Control
@@ -868,6 +847,7 @@ function InquiryForm() {
                             />
                             {designErrors.full_name && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.full_name}
                               </small>
                             )}
@@ -877,6 +857,7 @@ function InquiryForm() {
                         <Col md={12} lg={6}>
                           <Form.Group className="mb-3" controlId="designPhone">
                             <Form.Label>
+                              {" "}
                               {t("DesignWorkForm.phone_number")}
                             </Form.Label>
                             <Form.Control
@@ -895,6 +876,7 @@ function InquiryForm() {
                             />
                             {designErrors.phone_number && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.phone_number}
                               </small>
                             )}
@@ -983,6 +965,7 @@ function InquiryForm() {
                             controlId="designProjectType"
                           >
                             <Form.Label className="p-type">
+                              {" "}
                               {t("ProjectInfoForm.project_type")}
                             </Form.Label>
                             <Form.Check
@@ -1019,6 +1002,7 @@ function InquiryForm() {
                             />
                             {designErrors.project_type && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.project_type}
                               </small>
                             )}
@@ -1054,6 +1038,7 @@ function InquiryForm() {
                             controlId="designPreferredColors"
                           >
                             <Form.Label>
+                              {" "}
                               {t("ProjectInfoForm.preferred_colors")}
                             </Form.Label>
                             <Form.Control
@@ -1084,6 +1069,7 @@ function InquiryForm() {
                             controlId="designArchitecturalPlan"
                           >
                             <Form.Label className="p-type">
+                              {" "}
                               {t(
                                 "ProjectInfoForm.is_an_architectural_plan_available"
                               )}
@@ -1132,7 +1118,7 @@ function InquiryForm() {
                             type="button"
                           >
                             {" "}
-                            {t("ProjectInfoForm.back")}
+                            {t("ProjectInfoForm.back")}{" "}
                           </Button>
                           <Button
                             className="btn btn-teal"
@@ -1159,6 +1145,7 @@ function InquiryForm() {
                             controlId="designUsageType"
                           >
                             <Form.Label>
+                              {" "}
                               {t(
                                 "DesingInfoForm.number_of_main_users_of_the_space"
                               )}
@@ -1176,7 +1163,7 @@ function InquiryForm() {
                             />
                             {designErrors.number_of_users && (
                               <small className="text-danger">
-                                {designErrors.number_of_users}
+                                {designErrors.number_of_users}{" "}
                               </small>
                             )}
                           </Form.Group>
@@ -1188,6 +1175,7 @@ function InquiryForm() {
                             controlId="designUserAgeRange"
                           >
                             <Form.Label>
+                              {" "}
                               {t("DesingInfoForm.age_range_of_users")}
                             </Form.Label>
                             <Form.Control
@@ -1203,6 +1191,7 @@ function InquiryForm() {
                             />
                             {designErrors.age_range && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.age_range}
                               </small>
                             )}
@@ -1215,6 +1204,7 @@ function InquiryForm() {
                             controlId="designSpecialNotes"
                           >
                             <Form.Label>
+                              {" "}
                               {t("DesingInfoForm.special_notes")}
                             </Form.Label>
                             <Form.Control
@@ -1231,9 +1221,10 @@ function InquiryForm() {
                             />
                             {designErrors.special_notes && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.special_notes}
                               </small>
-                            )}
+                            )}{" "}
                           </Form.Group>
                         </Col>
 
@@ -1243,7 +1234,8 @@ function InquiryForm() {
                             controlId="designOtherNotes"
                           >
                             <Form.Label>
-                              {t("DesingInfoForm.other_notes")}
+                              {" "}
+                              {t("DesingInfoForm.other_notes")}{" "}
                             </Form.Label>
                             <Form.Control
                               as="textarea"
@@ -1259,6 +1251,7 @@ function InquiryForm() {
                             />
                             {designErrors.other_notes && (
                               <small className="text-danger">
+                                {" "}
                                 {designErrors.other_notes}
                               </small>
                             )}
@@ -1298,19 +1291,16 @@ function InquiryForm() {
                           {Object.keys(designExamples).map((style, i) => (
                             <Col md={6} lg={4} className="h-400" key={i}>
                               <div className="design-type-item">
-                                {/*<img
-                                  src={InquryDesign}
-                                  alt={`${style} Design`}
-                                /> */}
                                 <img
-                                  src={designExamples[style][0]} // First image from that style
+                                  src={designExamples[style][0]}
                                   alt={`${style} Design`}
                                   onError={(e) =>
-                                    (e.currentTarget.src = InquryDesign)
-                                  } // fallback image
+                                    (e.currentTarget.src = ExteriourDesign)
+                                  }
                                 />
                                 <div className="designtype-text">
                                   <h4>
+                                    {" "}
                                     {style} {t("DesignTypeForm.design")}
                                   </h4>
                                   <Button
@@ -1318,6 +1308,7 @@ function InquiryForm() {
                                     type="button"
                                     onClick={() => handleOpenModal(style)}
                                   >
+                                    {" "}
                                     {t("DesignTypeForm.see_examples")}
                                   </Button>
                                 </div>
@@ -1342,11 +1333,12 @@ function InquiryForm() {
                           type="submit"
                           disabled={inquiryState.loading}
                         >
+                          {" "}
                           {inquiryState.loading ? (
                             <Spinner animation="border" size="sm" />
                           ) : (
                             t("DesignTypeForm.submit")
-                          )}
+                          )}{" "}
                         </Button>
                       </div>
                     </div>
@@ -1363,8 +1355,9 @@ function InquiryForm() {
                 <Row>
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingFullName">
-                      <Form.Label htmlFor="finishingFullName">
-                        {t("FinishingWorkForm.full_name")}
+                      <Form.Label>
+                        {" "}
+                        {t("FinishingWorkForm.full_name")}{" "}
                       </Form.Label>
                       <Form.Control
                         type="text"
@@ -1380,7 +1373,8 @@ function InquiryForm() {
                       />
                       {finishingErrors.name && (
                         <small className="text-danger">
-                          {finishingErrors.name}
+                          {" "}
+                          {finishingErrors.name}{" "}
                         </small>
                       )}
                     </Form.Group>
@@ -1388,8 +1382,9 @@ function InquiryForm() {
 
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingPhone">
-                      <Form.Label htmlFor="finishingPhone">
-                        {t("FinishingWorkForm.phone_number")}
+                      <Form.Label>
+                        {" "}
+                        {t("FinishingWorkForm.phone_number")}{" "}
                       </Form.Label>
                       <Form.Control
                         type="text"
@@ -1413,7 +1408,8 @@ function InquiryForm() {
 
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingResidency">
-                      <Form.Label htmlFor="finishingResidency">
+                      <Form.Label>
+                        {" "}
                         {t("FinishingWorkForm.residency")}
                       </Form.Label>
                       <Form.Control
@@ -1442,7 +1438,8 @@ function InquiryForm() {
                       className="mb-3"
                       controlId="finishingProjectLocation"
                     >
-                      <Form.Label htmlFor="finishingProjectLocation">
+                      <Form.Label>
+                        {" "}
                         {t("FinishingWorkForm.project_location")}
                       </Form.Label>
                       <Form.Control
@@ -1462,23 +1459,26 @@ function InquiryForm() {
                       {finishingErrors.project_location && (
                         <small className="text-danger">
                           {" "}
-                          {finishingErrors.project_location}
+                          {finishingErrors.project_location}{" "}
                         </small>
                       )}
                     </Form.Group>
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group className="mb-3">
-                      <Form.Label htmlFor="finishingProjectArea1">
+                    <Form.Group
+                      className="mb-3"
+                      controlId="finishingProjectArea"
+                    >
+                      <Form.Label>
+                        {" "}
                         {t("FinishingWorkForm.project_area")}
                       </Form.Label>
                       <Row>
                         <Col md={4}>
                           <Form.Control
-                            id="finishingProjectArea1"
                             type="number"
-                            name="site_area_length"
+                            name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
                             )}
@@ -1493,9 +1493,8 @@ function InquiryForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
-                            id="finishingProjectArea2"
                             type="number"
-                            name="site_area_width"
+                            name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
                             )}
@@ -1510,9 +1509,8 @@ function InquiryForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
-                            id="finishingProjectArea3"
                             type="number"
-                            name="site_area_height"
+                            name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
                             )}
@@ -1525,13 +1523,13 @@ function InquiryForm() {
                             }
                           />
                         </Col>
+                        {finishingErrors.site_area && (
+                          <small className="text-danger">
+                            {" "}
+                            {finishingErrors.site_area}
+                          </small>
+                        )}
                       </Row>
-
-                      {finishingErrors.site_area && (
-                        <small className="text-danger">
-                          {finishingErrors.site_area}
-                        </small>
-                      )}
                     </Form.Group>
                   </Col>
 
@@ -1540,10 +1538,7 @@ function InquiryForm() {
                       className="mb-3 radio-btn"
                       controlId="finishingVacuumType"
                     >
-                      <Form.Label
-                        className="p-type"
-                        htmlFor="finishingVacuumType"
-                      >
+                      <Form.Label className="p-type">
                         {t("FinishingWorkForm.vacuum_type")}
                       </Form.Label>
                       <Form.Check
@@ -1591,7 +1586,7 @@ function InquiryForm() {
                       {finishingErrors.vehicle_type && (
                         <small className="text-danger">
                           {" "}
-                          {finishingErrors.vehicle_type}
+                          {finishingErrors.vehicle_type}{" "}
                         </small>
                       )}
                     </Form.Group>
@@ -1643,7 +1638,7 @@ function InquiryForm() {
                       />
                       {soloErrors.name && (
                         <small className="text-danger">{soloErrors.name}</small>
-                      )}
+                      )}{" "}
                     </Form.Group>
                   </Col>
 
@@ -1673,6 +1668,7 @@ function InquiryForm() {
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="soloDOB">
                       <Form.Label>
+                        {" "}
                         {t("SoloLearnForm.date_of_birth")}
                       </Form.Label>
                       <Form.Control
@@ -1724,6 +1720,7 @@ function InquiryForm() {
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="soloCollege">
                       <Form.Label>
+                        {" "}
                         {t("SoloLearnForm.college_major")}
                       </Form.Label>
                       <Form.Control
@@ -1752,7 +1749,7 @@ function InquiryForm() {
                       controlId="soloStatus"
                     >
                       <Form.Label className="p-type">
-                        {t("SoloLearnForm.status")}
+                        {t("SoloLearnForm.status")}{" "}
                       </Form.Label>
                       <Form.Check
                         inline
@@ -1887,21 +1884,16 @@ function InquiryForm() {
         <Modal.Body>
           <Row>
             {selectedStyle &&
-              designExamples &&
-              designExamples[selectedStyle].map((example: any) => {
+              designExamples[selectedStyle].map((example) => {
                 const fileName = example.split("/").pop() || "";
                 const isSelected = selectedImages.includes(example);
-
                 return (
                   <div className="new-image-interior" key={example}>
                     <div
                       className={`example-card border rounded position-relative ${
                         isSelected ? "border-teal shadow-sm" : "border-light"
                       }`}
-                      style={{
-                        cursor: "pointer",
-                        transition: "all 0.2s ease",
-                      }}
+                      style={{ cursor: "pointer", transition: "all 0.2s ease" }}
                       onClick={() => handleImageSelect(example)}
                     >
                       {/* Image */}
@@ -1909,9 +1901,8 @@ function InquiryForm() {
                         src={example}
                         alt={fileName}
                         className="img-fluid rounded"
-                        onError={(e) => (e.currentTarget.src = InquryDesign)}
+                        onError={(e) => (e.currentTarget.src = ExteriourDesign)}
                       />
-
                       {/* Radio/checkbox-like indicator */}
                       <div
                         className={`select-indicator position-absolute top-0 end-0 m-2 rounded-circle border ${
@@ -1930,11 +1921,12 @@ function InquiryForm() {
                           backgroundColor: "#2ea19b",
                         }}
                       >
+                        {" "}
                         {isSelected && "✓"}
                       </div>
-
                       {/* Image name */}
                       <p className="mt-2 mb-0 small fw-medium d-none">
+                        {" "}
                         {fileName}
                       </p>
                     </div>
@@ -1946,17 +1938,20 @@ function InquiryForm() {
 
         <Modal.Footer className="d-flex justify-content-between">
           <div className="text-muted">
-            Selected: {selectedImages.length} image
+            {" "}
+            Selected: {selectedImages.length} image{" "}
             {selectedImages.length !== 1 && "s"}
           </div>
           <div>
             <Button variant="secondary" onClick={handleCloseModal}>
+              {" "}
               Cancel
             </Button>
             <Button
               className="btn btn-teal ms-2"
               onClick={handleConfirmSelection}
             >
+              {" "}
               Confirm Selection
             </Button>
           </div>
@@ -1966,4 +1961,4 @@ function InquiryForm() {
   );
 }
 
-export default InquiryForm;
+export default ExteriorForm;

@@ -211,5 +211,9 @@
   },
   "InquiryForm": {
     "title": "Inquiry Form"
+  },
+
+  "ExteriorPage": {
+    "title": "Exterior"
   }
 }

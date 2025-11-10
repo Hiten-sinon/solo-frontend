@@ -15,7 +15,7 @@ import "slick-carousel/slick/slick-theme.css";
 const BlogDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const dispatch = useDispatch<AppDispatch>();
-  const { blogdetail, recentBlogs, loading, error } = useSelector(
+  const { blogdetail, recentBlogs, blogdetailsloading, error } = useSelector(
     (state: RootState) => state.blogdetails
   );
 
@@ -42,7 +42,7 @@ const BlogDetails: React.FC = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     adaptiveHeight: true,
-   arrows: false,
+    arrows: false,
   };
 
   const blogSlider = {
@@ -80,7 +80,7 @@ const BlogDetails: React.FC = () => {
     ],
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (blogdetailsloading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
   if (!blogdetail) return <p>No blog found</p>;
 

@@ -1,6 +1,5 @@
-import React from 'react'
-import InquiryBanner from '../component/inquiryform/InquiryBanner'
-import InquiryForm from '../component/inquiryform/InquiryForm'
+import InquiryBanner from "../component/inquiryform/InquiryBanner";
+import InquiryForm from "../component/inquiryform/InquiryForm";
 
 const Inquirypage = () => {
   return (
@@ -8,7 +7,7 @@ const Inquirypage = () => {
       <InquiryBanner />
       <InquiryForm />
     </>
-  )
-}
+  );
+};
 
-export default Inquirypage
+export default Inquirypage;

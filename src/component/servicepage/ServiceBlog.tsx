@@ -9,7 +9,7 @@ import type { BlogPost } from "../../redux/slice/blogSlice";
 
 const ServiceBlog: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { posts, loading, error } = useSelector(
+  const { posts, blogcardloading, error } = useSelector(
     (state: RootState) => state.blogSlice
   );
 
@@ -40,7 +40,7 @@ const ServiceBlog: React.FC = () => {
     ],
   };
 
-  if (loading) return <p>Loading blog articles...</p>;
+  if (blogcardloading) return <p>Loading blog articles...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (

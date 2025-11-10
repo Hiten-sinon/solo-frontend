@@ -7,7 +7,7 @@ import type { SoloDifferentItem } from "../../redux/slice/servicepage/soloDiffer
 
 const SoloDifferent: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { data, loading, error } = useSelector(
+  const { data, solodifferentloading, error } = useSelector(
     (state: RootState) => state.soloDifferent
   );
 
@@ -15,7 +15,7 @@ const SoloDifferent: React.FC = () => {
     dispatch(fetchSoloDifferent());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
+  if (solodifferentloading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
   const mainService = data.find((item) => item.type === "main_service");

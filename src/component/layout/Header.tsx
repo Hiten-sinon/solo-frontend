@@ -106,9 +106,11 @@ const Header: React.FC = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Link to="/contact" className="btn btn-teal">
-                    {t("inquiry")}
-                  </Link>
+                  
+                    <NavDropdown title={t("inquiry")} id="nav-dropdown" className="language-dropdown btn btn-teal">
+                    <NavDropdown.Item href="/inquiry">{t("interior")}</NavDropdown.Item>
+                    <NavDropdown.Item href="/exterior">{t("ExteriorPage.title")}</NavDropdown.Item>
+                  </NavDropdown>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

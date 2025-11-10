@@ -24,3 +24,5 @@ export { default as BlogOne } from "./blog-01.webp";
 export { default as InteriorB } from "./interior-b.webp";
 export { default as InquryBanners } from "./banner-inquiry.webp";
 export { default as InquryDesign } from "./inquiry.webp";
+export { default as ExteriourBanners } from "./banner-exterior.webp";
+export { default as ExteriourDesign } from "./exterior.webp";
