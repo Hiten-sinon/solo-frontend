@@ -41,6 +41,7 @@ export const submitDesignInquiry = createAsyncThunk(
   async (formData: DesignInquiryFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "internal",
         full_name: formData.full_name,
         phone_number: formData.phone_number,
         city: formData.city,

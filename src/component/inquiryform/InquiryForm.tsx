@@ -170,6 +170,7 @@ function InquiryForm() {
 
   // Design Work form
   const [designForm, setDesignForm] = useState({
+    type: "internal",
     full_name: "",
     phone_number: "",
     city: "",
@@ -198,8 +199,7 @@ function InquiryForm() {
   });
 
   // Solo Learn form
-  const [soloForm, setSoloForm] = useState<
-  {
+  const [soloForm, setSoloForm] = useState<{
     type: string;
     full_name: string;
     phone_number: string;
@@ -1285,7 +1285,9 @@ function InquiryForm() {
                         </Button>
                         <Button
                           className="btn btn-teal"
-                          onClick={() => setActiveDesignTab("designtype")}
+                          onClick={() =>
+                            handleNextTab("designinfo", "designtype")
+                          }
                           type="button"
                         >
                           {" "}

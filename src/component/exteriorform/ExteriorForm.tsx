@@ -237,6 +237,9 @@ function ExteriorForm() {
       if (isEmpty(designForm.project_location))
         errors.project_location = "Project location is required.";
     } else if (step === "designinfo") {
+      if(isEmpty(designForm.desired_area_from)) errors.desired_area_from = "Please enter desired area from.";
+      if(isEmpty(designForm.desired_area_to)) errors.desired_area_to = "Please enter desired area to.";
+
       if (isEmpty(designForm.number_of_floors))
         errors.number_of_floors = "Please choose number of floors.";
     }
