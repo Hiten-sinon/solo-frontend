@@ -2365,7 +2365,7 @@ label.form-label {
   width: 100%;
 }
 
-.radio-btn input {
+.radio-btn.het-rad input {
   float: none !important;
 }
 
@@ -2378,12 +2378,12 @@ label.form-label {
     margin-bottom: 20px;
 }
 
-.radio-btn .form-check{
+.radio-btn.het-rad .form-check{
   display: flex;
   margin-bottom: 10px;
   align-items: center;
 }
 
-.personal-info-box .radio-btn input, .personal-info-box .radio-btn input:focus{
+.personal-info-box .radio-btn.het-rad input, .personal-info-box .radio-btn.het-rad input:focus{
   margin-bottom: 0;
 }

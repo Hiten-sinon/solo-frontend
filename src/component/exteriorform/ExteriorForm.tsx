@@ -1201,7 +1201,7 @@ function ExteriorForm() {
 
                         {/* Number of Floors */}
                         <Col md={12}>
-                          <div className="mb-3 radio-btn">
+                          <div className="mb-3 radio-btn het-rad">
                             <Form.Group
                               className="mb-3"
                               controlId="designNumberOfFloors"
@@ -1248,7 +1248,7 @@ function ExteriorForm() {
 
                         {/* Design Preferences - keep UI similar to original but as checkboxes */}
                         <Col md={12}>
-                          <div className="mb-3 radio-btn">
+                          <div className="mb-3 radio-btn het-rad">
                             <Form.Group
                               className="mb-3"
                               controlId="designPreferences"
