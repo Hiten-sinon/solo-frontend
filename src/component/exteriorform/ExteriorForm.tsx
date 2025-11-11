@@ -30,18 +30,6 @@ function ExteriorForm() {
   const dispatch = useDispatch<AppDispatch>();
   const inquiryState = useSelector((state: RootState) => state.inquiry);
   const designExamples: DesignExamples = {
-    Bohemian: [
-      "/DesignFormPhotos/Bohemian/IMG_3174.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3175.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3176.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3177.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3178.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3180.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3181.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3182.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3183.JPEG",
-      "/DesignFormPhotos/Bohemian/IMG_3184.JPEG",
-    ],
     Classic: [
       "/DesignFormPhotos/Classic/IMG_3059.JPEG",
       "/DesignFormPhotos/Classic/IMG_3060.JPEG",
@@ -54,51 +42,16 @@ function ExteriorForm() {
       "/DesignFormPhotos/Classic/IMG_3067.JPEG",
       "/DesignFormPhotos/Classic/IMG_3068.JPEG",
     ],
-    Industrial: [
-      "/DesignFormPhotos/Industrial/IMG_3154.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3155.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3156.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3157.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3158.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3159.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3160.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3161.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3162.JPEG",
-      "/DesignFormPhotos/Industrial/IMG_3163.JPEG",
-    ],
-    Japandish: [
-      "/DesignFormPhotos/Japndi/IMG_3039.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3040.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3041.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3042.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3044.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3045.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3046.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3047.JPG",
-      "/DesignFormPhotos/Japndi/IMG_3048.JPG",
-    ],
-    Meditrranean: [
-      "/DesignFormPhotos/Meditrranean/IMG_3135.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3136.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3137.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3138.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3139.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3140.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3141.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3142.JPEG",
-      "/DesignFormPhotos/Meditrranean/IMG_3143.JPEG",
-    ],
-    Minimalism: [
-      "/DesignFormPhotos/Minimalism/IMG_3022.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3023.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3024.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3025.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3026.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3027.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3028.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3029.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3030.JPEG",
-      "/DesignFormPhotos/Minimalism/IMG_3031.JPEG",
+    NewClassic: [
+      "/DesignFormPhotos/Newclassic/IMG_3079.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3080.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3081.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3082.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3083.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3084.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3085.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3086.JPEG",
+      "/DesignFormPhotos/Newclassic/IMG_3087.JPEG",
     ],
     Modern: [
       "/DesignFormPhotos/Modern/IMG_3110.JPEG",
@@ -112,29 +65,40 @@ function ExteriorForm() {
       "/DesignFormPhotos/Modern/IMG_3118.JPEG",
       "/DesignFormPhotos/Modern/IMG_3120.JPEG",
     ],
-    Newclassic: [
-      "/DesignFormPhotos/Newclassic/IMG_3079.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3080.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3081.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3082.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3083.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3084.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3085.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3086.JPEG",
-      "/DesignFormPhotos/Newclassic/IMG_3087.JPEG",
+    Minimalist: [
+      "/DesignFormPhotos/Minimalism/IMG_3022.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3023.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3024.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3025.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3026.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3027.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3028.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3029.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3030.JPEG",
+      "/DesignFormPhotos/Minimalism/IMG_3031.JPEG",
     ],
-    Scandinavian: [
-      "/DesignFormPhotos/Scandinavian/IMG_3195.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3196.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3197.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3198.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3199.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3200.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3201.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3202.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3203.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3204.JPEG",
-      "/DesignFormPhotos/Scandinavian/IMG_3205.JPEG",
+    Mediterranean: [
+      "/DesignFormPhotos/Meditrranean/IMG_3135.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3136.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3137.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3138.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3139.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3140.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3141.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3142.JPEG",
+      "/DesignFormPhotos/Meditrranean/IMG_3143.JPEG",
+    ],
+    Bohemian: [
+      "/DesignFormPhotos/Bohemian/IMG_3174.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3175.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3176.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3177.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3178.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3180.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3181.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3182.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3183.JPEG",
+      "/DesignFormPhotos/Bohemian/IMG_3184.JPEG",
     ],
   };
   const [activeDesignTab, setActiveDesignTab] = useState("personal");
@@ -154,6 +118,7 @@ function ExteriorForm() {
     [key: string]: string;
   }>({});
   const [soloErrors, setSoloErrors] = useState<{ [key: string]: string }>({});
+  const [loading, setLoading] = useState(false);
 
   // Construction Work form
   const [constructionForm, setConstructionForm] = useState({
@@ -168,23 +133,44 @@ function ExteriorForm() {
     image: null as File | null,
   });
 
-  // Design Work form
-  const [designForm, setDesignForm] = useState({
+  // Design Work form - FULL field set matching API
+  const [designForm, setDesignForm] = useState<any>({
     type: "external",
     full_name: "",
     phone_number: "",
-    city: "",
+    place_of_residence: "",
     project_location: "",
-    project_type: "",
-    area: "",
-    preferred_colors: "",
-    architectural_plan: false,
-    number_of_users: "",
-    age_range: "",
-    special_notes: "",
-    other_notes: "",
+    project_area: "",
+    sketch_drawing: false,
+    desired_area_from: "",
+    desired_area_to: "",
+    number_of_floors: "",
+    separate_floor_reception_living: false,
+    combined_floor: false,
+    guest_bedroom_with_bathroom: false,
+    guest_bedroom_without_bathroom: false,
+    external_reception_restroom: false,
+    reception_dining_restroom: false,
+    men_reception_separate_restroom: false,
+    women_reception_separate_restroom: false,
+    living_room: false,
+    closed_kitchen: false,
+    open_kitchen: false,
+    separate_hot_cold_kitchen: false,
+    dining_area: false,
+    master_bedroom_with_bathroom: false,
+    master_bedroom_with_dressing_bathroom: false,
+    children_bedrooms: "",
+    maids_room: false,
+    drivers_room: false,
+    laundry_room: false,
+    storage_room: false,
+    cinema_room: false,
+    recreation_gym_room: false,
+    indoor_courtyard: false,
+    swimming_pool: false,
     design_style: "",
-    selected_examples: [] as string[],
+    notes: "",
   });
 
   // Finishing Work form
@@ -235,31 +221,26 @@ function ExteriorForm() {
   };
 
   const validateDesignStep = (step: string) => {
-    let errors: any = {};
+    const errors: any = {};
     if (step === "personal") {
       if (isEmpty(designForm.full_name))
         errors.full_name = "Full name is required.";
       if (isEmpty(designForm.phone_number))
         errors.phone_number = "Phone number is required.";
-      if (isEmpty(designForm.city)) errors.city = "City is required.";
+      if (isEmpty(designForm.place_of_residence))
+        errors.place_of_residence = "Place of residence is required.";
+      //if (isEmpty(designForm.project_area))
+      //errors.project_area = "Project area is required.";
+    } else if (step === "projectinfo") {
+      if (isEmpty(designForm.project_area))
+        errors.project_area = "Project area is required.";
       if (isEmpty(designForm.project_location))
         errors.project_location = "Project location is required.";
-    } else if (step === "projectinfo") {
-      if (isEmpty(designForm.project_type))
-        errors.project_type = "Select project type.";
-      if (isEmpty(designForm.area)) errors.area = "Area is required.";
-      if (isEmpty(designForm.preferred_colors))
-        errors.preferred_colors = "Preferred colors are required.";
     } else if (step === "designinfo") {
-      if (isEmpty(designForm.number_of_users))
-        errors.number_of_users = "Number of users is required.";
-      if (isEmpty(designForm.age_range))
-        errors.age_range = "Age range is required.";
-      if (isEmpty(designForm.special_notes))
-        errors.special_notes = "Special notes are required.";
-      if (isEmpty(designForm.other_notes))
-        errors.other_notes = "Other notes are required.";
+      if (isEmpty(designForm.number_of_floors))
+        errors.number_of_floors = "Please choose number of floors.";
     }
+
     setDesignErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -306,13 +287,11 @@ function ExteriorForm() {
     try {
       const res: any = await dispatch(submitInquiry(constructionForm) as any);
       const payload = res?.payload;
-      // Determine success or failure based on presence of errors
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
-      // Build error message if errors exist
       let messageText = "";
       if (isError) {
-        const errorMessages = Object.values(payload.errors).flat().join(" "); // combine all validation errors into a single string
+        const errorMessages = Object.values(payload.errors).flat().join(" ");
         messageText =
           errorMessages || "Submission failed. Please check your inputs.";
       } else {
@@ -343,66 +322,145 @@ function ExteriorForm() {
 
   const handleDesignSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateDesignStep("designinfo")) return;
-    try {
-      const payload: any = {
-        ...designForm,
-        design_style: selectedStyle || designForm.design_style,
-        selected_examples: selectedImages.map((img) => img.split("/").pop()),
-      };
-      const res: any = await dispatch(submitDesignInquiry(payload) as any);
-      const apiResponse = res?.payload || res;
-      // Determine success or failure
-      const isError = !!apiResponse?.errors;
-      const isSuccess =
-        (!isError && !!apiResponse?.data) || apiResponse?.status === true;
-      // Build message text
-      let messageText = "";
-      if (isError) {
-        const errorMessages = Object.values(apiResponse.errors)
-          .flat()
-          .join(" ");
-        messageText =
-          errorMessages || "Design inquiry failed. Please check your inputs.";
-      } else {
-        messageText =
-          apiResponse?.message || "Design inquiry submitted successfully!";
-      }
 
-      // Set alert message
+    // final validation across steps
+    const okPersonal = validateDesignStep("personal");
+    const okProject = validateDesignStep("projectinfo");
+    const okDesign = validateDesignStep("designinfo");
+    if (!okPersonal || !okProject || !okDesign) {
       setMessage({
-        type: isSuccess ? "success" : "danger",
-        text: messageText,
+        type: "danger",
+        text: "Please fix errors in the form before submitting.",
       });
+      return;
+    }
 
-      // Reset form only on success
-      if (isSuccess) {
+    // Build payload exactly matching the API sample in the prompt
+    const payload: any = {
+      type: designForm.type || "external",
+      full_name: designForm.full_name,
+      phone_number: designForm.phone_number,
+      place_of_residence: designForm.place_of_residence,
+      project_location: designForm.project_location,
+      project_area: String(designForm.project_area || ""),
+      sketch_drawing: Boolean(designForm.sketch_drawing),
+      desired_area_from: designForm.desired_area_from,
+      desired_area_to: designForm.desired_area_to,
+      number_of_floors: designForm.number_of_floors,
+      separate_floor_reception_living: Boolean(
+        designForm.separate_floor_reception_living
+      ),
+      combined_floor: Boolean(designForm.combined_floor),
+      guest_bedroom_with_bathroom: Boolean(
+        designForm.guest_bedroom_with_bathroom
+      ),
+      guest_bedroom_without_bathroom: Boolean(
+        designForm.guest_bedroom_without_bathroom
+      ),
+      external_reception_restroom: Boolean(
+        designForm.external_reception_restroom
+      ),
+      reception_dining_restroom: Boolean(designForm.reception_dining_restroom),
+      men_reception_separate_restroom: Boolean(
+        designForm.men_reception_separate_restroom
+      ),
+      women_reception_separate_restroom: Boolean(
+        designForm.women_reception_separate_restroom
+      ),
+      living_room: Boolean(designForm.living_room),
+      closed_kitchen: Boolean(designForm.closed_kitchen),
+      open_kitchen: Boolean(designForm.open_kitchen),
+      separate_hot_cold_kitchen: Boolean(designForm.separate_hot_cold_kitchen),
+      dining_area: Boolean(designForm.dining_area),
+      master_bedroom_with_bathroom: Boolean(
+        designForm.master_bedroom_with_bathroom
+      ),
+      master_bedroom_with_dressing_bathroom: Boolean(
+        designForm.master_bedroom_with_dressing_bathroom
+      ),
+      children_bedrooms: designForm.children_bedrooms || "",
+      maids_room: Boolean(designForm.maids_room),
+      drivers_room: Boolean(designForm.drivers_room),
+      laundry_room: Boolean(designForm.laundry_room),
+      storage_room: Boolean(designForm.storage_room),
+      cinema_room: Boolean(designForm.cinema_room),
+      recreation_gym_room: Boolean(designForm.recreation_gym_room),
+      indoor_courtyard: Boolean(designForm.indoor_courtyard),
+      swimming_pool: Boolean(designForm.swimming_pool),
+      design_style: designForm.design_style,
+      notes: designForm.notes,
+      selected_examples: selectedImages
+        .map((img) => img.split("/").pop())
+        .filter((x): x is string => Boolean(x)),
+    };
+
+    try {
+      setLoading(true);
+      const res: any = await dispatch(submitDesignInquiry(payload) as any);
+      // support both unwrap and non-unwrap dispatch
+      const response = res?.payload || res;
+      if (response?.status) {
+        setMessage({
+          type: "success",
+          text: response?.message || "Design Inquiry submitted successfully.",
+        });
+        // clear form
         setDesignForm({
           type: "external",
           full_name: "",
           phone_number: "",
-          city: "",
+          place_of_residence: "",
           project_location: "",
-          project_type: "",
-          area: "",
-          preferred_colors: "",
-          architectural_plan: false,
-          number_of_users: "",
-          age_range: "",
-          special_notes: "",
-          other_notes: "",
+          project_area: "",
+          sketch_drawing: false,
+          desired_area_from: "",
+          desired_area_to: "",
+          number_of_floors: "",
+          separate_floor_reception_living: false,
+          combined_floor: false,
+          guest_bedroom_with_bathroom: false,
+          guest_bedroom_without_bathroom: false,
+          external_reception_restroom: false,
+          reception_dining_restroom: false,
+          men_reception_separate_restroom: false,
+          women_reception_separate_restroom: false,
+          living_room: false,
+          closed_kitchen: false,
+          open_kitchen: false,
+          separate_hot_cold_kitchen: false,
+          dining_area: false,
+          master_bedroom_with_bathroom: false,
+          master_bedroom_with_dressing_bathroom: false,
+          children_bedrooms: "",
+          maids_room: false,
+          drivers_room: false,
+          laundry_room: false,
+          storage_room: false,
+          cinema_room: false,
+          recreation_gym_room: false,
+          indoor_courtyard: false,
+          swimming_pool: false,
           design_style: "",
-          selected_examples: [],
+          notes: "",
+          selected_examples: [] as string[],
         });
         setSelectedImages([]);
         setActiveDesignTab("personal");
+      } else {
+        setMessage({
+          type: "danger",
+          text: response?.message || "Something went wrong",
+        });
       }
     } catch (err: any) {
-      console.error("Design Inquiry Error:", err);
+      console.error(err);
       setMessage({
         type: "danger",
-        text: err?.message || "Something went wrong.",
+        text:
+          err?.response?.data?.message || err?.message || "Failed to submit",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -414,10 +472,8 @@ function ExteriorForm() {
         submitFinishingInquiry(finishingForm) as any
       );
       const payload = res?.payload;
-      // Detect success or failure based on the presence of 'errors'
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
-      // Prepare message text
       let messageText = "";
       if (isError) {
         const errorMessages = Object.values(payload.errors).flat().join(" ");
@@ -448,17 +504,7 @@ function ExteriorForm() {
       setMessage({ type: "danger", text: "Something went wrong." });
     }
   };
-  // ------------------ DESIGN NAVIGATION ------------------ //
-  const handleNextTab = (current: string, next: string) => {
-    if (validateDesignStep(current)) {
-      setActiveDesignTab(next);
-      setDesignErrors({});
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
 
-  // ------------------ SUBMIT HANDLERS ------------------ //
   const handleSoloSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateSolo()) return;
@@ -505,6 +551,21 @@ function ExteriorForm() {
         type: "danger",
         text: err?.message || "Something went wrong.",
       });
+    }
+  };
+
+  // ------------------ DESIGN NAVIGATION ------------------ //
+  const goToNextDesignTab = (current: string, next: string) => {
+    console.log(":: goToNextDesignTab ::", {
+      current,
+      next,
+      isValidated: validateDesignStep(current),
+    });
+    if (validateDesignStep(current)) {
+      setActiveDesignTab(next);
+      setDesignErrors({});
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -819,10 +880,8 @@ function ExteriorForm() {
             </div>
           </Tab>
 
-          {/* ---------------- DESIGN TAB ---------------- */}
           <Tab eventKey="design" title={t("DesignWorkForm.title")}>
             <div className="fomr-design-box">
-              {/* ✅ Entire Design Form wrapped in <Form onSubmit={handleDesignSubmit}> */}
               <Form onSubmit={handleDesignSubmit}>
                 <Tabs
                   activeKey={activeDesignTab}
@@ -896,55 +955,32 @@ function ExteriorForm() {
                           </Form.Group>
                         </Col>
 
-                        {/*<Col md={12} lg={6}>
-                          <Form.Group className="mb-3" controlId="designCity">
-                            <Form.Label>{t("DesignWorkForm.city")}</Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="city"
-                              placeholder={t("DesignWorkForm.enter_city")}
-                              value={designForm.city}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  city: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.city && (
-                              <small className="text-danger">
-                                {designErrors.city}
-                              </small>
-                            )}
-                          </Form.Group>
-                        </Col>*/}
-
                         <Col md={12} lg={6}>
                           <Form.Group
                             className="mb-3"
                             controlId="designPlaceOfResidence"
                           >
                             <Form.Label>
-                              {t("DesignWorkForm.project_location")} - Place of
-                              Residence
+                              {" "}
+                              {t("DesignWorkForm.place_of_residence")}
                             </Form.Label>
                             <Form.Control
                               type="text"
-                              name="project_location"
+                              name="place_of_residence"
                               placeholder={t(
-                                "DesignWorkForm.enter_project_location"
+                                "DesignWorkForm.enter_place_of_residence"
                               )}
-                              value={designForm.project_location}
+                              value={designForm.place_of_residence}
                               onChange={(e) =>
                                 setDesignForm({
                                   ...designForm,
-                                  project_location: e.target.value,
+                                  place_of_residence: e.target.value,
                                 })
                               }
                             />
-                            {designErrors.project_location && (
+                            {designErrors.place_of_residence && (
                               <small className="text-danger">
-                                {designErrors.project_location}
+                                {designErrors.place_of_residence}
                               </small>
                             )}
                           </Form.Group>
@@ -954,7 +990,7 @@ function ExteriorForm() {
                           <Button
                             className="btn btn-teal"
                             onClick={() =>
-                              handleNextTab("personal", "projectinfo")
+                              goToNextDesignTab("personal", "projectinfo")
                             }
                             type="button"
                           >
@@ -967,7 +1003,10 @@ function ExteriorForm() {
                   </Tab>
 
                   {/* PROJECT INFO */}
-                  <Tab eventKey="projectinfo" title="Project Info">
+                  <Tab
+                    eventKey="projectinfo"
+                    title={t("ProjectInfoForm.title")}
+                  >
                     <div className="personal-info-box building-info-box">
                       <Row>
                         <Col md={12} lg={6}>
@@ -975,11 +1014,16 @@ function ExteriorForm() {
                             className="mb-3"
                             controlId="designProjectLocation"
                           >
-                            <Form.Label> Project Location</Form.Label>
+                            <Form.Label>
+                              {" "}
+                              {t("ProjectInfoForm.project_location")}
+                            </Form.Label>
                             <Form.Control
                               type="text"
                               name="project_location"
-                              placeholder="Project Location"
+                              placeholder={t(
+                                "ProjectInfoForm.enter_project_location"
+                              )}
                               value={designForm.project_location}
                               onChange={(e) =>
                                 setDesignForm({
@@ -1001,28 +1045,29 @@ function ExteriorForm() {
                             className="mb-3"
                             controlId="designProjectArea"
                           >
-                            <Form.Label> Project Area (m²)</Form.Label>
+                            <Form.Label>
+                              {" "}
+                              {t("ProjectInfoForm.project_area")}
+                            </Form.Label>
                             <Form.Control
                               type="text"
-                              name="projectarea"
+                              name="project_area"
                               placeholder={t("ProjectInfoForm.enter_area")}
-                              value={designForm.projectarea}
+                              value={designForm.project_area}
                               onChange={(e) =>
                                 setDesignForm({
                                   ...designForm,
-                                  projectarea: e.target.value,
+                                  project_area: e.target.value,
                                 })
                               }
                             />
-                            {designErrors.area && (
+                            {designErrors.project_area && (
                               <small className="text-danger">
-                                {" "}
-                                {designErrors.projectarea}
+                                {designErrors.project_area}
                               </small>
                             )}
                           </Form.Group>
                         </Col>
-
                         <Col md={12} lg={6}>
                           <Form.Group
                             className="mb-3 radio-btn"
@@ -1030,13 +1075,13 @@ function ExteriorForm() {
                           >
                             <Form.Label className="p-type">
                               {" "}
-                              Sketch Drawing
+                              {t("ProjectInfoForm.sketch_drawing")}
                             </Form.Label>
                             <Form.Check
                               inline
                               type="radio"
                               id="designYes"
-                              label="Available"
+                              label={t("ProjectInfoForm.available")}
                               name="sketch_drawing"
                               value="Yes"
                               checked={designForm.sketch_drawing === true}
@@ -1051,7 +1096,7 @@ function ExteriorForm() {
                               inline
                               type="radio"
                               id="designNo"
-                              label="Not Available"
+                              label={t("ProjectInfoForm.not_available")}
                               name="sketch_drawing"
                               value="No"
                               checked={designForm.sketch_drawing === false}
@@ -1081,7 +1126,7 @@ function ExteriorForm() {
                           <Button
                             className="btn btn-teal"
                             onClick={() =>
-                              handleNextTab("projectinfo", "designinfo")
+                              goToNextDesignTab("projectinfo", "designinfo")
                             }
                             type="button"
                           >
@@ -1094,7 +1139,7 @@ function ExteriorForm() {
                   </Tab>
 
                   {/* DESIGN INFO */}
-                  <Tab eventKey="designinfo" title="Design Info">
+                  <Tab eventKey="designinfo" title={t("DesingInfoForm.title")}>
                     <div className="personal-info-box design-info-box">
                       <Row>
                         {/* Desired Built-Up Area */}
@@ -1103,44 +1148,50 @@ function ExteriorForm() {
                             className="mb-3"
                             controlId="designDesiredBuiltUpArea"
                           >
-                            <Form.Label>Desired Built-Up Area</Form.Label>
+                            <Form.Label>
+                              {t("DesingInfoForm.desired_built_up_area")}
+                            </Form.Label>
                             <Row>
                               <Col md={6} lg={3}>
-                                <Form.Label>From</Form.Label>
+                                <Form.Label>
+                                  {t("DesingInfoForm.from")}
+                                </Form.Label>
                                 <Form.Control
                                   type="text"
-                                  name="desiredbuiltuparea_from"
-                                  value={designForm.desiredbuiltuparea_from}
+                                  name="desired_area_from"
+                                  value={designForm.desired_area_from}
                                   onChange={(e) =>
                                     setDesignForm({
                                       ...designForm,
-                                      desiredbuiltuparea_from: e.target.value,
+                                      desired_area_from: e.target.value,
                                     })
                                   }
                                 />
-                                {designErrors.desiredbuiltuparea_from && (
+                                {designErrors.desired_area_from && (
                                   <small className="text-danger">
-                                    {designErrors.desiredbuiltuparea_from}
+                                    {designErrors.desired_area_from}
                                   </small>
                                 )}
                               </Col>
 
                               <Col md={6} lg={3}>
-                                <Form.Label>To</Form.Label>
+                                <Form.Label>
+                                  {t("DesingInfoForm.to")}
+                                </Form.Label>
                                 <Form.Control
                                   type="text"
-                                  name="desiredbuiltuparea_to"
-                                  value={designForm.desiredbuiltuparea_to}
+                                  name="desired_area_to"
+                                  value={designForm.desired_area_to}
                                   onChange={(e) =>
                                     setDesignForm({
                                       ...designForm,
-                                      desiredbuiltuparea_to: e.target.value,
+                                      desired_area_to: e.target.value,
                                     })
                                   }
                                 />
-                                {designErrors.desiredbuiltuparea_to && (
+                                {designErrors.desired_area_to && (
                                   <small className="text-danger">
-                                    {designErrors.desiredbuiltuparea_to}
+                                    {designErrors.desired_area_to}
                                   </small>
                                 )}
                               </Col>
@@ -1150,97 +1201,399 @@ function ExteriorForm() {
 
                         {/* Number of Floors */}
                         <Col md={12}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designNumberOfFloors"
-                          >
-                            <Form.Label>Number of Floors</Form.Label>
-                            {[
-                              "Ground Floor",
-                              "Two Floors",
-                              "Three Floors",
-                              "Four Floors or More",
-                            ].map((label) => (
-                              <Form.Check
-                                key={label}
-                                inline
-                                type="radio"
-                                label={label}
-                                name="number_of_floors"
-                                value={label}
-                                checked={designForm.number_of_floors === label}
-                                onChange={(e) =>
-                                  setDesignForm({
-                                    ...designForm,
-                                    number_of_floors: e.target.value,
-                                  })
-                                }
-                              />
-                            ))}
-                          </Form.Group>
+                          <div className="mb-3 radio-btn">
+                            <Form.Group
+                              className="mb-3"
+                              controlId="designNumberOfFloors"
+                            >
+                              <Form.Label>
+                                {t("DesingInfoForm.number_of_floors")}
+                              </Form.Label>
+                              {[
+                                { key: "ground_floor", value: "Ground Floor" },
+                                { key: "two_floors", value: "Two Floors" },
+                                { key: "three_floors", value: "Three Floors" },
+                                {
+                                  key: "four_floors_or_more",
+                                  value: "Four Floors or More",
+                                },
+                              ].map((item) => (
+                                <Form.Check
+                                  key={item.key}
+                                  inline
+                                  type="radio"
+                                  label={t(`DesingInfoForm.${item.key}`)} // ✅ Use translation key
+                                  name="number_of_floors"
+                                  id={`designNumberOfFloors_${item.key}`}
+                                  value={item.value}
+                                  checked={
+                                    designForm.number_of_floors === item.value
+                                  }
+                                  onChange={(e) =>
+                                    setDesignForm({
+                                      ...designForm,
+                                      number_of_floors: e.target.value,
+                                    })
+                                  }
+                                />
+                              ))}
+                              {designErrors.number_of_floors && (
+                                <small className="text-danger">
+                                  {designErrors.number_of_floors}
+                                </small>
+                              )}
+                            </Form.Group>
+                          </div>
                         </Col>
 
-                        {/* Design Preferences */}
+                        {/* Design Preferences - keep UI similar to original but as checkboxes */}
                         <Col md={12}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designPreferences"
-                          >
-                            <Form.Label>Design Preferences</Form.Label>
-                            <p>
-                              Please select the spaces based on your personal
-                              needs and lifestyle requirements
-                            </p>
+                          <div className="mb-3 radio-btn">
+                            <Form.Group
+                              className="mb-3"
+                              controlId="designPreferences"
+                            >
+                              <Form.Label>
+                                {t("DesingInfoForm.design_preferences")}
+                              </Form.Label>
+                              <p>{t("DesingInfoForm.note1")}</p>
 
-                            {[
-                              "Separate Floor for reception and living areas, and another floor for bedrooms",
-                              "All spaces combined on a single floor",
-                              "Guest Bedroom with Bathroom",
-                              "Guest Bedroom without Bathroom",
-                              "External Reception with Restroom",
-                              "Reception + Dining Room + Restroom",
-                              "Men’s Reception with Separate Restroom",
-                              "Women’s Reception with Separate Restroom",
-                              "Living Room",
-                              "Closed Kitchen",
-                              "Open Kitchen",
-                              "Separate Hot/Cold Kitchen",
-                              "Dining Area",
-                              "Master Bedroom with Bathroom",
-                              "Master Bedroom with Dressing Room & Bathroom",
-                              "Children’s Bedrooms (number)",
-                              "One",
-                              "Two",
-                              "Three",
-                              "Four or More",
-                              "Maid’s Room",
-                              "Driver’s Room",
-                              "Laundry Room",
-                              "Storage Room",
-                              "Cinema Room",
-                              "Recreation/Gym Room",
-                              "Indoor Courtyard",
-                              "Swimming Pool",
-                            ].map((option) => (
-                              <Form.Check
-                                key={option}
-                                inline
-                                type="radio"
-                                label={option}
-                                name="design_preferences"
-                                value={option}
-                                checked={
-                                  designForm.design_preferences === option
-                                }
-                                onChange={(e) =>
-                                  setDesignForm({
-                                    ...designForm,
-                                    design_preferences: e.target.value,
-                                  })
-                                }
-                              />
-                            ))}
-                          </Form.Group>
+                              <Row>
+                                <Col md={12} lg={6}>
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.separate_floor_for_reception_and_living_areas_and_another_floor_for_bedrooms"
+                                    )}
+                                    checked={
+                                      designForm.separate_floor_reception_living
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        separate_floor_reception_living:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.all_spaces_combined_on_a_single_floor"
+                                    )}
+                                    checked={designForm.combined_floor}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        combined_floor: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.guest_bedroom_with_bathroom"
+                                    )}
+                                    checked={
+                                      designForm.guest_bedroom_with_bathroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        guest_bedroom_with_bathroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.guest_bedroom_without_bathroom"
+                                    )}
+                                    checked={
+                                      designForm.guest_bedroom_without_bathroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        guest_bedroom_without_bathroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.external_reception_with_restroom"
+                                    )}
+                                    checked={
+                                      designForm.external_reception_restroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        external_reception_restroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.reception_dining_room_restroom"
+                                    )}
+                                    checked={
+                                      designForm.reception_dining_restroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        reception_dining_restroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                </Col>
+                                <Col md={12} lg={6}>
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.men_reception_with_separate_restroom"
+                                    )}
+                                    checked={
+                                      designForm.men_reception_separate_restroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        men_reception_separate_restroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.women_reception_with_separate_restroom"
+                                    )}
+                                    checked={
+                                      designForm.women_reception_separate_restroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        women_reception_separate_restroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.living_room")}
+                                    checked={designForm.living_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        living_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.closed_kitchen")}
+                                    checked={designForm.closed_kitchen}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        closed_kitchen: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.open_kitchen")}
+                                    checked={designForm.open_kitchen}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        open_kitchen: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.separate_hotcold_kitchen"
+                                    )}
+                                    checked={
+                                      designForm.separate_hot_cold_kitchen
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        separate_hot_cold_kitchen:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                </Col>
+                                <Col md={12} className="mt-2">
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.dining_area")}
+                                    checked={designForm.dining_area}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        dining_area: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.master_bedroom_with_bathroom"
+                                    )}
+                                    checked={
+                                      designForm.master_bedroom_with_bathroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        master_bedroom_with_bathroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.master_bedroom_with_dressing_room_and_bathroom"
+                                    )}
+                                    checked={
+                                      designForm.master_bedroom_with_dressing_bathroom
+                                    }
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        master_bedroom_with_dressing_bathroom:
+                                          e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Group
+                                    className="mt-2"
+                                    controlId="childrenBedrooms"
+                                  >
+                                    <Form.Label>
+                                      {t("DesingInfoForm.children_bedrooms")}
+                                    </Form.Label>
+                                    <Form.Control
+                                      type="text"
+                                      placeholder="e.g. Two"
+                                      value={designForm.children_bedrooms}
+                                      onChange={(e) =>
+                                        setDesignForm({
+                                          ...designForm,
+                                          children_bedrooms: e.target.value,
+                                        })
+                                      }
+                                    />
+                                  </Form.Group>
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.maid_room")}
+                                    checked={designForm.maids_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        maids_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.driver_room")}
+                                    checked={designForm.drivers_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        drivers_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.laundry_room")}
+                                    checked={designForm.laundry_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        laundry_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.storage_room")}
+                                    checked={designForm.storage_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        storage_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.cinema_room")}
+                                    checked={designForm.cinema_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        cinema_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t(
+                                      "DesingInfoForm.recreation_gym_room"
+                                    )}
+                                    checked={designForm.recreation_gym_room}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        recreation_gym_room: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.indoor_courtyard")}
+                                    checked={designForm.indoor_courtyard}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        indoor_courtyard: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                  <Form.Check
+                                    type="checkbox"
+                                    label={t("DesingInfoForm.swimming_pool")}
+                                    checked={designForm.swimming_pool}
+                                    onChange={(e) =>
+                                      setDesignForm({
+                                        ...designForm,
+                                        swimming_pool: e.target.checked,
+                                      })
+                                    }
+                                  />
+                                </Col>
+                              </Row>
+                            </Form.Group>
+                          </div>
                         </Col>
                       </Row>
 
@@ -1256,7 +1609,9 @@ function ExteriorForm() {
                         </Button>
                         <Button
                           className="btn btn-teal"
-                          onClick={() => setActiveDesignTab("designtype")}
+                          onClick={() =>
+                            goToNextDesignTab("designinfo", "designtype")
+                          }
                           type="button"
                         >
                           {" "}
@@ -1270,7 +1625,7 @@ function ExteriorForm() {
                   <Tab eventKey="designtype" title={t("DesignTypeForm.title")}>
                     <div className="design-type-box">
                       <h3>{t("DesignTypeForm.design_style")}</h3>
-                      <p>{t("DesignTypeForm.select_design_style")}</p>
+                      <p>{t("DesignTypeForm.note2")}</p>
                       <div className="design-type-categories">
                         <Row>
                           {Object.keys(designExamples).map((style, i) => (
@@ -1302,6 +1657,7 @@ function ExteriorForm() {
                           ))}
                         </Row>
                       </div>
+                      <p>{t("DesignTypeForm.note1")}</p>
                       <div className="d-flex justify-content-between mt-3">
                         <Button
                           className="btn-black"
@@ -1316,10 +1672,10 @@ function ExteriorForm() {
                         <Button
                           className="btn btn-teal"
                           type="submit"
-                          disabled={inquiryState.loading}
+                          disabled={inquiryState.loading || loading}
                         >
                           {" "}
-                          {inquiryState.loading ? (
+                          {inquiryState.loading || loading ? (
                             <Spinner animation="border" size="sm" />
                           ) : (
                             t("DesignTypeForm.submit")
