@@ -21,24 +21,37 @@ const ContactBanner: React.FC = () => {
   if (error) return <p>Error: {error}</p>;
   if (!data) return null;
 
+  const isArabic = i18n.language === "ar";
+
   return (
-    <section className="contact-banner overflow-hidden" >
+    <section className={`contact-banner overflow-hidden ${isArabic ? "rtl" : ""}`}>
       <Container>
         <div className="ct-info">
           <div className="ct-image">
             <img src={data.images_url} alt="Contact Banner" loading="lazy" />
           </div>
-          <div className="ct-text" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
-            <h1>{data.title1_en}</h1>
+
+          <div
+            className="ct-text"
+            data-aos={isArabic ? "fade-left" : "fade-right"}
+          >
+            <h1>{isArabic ? data.title1_ar : data.title1_en}</h1>
           </div>
-          <div className="ct-right" >
-            <h3 data-aos={i18n.language === "ar" ? "fade-right" : "fade-left"}>{data.title2_en}</h3>
-            <ul data-aos={i18n.language === "ar" ? "fade-right" : "fade-left"}>
-              <li>{data.button1_lable_en}</li>
-              <li>{data.button2_lable_en}</li>
-              <li>{data.button3_lable_en}</li>
+
+          <div className="ct-right">
+            <h3 data-aos={isArabic ? "fade-right" : "fade-left"}>
+              {isArabic ? data.title2_ar : data.title2_en}
+            </h3>
+
+            <ul data-aos={isArabic ? "fade-right" : "fade-left"}>
+              <li>{isArabic ? data.button1_lable_ar : data.button1_lable_en}</li>
+              <li>{isArabic ? data.button2_lable_ar : data.button2_lable_en}</li>
+              <li>{isArabic ? data.button3_lable_ar : data.button3_lable_en}</li>
             </ul>
-            <p data-aos={i18n.language === "ar" ? "fade-right" : "fade-left"}>{data.subtitle_en}</p>
+
+            <p data-aos={isArabic ? "fade-right" : "fade-left"}>
+              {isArabic ? data.subtitle_ar : data.subtitle_en}
+            </p>
           </div>
         </div>
       </Container>
