@@ -7,6 +7,7 @@ export const submitInquiry = createAsyncThunk(
   async (formData: InquiryFormData, { rejectWithValue }) => {
     try {
       const payload = new FormData();
+      payload.append("type", "external");
       payload.append("name", formData.name);
       payload.append("phone_number", formData.phone_number);
       payload.append("place_of_residence", formData.place_of_residence);
@@ -40,6 +41,7 @@ export const submitDesignInquiry = createAsyncThunk(
   async (formData: DesignInquiryFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "external",
         full_name: formData.full_name,
         phone_number: formData.phone_number,
         city: formData.city,
@@ -73,6 +75,7 @@ export const submitFinishingInquiry = createAsyncThunk(
   async (formData: FinishingInquiryFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "external",
         name: formData.name,
         phone_number: formData.phone_number,
         place_of_residence: formData.place_of_residence,
@@ -98,6 +101,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
   async (formData: SoloLearnFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "external",
         full_name: formData.full_name,
         phone_number: formData.phone_number,
         date_of_birth: formData.date_of_birth,
@@ -107,6 +111,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
         year_of_graduation: formData.year_of_graduation,
         worked_in_finishing_field: formData.worked_in_finishing_field,
       };
+
       const response = await axiosAPIInstace.post(
         "/sole-learn/store",
         payload,
@@ -114,6 +119,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
           headers: { "Content-Type": "application/json" },
         }
       );
+
       return response.data;
     } catch (error: any) {
       return rejectWithValue(
@@ -125,6 +131,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
 
 // 🧾 Types
 interface InquiryFormData {
+  type: string;
   name: string;
   phone_number: string;
   place_of_residence: string;
@@ -136,6 +143,7 @@ interface InquiryFormData {
 }
 
 export interface DesignInquiryFormData {
+  type: string;
   full_name: string;
   phone_number: string;
   city: string;
@@ -154,6 +162,7 @@ export interface DesignInquiryFormData {
 
 // ✅ Type for Finishing Inquiry
 export interface FinishingInquiryFormData {
+  type: string;
   name: string;
   phone_number: string;
   place_of_residence: string;
@@ -164,6 +173,7 @@ export interface FinishingInquiryFormData {
 
 // ✅ Type for Solo Learn Inquiry
 export interface SoloLearnFormData {
+  type: string;
   full_name: string;
   phone_number: string;
   date_of_birth: string;

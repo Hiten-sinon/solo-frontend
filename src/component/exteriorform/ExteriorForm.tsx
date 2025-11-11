@@ -157,6 +157,7 @@ function ExteriorForm() {
 
   // Construction Work form
   const [constructionForm, setConstructionForm] = useState({
+    type: "external",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -169,6 +170,7 @@ function ExteriorForm() {
 
   // Design Work form
   const [designForm, setDesignForm] = useState({
+    type: "external",
     full_name: "",
     phone_number: "",
     city: "",
@@ -187,6 +189,7 @@ function ExteriorForm() {
 
   // Finishing Work form
   const [finishingForm, setFinishingForm] = useState({
+    type: "external",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -197,6 +200,7 @@ function ExteriorForm() {
 
   // Solo Learn form
   const [soloForm, setSoloForm] = useState({
+    type: "external",
     full_name: "",
     phone_number: "",
     date_of_birth: "",
@@ -321,6 +325,7 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setConstructionForm({
+          type: "external",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -373,6 +378,7 @@ function ExteriorForm() {
       // Reset form only on success
       if (isSuccess) {
         setDesignForm({
+          type: "external",
           full_name: "",
           phone_number: "",
           city: "",
@@ -429,6 +435,7 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setFinishingForm({
+          type: "external",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -455,13 +462,16 @@ function ExteriorForm() {
   const handleSoloSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateSolo()) return;
+
     try {
       const res: any = await dispatch(submitSoloLearnInquiry(soloForm) as any);
-      // handle both unwrap() and regular dispatch cases
       const payload = res?.payload || res;
+
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
+
       let messageText = "";
+
       if (isError) {
         const errorMessages = Object.values(payload.errors).flat().join(" ");
         messageText =
@@ -478,12 +488,15 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setSoloForm({
+          type: "external",
           full_name: "",
           phone_number: "",
+          date_of_birth: "",
           place_of_residence: "",
-          project_location: "New York",
-          site_area: "",
-          vehicle_type: "",
+          college_major: "",
+          status: "",
+          year_of_graduation: "",
+          worked_in_finishing_field: false,
         });
       }
     } catch (err: any) {

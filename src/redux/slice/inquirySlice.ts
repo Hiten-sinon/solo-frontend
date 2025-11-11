@@ -7,6 +7,7 @@ export const submitInquiry = createAsyncThunk(
   async (formData: InquiryFormData, { rejectWithValue }) => {
     try {
       const payload = new FormData();
+      payload.append("type", "internal");
       payload.append("name", formData.name);
       payload.append("phone_number", formData.phone_number);
       payload.append("place_of_residence", formData.place_of_residence);
@@ -73,6 +74,7 @@ export const submitFinishingInquiry = createAsyncThunk(
   async (formData: FinishingInquiryFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "internal",
         name: formData.name,
         phone_number: formData.phone_number,
         place_of_residence: formData.place_of_residence,
@@ -98,6 +100,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
   async (formData: SoloLearnFormData, { rejectWithValue }) => {
     try {
       const payload = {
+        type: "internal",
         full_name: formData.full_name,
         phone_number: formData.phone_number,
         date_of_birth: formData.date_of_birth,
@@ -125,6 +128,7 @@ export const submitSoloLearnInquiry = createAsyncThunk(
 
 // 🧾 Types
 interface InquiryFormData {
+  type: string;
   name: string;
   phone_number: string;
   place_of_residence: string;
@@ -154,6 +158,7 @@ export interface DesignInquiryFormData {
 
 // ✅ Type for Finishing Inquiry
 export interface FinishingInquiryFormData {
+  type: string;
   name: string;
   phone_number: string;
   place_of_residence: string;
@@ -164,6 +169,7 @@ export interface FinishingInquiryFormData {
 
 // ✅ Type for Solo Learn Inquiry
 export interface SoloLearnFormData {
+  type: string;
   full_name: string;
   phone_number: string;
   date_of_birth: string;

@@ -157,6 +157,7 @@ function InquiryForm() {
 
   // Construction Work form
   const [constructionForm, setConstructionForm] = useState({
+    type: "internal",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -187,6 +188,7 @@ function InquiryForm() {
 
   // Finishing Work form
   const [finishingForm, setFinishingForm] = useState({
+    type: "internal",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -198,6 +200,7 @@ function InquiryForm() {
   // Solo Learn form
   const [soloForm, setSoloForm] = useState<
   {
+    type: string;
     full_name: string;
     phone_number: string;
     date_of_birth: string;
@@ -210,6 +213,7 @@ function InquiryForm() {
     site_area: string;
     vehicle_type: string;
   }>({
+    type: "internal",
     full_name: "",
     phone_number: "",
     date_of_birth: "",
@@ -337,6 +341,7 @@ function InquiryForm() {
 
       if (isSuccess) {
         setConstructionForm({
+          type: "internal",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -455,6 +460,7 @@ function InquiryForm() {
 
       if (isSuccess) {
         setFinishingForm({
+          type: "internal",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -508,6 +514,7 @@ function InquiryForm() {
 
       if (isSuccess) {
         setSoloForm({
+          type: "internal",
           full_name: "",
           phone_number: "",
           place_of_residence: "",

@@ -152,6 +152,12 @@ body {
   text-align: left;
   left: 0;
 }
+.home-btn span{
+  margin-left: 10px;
+}
+.home-btn i{
+  transform: scaleX(-1);
+}
 @media (max-width: 1199px) {
   .feature-info {
     left: 50px;
