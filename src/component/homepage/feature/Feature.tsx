@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchFeatures } from "../../../redux/slice/homepage/featureSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
 import { useTranslation } from "react-i18next";
+import Loader from "../../loader/Loader";
 
 const Feature: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { data, loading, error } = useSelector(
+  const { data, featureloading, error } = useSelector(
     (state: RootState) => state.features
   );
   const [key, setKey] = useState<string>("0");
@@ -19,7 +20,7 @@ const Feature: React.FC = () => {
     dispatch(fetchFeatures());
   }, [dispatch]);
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (featureloading) return <Loader />;
   if (error) return <p className="text-center text-danger">{error}</p>;
 
   return (
@@ -42,10 +43,10 @@ const Feature: React.FC = () => {
             return (
               <Tab key={feature.id} eventKey={String(index)} title={title}>
                 <div className="feauture-content">
-                  <div className="feature-image">
+                  <div className="feature-image" data-aos="fade-up">
                     <img src={feature.images_url} alt={title} loading="lazy" />
                   </div>
-                  <div className="feature-info">
+                  <div className="feature-info" data-aos="fade-up">
                     <p>{subTitle}</p>
                   </div>
                 </div>

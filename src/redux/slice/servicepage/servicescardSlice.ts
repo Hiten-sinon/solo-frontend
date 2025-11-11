@@ -11,22 +11,22 @@ const servicescardSlice = createSlice({
   name: "services",
   initialState: {
     items: [] as any[],
-    loading: false,
+    servicecardloading: false,
     error: null as string | null,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchServices.pending, (state) => {
-        state.loading = true;
+        state.servicecardloading = true;
         state.error = null;
       })
       .addCase(fetchServices.fulfilled, (state, action) => {
-        state.loading = false;
+        state.servicecardloading = false;
         state.items = action.payload;
       })
       .addCase(fetchServices.rejected, (state, action) => {
-        state.loading = false;
+        state.servicecardloading = false;
         state.error = action.error.message ?? "Something went wrong";
       });
   },

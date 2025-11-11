@@ -5,12 +5,13 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNumbers } from "../../../redux/slice/homepage/numbersSlice";
 import type { RootState, AppDispatch } from "../../../redux/store";
+import Loader from "../../loader/Loader";
 
 const Number: React.FC = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: numbers, loading, error } = useSelector(
+  const { data: numbers, numbersLoading, error } = useSelector(
     (state: RootState) => state.numbers
   );
 
@@ -21,12 +22,12 @@ const Number: React.FC = () => {
   return (
     <section className="number">
       <Container>
-        <div className="number-title">
+        <div className="number-title" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
           <h2>{t("number.title")}</h2>
           <p>{t("number.desc")}</p>
         </div>
 
-        {loading && <p className="text-center">Loading...</p>}
+        {numbersLoading && <Loader />}
         {error && <p className="text-center text-danger">{error}</p>}
 
         <div className="counter-main">
@@ -37,6 +38,7 @@ const Number: React.FC = () => {
                   <div
                     className="p-4 text-center bg-white shadow-sm box-number"
                     style={{ minHeight: "150px" }}
+                    data-aos="flip-up"
                   >
                     <h3 className="fw-bold">
                       <CountUp end={item.value} duration={2} />+
@@ -50,7 +52,7 @@ const Number: React.FC = () => {
                 </div>
               ))
             ) : (
-              !loading && <p className="text-center">No stats available</p>
+              !numbersLoading && <p className="text-center">No stats available</p>
             )}
           </div>
         </div>

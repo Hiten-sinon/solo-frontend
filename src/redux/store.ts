@@ -7,18 +7,21 @@ import featuresReducer from "./slice/homepage/featureSlice";
 import servicescardReducer from "./slice/servicepage/servicescardSlice";
 import serviceTabReducer from "./slice/servicepage/serviceTabSlice";
 import soloDifferentReducer from "./slice/servicepage/soloDifferentSlice";
-import blogSlice from "./slice/servicepage/blogSlice ";
-import contactBannerReducer from './slice/contactpage/contactBannerSlice';
-import contactFormReducer from './slice/contactpage/contactFormSlice';
-import aboutBannerReducer from './slice/aboutpage/aboutBannerSlice';
-import clientSayReducer from './slice/clientsay/clientSaySlice';
+import blogSlice from "./slice/blogSlice";
+import contactBannerReducer from "./slice/contactpage/contactBannerSlice";
+import contactFormReducer from "./slice/contactpage/contactFormSlice";
+import aboutBannerReducer from "./slice/aboutpage/aboutBannerSlice";
+import clientSayReducer from "./slice/clientsay/clientSaySlice";
+import blogdetailsReducer from "./slice/blogdetailsSlice";
+import inquiryReducer from "./slice/inquirySlice";
+import exteriorReducer from "./slice/exteriorSlice";
 export const store = configureStore({
   reducer: {
     partners: partnersReducer,
     teams: teamsReducer,
     numbers: numbersReducer,
     slider: sliderReducer,
-    features: featuresReducer, 
+    features: featuresReducer,
     servicescard: servicescardReducer,
     serviceTab: serviceTabReducer,
     soloDifferent: soloDifferentReducer,
@@ -27,6 +30,9 @@ export const store = configureStore({
     contactForm: contactFormReducer,
     aboutBanner: aboutBannerReducer,
     clientSay: clientSayReducer,
+    blogdetails: blogdetailsReducer,
+    inquiry: inquiryReducer,
+    exterior: exteriorReducer,
   },
 });
 

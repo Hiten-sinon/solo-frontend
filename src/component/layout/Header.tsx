@@ -84,8 +84,8 @@ const Header: React.FC = () => {
                   <Link to="/">{t("home")}</Link>
                   <Link to="/service">{t("services")}</Link>
                   <NavDropdown title={t("more")} id="nav-dropdown" className="language-dropdown">
-                    <NavDropdown.Item href="#">{t("team")}</NavDropdown.Item>
-                    <NavDropdown.Item href="#">{t("careers")}</NavDropdown.Item>
+                    <NavDropdown.Item href="/blog">{t("blog")}</NavDropdown.Item>
+                    <NavDropdown.Item href="/interior">{t("interior")}</NavDropdown.Item>
                   </NavDropdown>
                   <Link to="/about">{t("about")}</Link>
                   <Link to="/contact">{t("contact")}</Link>
@@ -106,9 +106,11 @@ const Header: React.FC = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Link to="#" className="btn btn-teal">
-                    {t("inquiry")}
-                  </Link>
+                  
+                    <NavDropdown title={t("inquiry")} id="nav-dropdown" className="language-dropdown btn btn-teal">
+                    <NavDropdown.Item href="/inquiry">{t("interior")}</NavDropdown.Item>
+                    <NavDropdown.Item href="/exterior">{t("ExteriorPage.title")}</NavDropdown.Item>
+                  </NavDropdown>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

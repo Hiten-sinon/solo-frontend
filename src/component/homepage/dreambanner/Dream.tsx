@@ -10,8 +10,8 @@ const Dream: React.FC = () => {
       <div className="dream-image">
         <img src={Dreams} alt={t("dream.title")} loading="lazy" />
       </div>
-      <div className="dream-text">
-        <h3>{t("dream.title")}</h3>
+      <div className="dream-text" >
+        <h3 data-aos="fade-up">{t("dream.title")}</h3>
       </div>
     </section>
   );

@@ -15,13 +15,13 @@ export interface SoloDifferentItem {
 
 interface SoloDifferentState {
   data: SoloDifferentItem[];
-  loading: boolean;
+  solodifferentloading: boolean;
   error: string | null;
 }
 
 const initialState: SoloDifferentState = {
   data: [],
-  loading: false,
+  solodifferentloading: false,
   error: null,
 };
 
@@ -44,18 +44,18 @@ const soloDifferentSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSoloDifferent.pending, (state) => {
-        state.loading = true;
+        state.solodifferentloading = true;
         state.error = null;
       })
       .addCase(
         fetchSoloDifferent.fulfilled,
         (state, action: PayloadAction<SoloDifferentItem[]>) => {
-          state.loading = false;
+          state.solodifferentloading = false;
           state.data = action.payload;
         }
       )
       .addCase(fetchSoloDifferent.rejected, (state, action) => {
-        state.loading = false;
+        state.solodifferentloading = false;
         state.error = action.payload as string;
       });
   },

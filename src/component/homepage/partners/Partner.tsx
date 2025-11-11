@@ -5,11 +5,12 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPartners } from "../../../redux/slice/homepage/partnersSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../loader/Loader";
 
 const Partner: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-  const { data: partners, loading } = useSelector(
+  const { data: partners, partnersLoading } = useSelector(
     (state: RootState) => state.partners
   );
 
@@ -21,6 +22,7 @@ const Partner: React.FC = () => {
     dots: false,
     arrows: false,
     infinite: true,
+    autoplay: true,
     speed: 500,
     centerMode: true,
     slidesToShow: 5,
@@ -41,12 +43,12 @@ const Partner: React.FC = () => {
       </Container>
 
       <div className="slider-partner">
-        {loading ? (
-          <p>Loading...</p>
+        {partnersLoading ? (
+          <Loader />
         ) : (
           <Slider {...settings}>
             {partners.map((partner) => (
-              <div key={partner.id}>
+              <div key={partner.id} data-aos="fade-up">
                 <div className="partner-image-box">
                   <img
                     src={partner.images_url}

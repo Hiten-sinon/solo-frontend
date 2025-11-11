@@ -8,12 +8,13 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSlider } from "../../../redux/slice/homepage/sliderSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../loader/Loader";
 
 const Banner: React.FC = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: slides, loading, error } = useSelector(
+  const { data: slides, bannersliderloading, error } = useSelector(
     (state: RootState) => state.slider
   );
 
@@ -32,7 +33,7 @@ const Banner: React.FC = () => {
     rtl: i18n.language === "ar",
   };
 
-  if (loading) return <p>Loading slider...</p>;
+  if (bannersliderloading) return <Loader />;
   if (error) return <p>{error}</p>;
 
   return (

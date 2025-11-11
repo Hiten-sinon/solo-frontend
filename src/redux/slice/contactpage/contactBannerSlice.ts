@@ -27,13 +27,13 @@ export interface ContactBannerData {
 
 interface ContactBannerState {
   data: ContactBannerData | null;
-  loading: boolean;
+  contactbannerloading: boolean;
   error: string | null;
 }
 
 const initialState: ContactBannerState = {
   data: null,
-  loading: false,
+  contactbannerloading: false,
   error: null,
 };
 
@@ -57,18 +57,18 @@ const contactBannerSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchContactBannerData.pending, (state) => {
-        state.loading = true;
+        state.contactbannerloading = true;
         state.error = null;
       })
       .addCase(
         fetchContactBannerData.fulfilled,
         (state, action: PayloadAction<ContactBannerData>) => {
-          state.loading = false;
+          state.contactbannerloading = false;
           state.data = action.payload;
         }
       )
       .addCase(fetchContactBannerData.rejected, (state, action) => {
-        state.loading = false;
+        state.contactbannerloading = false;
         state.error = action.payload as string;
       });
   },

@@ -17,13 +17,13 @@ interface SliderItem {
 
 interface SliderState {
   data: SliderItem[];
-  loading: boolean;
+  bannersliderloading: boolean;
   error: string | null;
 }
 
 const initialState: SliderState = {
   data: [],
-  loading: false,
+  bannersliderloading: false,
   error: null,
 };
 
@@ -34,15 +34,15 @@ const sliderSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchSlider.pending, (state) => {
-        state.loading = true;
+        state.bannersliderloading = true;
         state.error = null;
       })
       .addCase(fetchSlider.fulfilled, (state, action) => {
-        state.loading = false;
+        state.bannersliderloading = false;
         state.data = action.payload;
       })
       .addCase(fetchSlider.rejected, (state, action) => {
-        state.loading = false;
+        state.bannersliderloading = false;
         state.error = action.error.message || "Failed to fetch slider";
       });
   },

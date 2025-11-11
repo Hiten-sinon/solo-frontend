@@ -6,10 +6,13 @@ import { Border } from "../../../assets/images";
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState, AppDispatch } from "../../../redux/store";
 import { submitContactForm } from "../../../redux/slice/contactpage/contactFormSlice";
+import Loader from "../../loader/Loader";
+import { useTranslation } from "react-i18next"; 
 
 const ContactForm: React.FC = () => {
+  const { i18n } = useTranslation();
   const { data } = useSelector((state: RootState) => state.contactBanner);
-  const { loading, success, error } = useSelector((state: RootState) => state.contactForm);
+  const { contactformloading, success, error } = useSelector((state: RootState) => state.contactForm);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,12 +31,13 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     dispatch(submitContactForm(formData));
   };
+  if(contactformloading) return <Loader />
 
   return (
     <section className="contact-form">
       <Container>
         <div className="contact-title">
-          <h2>
+          <h2 data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
             {data?.contact_form_title_en}
             <i className="bi bi-arrow-right-circle"></i>
           </h2>
@@ -42,7 +46,7 @@ const ContactForm: React.FC = () => {
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col md={4}>
-                <Form.Group className="mb-3" controlId="Name">
+                <Form.Group className="mb-3" controlId="Name" data-aos="fade-up">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
                     type="text"
@@ -53,7 +57,7 @@ const ContactForm: React.FC = () => {
                 </Form.Group>
               </Col>
               <Col md={4}>
-                <Form.Group className="mb-3" controlId="phone">
+                <Form.Group className="mb-3" controlId="phone" data-aos="fade-up">
                   <Form.Label>Phone</Form.Label>
                   <Form.Control
                     type="number"
@@ -64,7 +68,7 @@ const ContactForm: React.FC = () => {
                 </Form.Group>
               </Col>
               <Col md={4}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Group className="mb-3" controlId="formBasicEmail" data-aos="fade-up">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
@@ -78,7 +82,7 @@ const ContactForm: React.FC = () => {
                 </Form.Group>
               </Col>
               <Col md={12}>
-                <Form.Group controlId="ControlTextarea1">
+                <Form.Group controlId="ControlTextarea1" data-aos="fade-up">
                   <Form.Label>Message</Form.Label>
                   <div className="form-textarea position-relative">
                     <Form.Control
@@ -93,8 +97,8 @@ const ContactForm: React.FC = () => {
                 </Form.Group>
               </Col>
               <Col md={12} className="het-right">
-                <Button type="submit" className="btn btn-teal" disabled={loading}>
-                  {loading ? "Sending..." : "Send"}
+                <Button type="submit" className="btn btn-teal" disabled={contactformloading} data-aos="fade-up">
+                  {contactformloading ? "Sending..." : "Send"}
                 </Button>
               </Col>
               <Col md={12}>

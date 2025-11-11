@@ -8,13 +8,13 @@ export const fetchNumbers = createAsyncThunk("numbers/fetch", async () => {
 
 interface NumbersState {
   data: any[];
-  loading: boolean;
+  numbersLoading: boolean;
   error: string | null;
 }
 
 const initialState: NumbersState = {
   data: [],
-  loading: false,
+  numbersLoading: false,
   error: null,
 };
 
@@ -25,15 +25,15 @@ const numbersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchNumbers.pending, (state) => {
-        state.loading = true;
+        state.numbersLoading = true;
         state.error = null;
       })
       .addCase(fetchNumbers.fulfilled, (state, action) => {
-        state.loading = false;
+        state.numbersLoading = false;
         state.data = action.payload.data;
       })
       .addCase(fetchNumbers.rejected, (state, action) => {
-        state.loading = false;
+        state.numbersLoading = false;
         state.error = action.error.message || "Failed to fetch numbers";
       });
   },

@@ -1,19 +1,20 @@
 import React, { useEffect } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Slider from "react-slick";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchBlogPosts} from "../../redux/slice/servicepage/blogSlice ";
-import type { BlogPost } from "../../redux/slice/servicepage/blogSlice ";
-import type { RootState, AppDispatch } from "../../redux/store";
+import type { AppDispatch, RootState } from "../../redux/store";
+import { fetchBlogs } from "../../redux/slice/blogSlice";
+import type { BlogPost } from "../../redux/slice/blogSlice";
 
 const ServiceBlog: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { posts, loading, error } = useSelector(
+  const { posts, blogcardloading, error } = useSelector(
     (state: RootState) => state.blogSlice
   );
 
   useEffect(() => {
-    dispatch(fetchBlogPosts());
+    dispatch(fetchBlogs());
   }, [dispatch]);
 
   const settings = {
@@ -26,32 +27,20 @@ const ServiceBlog: React.FC = () => {
     responsive: [
       {
         breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          dots: true,
-        },
+        settings: { slidesToShow: 2, slidesToScroll: 1, dots: true },
       },
       {
         breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-        },
+        settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
       },
       {
         breakpoint: 575,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: true,
-        },
+        settings: { slidesToShow: 1, slidesToScroll: 1, dots: true },
       },
     ],
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (blogcardloading) return <p>Loading blog articles...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
@@ -63,17 +52,19 @@ const ServiceBlog: React.FC = () => {
         <div className="service-blog-content">
           <Slider {...settings}>
             {posts.map((post: BlogPost) => (
-              <div className="blog-item" key={post.id}>
+              <Link to={`/blog/${post.id}`} className="blog-item" key={post.id}>
                 <img src={post.images_url} alt={post.blog_title_en} />
                 <div className="blog-text-list">
                   <h3>{post.blog_title_en}</h3>
                   <p>By {post.author_en}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
           <div className="blog-list-items-button">
-            <Button className="btn-teal">See All articles</Button>
+            <Link to="/blog" className="btn-teal">
+              See All articles
+            </Link>
           </div>
         </div>
       </Container>

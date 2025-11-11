@@ -17,13 +17,13 @@ interface FeatureItem {
 
 interface FeatureState {
   data: FeatureItem[];
-  loading: boolean;
+  featureloading: boolean;
   error: string | null;
 }
 
 const initialState: FeatureState = {
   data: [],
-  loading: false,
+  featureloading: false,
   error: null,
 };
 
@@ -34,14 +34,14 @@ const featureSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchFeatures.pending, (state) => {
-        state.loading = true;
+        state.featureloading = true;
       })
       .addCase(fetchFeatures.fulfilled, (state, action) => {
-        state.loading = false;
+        state.featureloading = false;
         state.data = action.payload;
       })
       .addCase(fetchFeatures.rejected, (state, action) => {
-        state.loading = false;
+        state.featureloading = false;
         state.error = action.error.message || "Failed to fetch features";
       });
   },

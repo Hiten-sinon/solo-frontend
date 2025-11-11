@@ -6,6 +6,8 @@
   "team": "Team",
   "careers": "Careers",
   "about": "About Us",
+  "blog": "Blog",
+  "interior": "Interior",
   "contact": "Contact Us",
   "inquiry": "Inquiry form",
   "banner": {
@@ -100,5 +102,118 @@
       "address": "2972 Westheimer Rd. Santa Ana, Illinois 85486"
     },
     "copyright": "© 2025 Copyright"
+  },
+  "ConstructionWorkForm": {
+    "title": "Construction Work",
+    "fullname": "Full Name",
+    "enter_name": "Enter name",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "residency": "Residency",
+    "enter_residency": "Enter residency",
+    "project_location": "Project Location",
+    "enter_project_location": "Enter project location",
+    "project_area": "Project Area",
+    "enter_project_area": "Enter project area",
+    "type_of_space": "Type of Space",
+    "administratitive": "Administrative",
+    "commmercial": "Commercial",
+    "residential": "Residential",
+    "note": "Note",
+    "contruction_note": "The form must be completely filled out. Do not leave any required fields blank.",
+    "submit": "Submit"
+  },
+  "DesignWorkForm": {
+    "title": "Design Work",
+    "personal_info_tab_title": "Personal Info",
+    "fullname": "Full Name",
+    "enter_name": "Enter name",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "city": "City",
+    "enter_city": "Enter city",
+    "project_location": "Project Location",
+    "enter_project_location": "Enter project location",
+    "next": "Next"
+  },
+  "ProjectInfoForm": {
+    "title": "Project Info",
+    "project_type": "Project Type",
+    "commmercial": "Commercial",
+    "residential": "Residential",
+    "area": "Area (in sq.ft)",
+    "enter_area": "Enter area",
+    "preferred_colors": "Preferred Colors",
+    "is_an_architectural_plan_available": "Is an architectural plan available?",
+    "yes": "Yes",
+    "no": "No",
+    "next": "Next",
+    "back": "Back"
+  },
+  "DesingInfoForm": {
+    "title": "Design Info",
+    "number_of_main_users_of_the_space": "Number of main users of the space",
+    "age_range_of_users": "Age range of users",
+    "special_notes": "Special notes",
+    "other_notes": "Other Notes",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "DesignTypeForm": {
+    "title": "Design Type",
+    "design_style": "Design Style",
+    "select_design_style": "Select the design type and architecture school that you want",
+    "submit": "Submit",
+    "previous": "Previous",
+    "see_examples": "See Examples",
+    "design": "design"
+  },
+  "FinishingWorkForm": {
+    "title": "Finishing Work",
+    "full_name": "Full Name",
+    "enter_name": "Enter name",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "residency": "Residency",
+    "enter_residency": "Enter residency",
+    "project_location": "Project Location",
+    "enter_project_location": "Enter project location",
+    "project_area": "Project Area",
+    "enter_project_area": "Enter project area",
+    "vacuum_type": "Vacuum Type",
+    "administratitive": "Administrative",
+    "commmercial": "Commercial",
+    "residential": "Residential",
+    "note": "Note",
+    "fininsh_work_note": "The form must be completely filled out. Do not leave any required fields blank.",
+    "submit": "Submit"
+  },
+  "SoloLearnForm": {
+    "title": "Solo Learn",
+    "full_name": "Full Name",
+    "enter_name": "Enter name",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "date_of_birth": "Date of Birth",
+    "place_of_residence": "Place of Residence",
+    "enter_place_of_residence": "Enter place of residence",
+    "college_major": "College/Major",
+    "enter_college_major": "Enter college/major",
+    "status": "Status",
+    "student": "Student",
+    "graduate": "Graduate",
+    "year_of_graduation": "Year of Graduation",
+    "enter_year_of_graduation": "Enter year of graduation",
+    "worked_in_finishing_field": "Have you previously worked or been involved in the finishing field?",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit"
+  },
+  "InquiryForm": {
+    "title": "Inquiry Form"
+  },
+
+  "ExteriorPage": {
+    "title": "Exterior"
   }
 }

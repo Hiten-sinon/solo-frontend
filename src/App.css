@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @font-face {
     font-family: 'Montreal';
     src: url('./assets/fonts/MontrealBold-Bold.eot');
@@ -178,7 +180,9 @@
     font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 
 * {
   padding: 0;

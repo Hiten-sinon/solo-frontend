@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchServices } from "../../redux/slice/servicepage/servicescardSlice";
 import type { RootState, AppDispatch } from "../../redux/store";
+import Loader from "../loader/Loader";
 
 const ServiceCard: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { items: services, loading, error } = useSelector(
+  const { items: services, servicecardloading, error } = useSelector(
     (state: RootState) => state.servicescard
   );
 
@@ -15,10 +16,12 @@ const ServiceCard: React.FC = () => {
     dispatch(fetchServices());
   }, [dispatch]);
 
+  if(servicecardloading){
+    return <Loader />
+  }
   return (
     <section className="service-card">
       <Container>
-        {loading && <p>Loading services...</p>}
         {error && <p style={{ color: "red" }}>{error}</p>}
         <Row>
           {services.map((service) => (

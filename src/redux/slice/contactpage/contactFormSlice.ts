@@ -9,13 +9,13 @@ interface ContactFormPayload {
 }
 
 interface ContactFormState {
-  loading: boolean;
+  contactformloading: boolean;
   success: boolean;
   error: string | null;
 }
 
 const initialState: ContactFormState = {
-  loading: false,
+  contactformloading: false,
   success: false,
   error: null,
 };
@@ -38,7 +38,7 @@ const contactFormSlice = createSlice({
   initialState,
   reducers: {
     resetFormState: (state) => {
-      state.loading = false;
+      state.contactformloading = false;
       state.success = false;
       state.error = null;
     },
@@ -46,16 +46,16 @@ const contactFormSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(submitContactForm.pending, (state) => {
-        state.loading = true;
+        state.contactformloading = true;
         state.success = false;
         state.error = null;
       })
       .addCase(submitContactForm.fulfilled, (state) => {
-        state.loading = false;
+        state.contactformloading = false;
         state.success = true;
       })
       .addCase(submitContactForm.rejected, (state, action) => {
-        state.loading = false;
+        state.contactformloading = false;
         state.success = false;
         state.error = action.payload as string;
       });

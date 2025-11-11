@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Container, Tabs, Tab } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchServices } from "../../redux/slice/servicepage/servicetabSlice";
+import { fetchServices } from "../../redux/slice/servicepage/serviceTabSlice";
 import type { RootState, AppDispatch } from "../../redux/store";
+import Loader from "../loader/Loader";
 
 const ServiceTab: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { services, loading, error } = useSelector(
+  const { services, serviceTabloading, error } = useSelector(
     (state: RootState) => state.serviceTab
   );
 
@@ -36,7 +37,7 @@ const ServiceTab: React.FC = () => {
     }
   }, [parentKey, services]);
 
-  if (loading) return <p>Loading...</p>;
+  if (serviceTabloading) return <Loader />;
   if (error) return <p>Error: {error}</p>;
 
   return (

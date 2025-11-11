@@ -3,7 +3,7 @@ import { axiosAPIInstace } from "../../../utils/axiosInstance";
 
 export const fetchTeams = createAsyncThunk("teams/fetch", async () => {
   const response = await axiosAPIInstace.get("/teams");
-  return response.data.data; 
+  return response.data.data;  
 });
 
 interface Team {
@@ -17,13 +17,13 @@ interface Team {
 
 interface TeamsState {
   data: Team[];
-  loading: boolean;
+  teamsloading: boolean;
   error: string | null;
 }
 
 const initialState: TeamsState = {
   data: [],
-  loading: false,
+  teamsloading: false,
   error: null,
 };
 
@@ -34,15 +34,15 @@ const teamsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchTeams.pending, (state) => {
-        state.loading = true;
+        state.teamsloading = true;
         state.error = null;
       })
       .addCase(fetchTeams.fulfilled, (state, action) => {
-        state.loading = false;
+        state.teamsloading = false;
         state.data = action.payload;
       })
       .addCase(fetchTeams.rejected, (state, action) => {
-        state.loading = false;
+        state.teamsloading = false;
         state.error = action.error.message || "Failed to fetch teams";
       });
   },

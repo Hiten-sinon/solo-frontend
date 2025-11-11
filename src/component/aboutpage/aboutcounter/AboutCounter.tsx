@@ -11,7 +11,7 @@ const AboutCounter: React.FC = () => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: numbers, loading } = useSelector(
+  const { data: numbers, numbersLoading } = useSelector(
     (state: RootState) => state.numbers
   );
 
@@ -51,7 +51,7 @@ const AboutCounter: React.FC = () => {
                     </div>
                   </div>
                 ))
-              : !loading && <p className="text-center">No stats available</p>}
+              : !numbersLoading && <p className="text-center">No stats available</p>}
           </div>
         </div>
       </Container>

@@ -22,3 +22,7 @@ export { default as Border } from "./shape-7.png";
 export { default as BBanner } from "./blog-banner.webp";
 export { default as BlogOne } from "./blog-01.webp";
 export { default as InteriorB } from "./interior-b.webp";
+export { default as InquryBanners } from "./banner-inquiry.webp";
+export { default as InquryDesign } from "./inquiry.webp";
+export { default as ExteriourBanners } from "./banner-exterior.webp";
+export { default as ExteriourDesign } from "./exterior.webp";

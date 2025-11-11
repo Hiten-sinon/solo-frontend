@@ -8,15 +8,16 @@ export const fetchPartners = createAsyncThunk("partners/fetch", async () => {
 
 interface PartnerState {
   data: any[];
-  loading: boolean;
+  partnersLoading: boolean;
   error: string | null;
 }
 
 const initialState: PartnerState = {
   data: [],
-  loading: false,
+  partnersLoading: false,
   error: null,
 };
+
 
 const partnersSlice = createSlice({
   name: "partners",
@@ -25,15 +26,15 @@ const partnersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPartners.pending, (state) => {
-        state.loading = true;
+        state.partnersLoading = true;
         state.error = null;
       })
       .addCase(fetchPartners.fulfilled, (state, action) => {
-        state.loading = false;
+        state.partnersLoading = false;
         state.data = action.payload.data;
       })
       .addCase(fetchPartners.rejected, (state, action) => {
-        state.loading = false;
+        state.partnersLoading = false;
         state.error = action.error.message || "Failed to fetch partners";
       });
   },

@@ -6,7 +6,7 @@ const Banner: React.FC = () => {
             <div className="banner-img">
                 <img src={ServiceBanner} alt="banner_img" className="img-fluid" />
                 <div className="service-banner-content">
-                    <h1>Our Services</h1>
+                    <h1 data-aos="fade-up">Our Services</h1>
                 </div>
             </div>
         </section>

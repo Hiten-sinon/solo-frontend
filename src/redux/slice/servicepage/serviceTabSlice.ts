@@ -27,14 +27,14 @@ export interface Service {
 
 interface ServiceTabState {
   services: Service[];
-  loading: boolean;
+  serviceTabloading: boolean;
   error: string | null;
 }
 
 // Initial state
 const initialState: ServiceTabState = {
   services: [],
-  loading: false,
+  serviceTabloading: false,
   error: null,
 };
 
@@ -59,18 +59,18 @@ const serviceTabSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchServices.pending, (state) => {
-        state.loading = true;
+        state.serviceTabloading = true;
         state.error = null;
       })
       .addCase(
         fetchServices.fulfilled,
         (state, action: PayloadAction<Service[]>) => {
-          state.loading = false;
+          state.serviceTabloading = false;
           state.services = action.payload;
         }
       )
       .addCase(fetchServices.rejected, (state, action) => {
-        state.loading = false;
+        state.serviceTabloading = false;
         state.error = action.payload as string;
       });
   },

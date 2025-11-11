@@ -1,47 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { BlogOne } from "../../assets/images";
-
-const blogPosts = [
-  {
-    id: 1,
-    image: BlogOne,
-    title: "The difference between alternative wood material and real wood",
-    author: "Ahemd Salen",
-  },
-  {
-    id: 2,
-    image: BlogOne,
-    title: "Sustainable furniture trends in 2025",
-    author: "Sara Ali",
-  },
-  {
-    id: 3,
-    image: BlogOne,
-    title: "Why eco-friendly materials matter in interior design",
-    author: "John Doe",
-  },
-  {
-    id: 4,
-    image: BlogOne,
-    title: "Top 5 tips for maintaining wooden furniture",
-    author: "Ahemd Salen",
-  },
-  {
-    id: 5,
-    image: BlogOne,
-    title: "The rise of alternative building materials",
-    author: "Sara Ali",
-  },
-  {
-    id: 6,
-    image: BlogOne,
-    title: "Choosing the right wood finish for your home",
-    author: "John Doe",
-  },
-];
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../redux/store";
+import { fetchBlogs } from "../../redux/slice/blogSlice";
 
 const BlogList: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { posts, blogcardloading, error } = useSelector(
+    (state: RootState) => state.blogSlice
+  );
+
+  useEffect(() => {
+    dispatch(fetchBlogs());
+  }, [dispatch]);
+
+  if (blogcardloading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
   return (
     <section className="blog-list-section">
       <Container>
@@ -50,15 +26,15 @@ const BlogList: React.FC = () => {
         </div>
         <div className="blog-list-items">
           <Row>
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <Col md={6} lg={4} key={post.id}>
-                <div className="blog-item">
-                  <img src={post.image} alt={post.title} />
+                <Link to={`/blog/${post.id}`} className="blog-item">
+                  <img src={post.images_url} alt={post.blog_title_en} />
                   <div className="blog-text-list">
-                    <h3>{post.title}</h3>
-                    <p>By {post.author}</p>
+                    <h3>{post.blog_title_en}</h3>
+                    <p>By {post.author_en}</p>
                   </div>
-                </div>
+                </Link>
               </Col>
             ))}
           </Row>
