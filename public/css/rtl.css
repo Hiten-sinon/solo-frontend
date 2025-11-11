@@ -289,7 +289,9 @@ body {
   bottom: -2px;
   padding-top: 36px;
 }
-
+.home-btn span{
+  margin-right: 10px;
+}
 @media (max-width: 1199px) {
   .feature-info {
     right: 50px;

@@ -157,6 +157,7 @@ function ExteriorForm() {
 
   // Construction Work form
   const [constructionForm, setConstructionForm] = useState({
+    type: "external",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -169,6 +170,7 @@ function ExteriorForm() {
 
   // Design Work form
   const [designForm, setDesignForm] = useState({
+    type: "external",
     full_name: "",
     phone_number: "",
     city: "",
@@ -187,6 +189,7 @@ function ExteriorForm() {
 
   // Finishing Work form
   const [finishingForm, setFinishingForm] = useState({
+    type: "external",
     name: "",
     phone_number: "",
     place_of_residence: "",
@@ -197,6 +200,7 @@ function ExteriorForm() {
 
   // Solo Learn form
   const [soloForm, setSoloForm] = useState({
+    type: "external",
     full_name: "",
     phone_number: "",
     date_of_birth: "",
@@ -321,6 +325,7 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setConstructionForm({
+          type: "external",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -373,6 +378,7 @@ function ExteriorForm() {
       // Reset form only on success
       if (isSuccess) {
         setDesignForm({
+          type: "external",
           full_name: "",
           phone_number: "",
           city: "",
@@ -429,6 +435,7 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setFinishingForm({
+          type: "external",
           name: "",
           phone_number: "",
           place_of_residence: "",
@@ -455,13 +462,16 @@ function ExteriorForm() {
   const handleSoloSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateSolo()) return;
+
     try {
       const res: any = await dispatch(submitSoloLearnInquiry(soloForm) as any);
-      // handle both unwrap() and regular dispatch cases
       const payload = res?.payload || res;
+
       const isError = !!payload?.errors;
       const isSuccess = !isError && !!payload?.data;
+
       let messageText = "";
+
       if (isError) {
         const errorMessages = Object.values(payload.errors).flat().join(" ");
         messageText =
@@ -478,12 +488,15 @@ function ExteriorForm() {
 
       if (isSuccess) {
         setSoloForm({
+          type: "external",
           full_name: "",
           phone_number: "",
+          date_of_birth: "",
           place_of_residence: "",
-          project_location: "New York",
-          site_area: "",
-          vehicle_type: "",
+          college_major: "",
+          status: "",
+          year_of_graduation: "",
+          worked_in_finishing_field: false,
         });
       }
     } catch (err: any) {
@@ -883,7 +896,7 @@ function ExteriorForm() {
                           </Form.Group>
                         </Col>
 
-                        <Col md={12} lg={6}>
+                        {/*<Col md={12} lg={6}>
                           <Form.Group className="mb-3" controlId="designCity">
                             <Form.Label>{t("DesignWorkForm.city")}</Form.Label>
                             <Form.Control
@@ -904,15 +917,16 @@ function ExteriorForm() {
                               </small>
                             )}
                           </Form.Group>
-                        </Col>
+                        </Col>*/}
 
                         <Col md={12} lg={6}>
                           <Form.Group
                             className="mb-3"
-                            controlId="designProjectLocation"
+                            controlId="designPlaceOfResidence"
                           >
                             <Form.Label>
-                              {t("DesignWorkForm.project_location")}
+                              {t("DesignWorkForm.project_location")} - Place of
+                              Residence
                             </Form.Label>
                             <Form.Control
                               type="text"
@@ -953,111 +967,57 @@ function ExteriorForm() {
                   </Tab>
 
                   {/* PROJECT INFO */}
-                  <Tab
-                    eventKey="projectinfo"
-                    title={t("ProjectInfoForm.title")}
-                  >
+                  <Tab eventKey="projectinfo" title="Project Info">
                     <div className="personal-info-box building-info-box">
                       <Row>
                         <Col md={12} lg={6}>
                           <Form.Group
-                            className="mb-3 radio-btn"
-                            controlId="designProjectType"
+                            className="mb-3"
+                            controlId="designProjectLocation"
                           >
-                            <Form.Label className="p-type">
-                              {" "}
-                              {t("ProjectInfoForm.project_type")}
-                            </Form.Label>
-                            <Form.Check
-                              inline
-                              type="radio"
-                              id="designResidential"
-                              label={t("ProjectInfoForm.residential")}
-                              name="project_type"
-                              value="residential"
-                              checked={
-                                designForm.project_type === "residential"
-                              }
+                            <Form.Label> Project Location</Form.Label>
+                            <Form.Control
+                              type="text"
+                              name="project_location"
+                              placeholder="Project Location"
+                              value={designForm.project_location}
                               onChange={(e) =>
                                 setDesignForm({
                                   ...designForm,
-                                  project_type: e.target.value,
+                                  project_location: e.target.value,
                                 })
                               }
                             />
-                            <Form.Check
-                              inline
-                              type="radio"
-                              id="designCommercial"
-                              label={t("ProjectInfoForm.commmercial")}
-                              name="project_type"
-                              value="commercial"
-                              checked={designForm.project_type === "commercial"}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  project_type: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.project_type && (
+                            {designErrors.project_location && (
                               <small className="text-danger">
                                 {" "}
-                                {designErrors.project_type}
+                                {designErrors.project_location}{" "}
                               </small>
                             )}
                           </Form.Group>
                         </Col>
-
                         <Col md={12} lg={6}>
-                          <Form.Group className="mb-3" controlId="designArea">
-                            <Form.Label>{t("ProjectInfoForm.area")}</Form.Label>
+                          <Form.Group
+                            className="mb-3"
+                            controlId="designProjectArea"
+                          >
+                            <Form.Label> Project Area (m²)</Form.Label>
                             <Form.Control
                               type="text"
-                              name="area"
+                              name="projectarea"
                               placeholder={t("ProjectInfoForm.enter_area")}
-                              value={designForm.area}
+                              value={designForm.projectarea}
                               onChange={(e) =>
                                 setDesignForm({
                                   ...designForm,
-                                  area: e.target.value,
+                                  projectarea: e.target.value,
                                 })
                               }
                             />
                             {designErrors.area && (
                               <small className="text-danger">
-                                {designErrors.area}
-                              </small>
-                            )}
-                          </Form.Group>
-                        </Col>
-
-                        <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designPreferredColors"
-                          >
-                            <Form.Label>
-                              {" "}
-                              {t("ProjectInfoForm.preferred_colors")}
-                            </Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="preferred_colors"
-                              placeholder={t(
-                                "ProjectInfoForm.preferred_colors"
-                              )}
-                              value={designForm.preferred_colors}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  preferred_colors: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.preferred_colors && (
-                              <small className="text-danger">
-                                {designErrors.preferred_colors}
+                                {" "}
+                                {designErrors.projectarea}
                               </small>
                             )}
                           </Form.Group>
@@ -1066,26 +1026,24 @@ function ExteriorForm() {
                         <Col md={12} lg={6}>
                           <Form.Group
                             className="mb-3 radio-btn"
-                            controlId="designArchitecturalPlan"
+                            controlId="designsketchdrawing"
                           >
                             <Form.Label className="p-type">
                               {" "}
-                              {t(
-                                "ProjectInfoForm.is_an_architectural_plan_available"
-                              )}
+                              Sketch Drawing
                             </Form.Label>
                             <Form.Check
                               inline
                               type="radio"
                               id="designYes"
-                              label={t("ProjectInfoForm.yes")}
-                              name="architectural_plan"
+                              label="Available"
+                              name="sketch_drawing"
                               value="Yes"
-                              checked={designForm.architectural_plan === true}
+                              checked={designForm.sketch_drawing === true}
                               onChange={() =>
                                 setDesignForm({
                                   ...designForm,
-                                  architectural_plan: true,
+                                  sketch_drawing: true,
                                 })
                               }
                             />
@@ -1093,14 +1051,14 @@ function ExteriorForm() {
                               inline
                               type="radio"
                               id="designNo"
-                              label={t("ProjectInfoForm.no")}
-                              name="architectural_plan"
+                              label="Not Available"
+                              name="sketch_drawing"
                               value="No"
-                              checked={designForm.architectural_plan === false}
+                              checked={designForm.sketch_drawing === false}
                               onChange={() =>
                                 setDesignForm({
                                   ...designForm,
-                                  architectural_plan: false,
+                                  sketch_drawing: false,
                                 })
                               }
                             />
@@ -1136,125 +1094,152 @@ function ExteriorForm() {
                   </Tab>
 
                   {/* DESIGN INFO */}
-                  <Tab eventKey="designinfo" title={t("DesingInfoForm.title")}>
+                  <Tab eventKey="designinfo" title="Design Info">
                     <div className="personal-info-box design-info-box">
                       <Row>
-                        <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designUsageType"
-                          >
-                            <Form.Label>
-                              {" "}
-                              {t(
-                                "DesingInfoForm.number_of_main_users_of_the_space"
-                              )}
-                            </Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="number_of_users"
-                              value={designForm.number_of_users}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  number_of_users: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.number_of_users && (
-                              <small className="text-danger">
-                                {designErrors.number_of_users}{" "}
-                              </small>
-                            )}
-                          </Form.Group>
-                        </Col>
-
-                        <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designUserAgeRange"
-                          >
-                            <Form.Label>
-                              {" "}
-                              {t("DesingInfoForm.age_range_of_users")}
-                            </Form.Label>
-                            <Form.Control
-                              type="text"
-                              name="age_range"
-                              value={designForm.age_range}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  age_range: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.age_range && (
-                              <small className="text-danger">
-                                {" "}
-                                {designErrors.age_range}
-                              </small>
-                            )}
-                          </Form.Group>
-                        </Col>
-
+                        {/* Desired Built-Up Area */}
                         <Col md={12}>
                           <Form.Group
                             className="mb-3"
-                            controlId="designSpecialNotes"
+                            controlId="designDesiredBuiltUpArea"
                           >
-                            <Form.Label>
-                              {" "}
-                              {t("DesingInfoForm.special_notes")}
-                            </Form.Label>
-                            <Form.Control
-                              as="textarea"
-                              rows={2}
-                              name="special_notes"
-                              value={designForm.special_notes}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  special_notes: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.special_notes && (
-                              <small className="text-danger">
-                                {" "}
-                                {designErrors.special_notes}
-                              </small>
-                            )}{" "}
+                            <Form.Label>Desired Built-Up Area</Form.Label>
+                            <Row>
+                              <Col md={6} lg={3}>
+                                <Form.Label>From</Form.Label>
+                                <Form.Control
+                                  type="text"
+                                  name="desiredbuiltuparea_from"
+                                  value={designForm.desiredbuiltuparea_from}
+                                  onChange={(e) =>
+                                    setDesignForm({
+                                      ...designForm,
+                                      desiredbuiltuparea_from: e.target.value,
+                                    })
+                                  }
+                                />
+                                {designErrors.desiredbuiltuparea_from && (
+                                  <small className="text-danger">
+                                    {designErrors.desiredbuiltuparea_from}
+                                  </small>
+                                )}
+                              </Col>
+
+                              <Col md={6} lg={3}>
+                                <Form.Label>To</Form.Label>
+                                <Form.Control
+                                  type="text"
+                                  name="desiredbuiltuparea_to"
+                                  value={designForm.desiredbuiltuparea_to}
+                                  onChange={(e) =>
+                                    setDesignForm({
+                                      ...designForm,
+                                      desiredbuiltuparea_to: e.target.value,
+                                    })
+                                  }
+                                />
+                                {designErrors.desiredbuiltuparea_to && (
+                                  <small className="text-danger">
+                                    {designErrors.desiredbuiltuparea_to}
+                                  </small>
+                                )}
+                              </Col>
+                            </Row>
                           </Form.Group>
                         </Col>
 
+                        {/* Number of Floors */}
                         <Col md={12}>
                           <Form.Group
                             className="mb-3"
-                            controlId="designOtherNotes"
+                            controlId="designNumberOfFloors"
                           >
-                            <Form.Label>
-                              {" "}
-                              {t("DesingInfoForm.other_notes")}{" "}
-                            </Form.Label>
-                            <Form.Control
-                              as="textarea"
-                              rows={2}
-                              name="other_notes"
-                              value={designForm.other_notes}
-                              onChange={(e) =>
-                                setDesignForm({
-                                  ...designForm,
-                                  other_notes: e.target.value,
-                                })
-                              }
-                            />
-                            {designErrors.other_notes && (
-                              <small className="text-danger">
-                                {" "}
-                                {designErrors.other_notes}
-                              </small>
-                            )}
+                            <Form.Label>Number of Floors</Form.Label>
+                            {[
+                              "Ground Floor",
+                              "Two Floors",
+                              "Three Floors",
+                              "Four Floors or More",
+                            ].map((label) => (
+                              <Form.Check
+                                key={label}
+                                inline
+                                type="radio"
+                                label={label}
+                                name="number_of_floors"
+                                value={label}
+                                checked={designForm.number_of_floors === label}
+                                onChange={(e) =>
+                                  setDesignForm({
+                                    ...designForm,
+                                    number_of_floors: e.target.value,
+                                  })
+                                }
+                              />
+                            ))}
+                          </Form.Group>
+                        </Col>
+
+                        {/* Design Preferences */}
+                        <Col md={12}>
+                          <Form.Group
+                            className="mb-3"
+                            controlId="designPreferences"
+                          >
+                            <Form.Label>Design Preferences</Form.Label>
+                            <p>
+                              Please select the spaces based on your personal
+                              needs and lifestyle requirements
+                            </p>
+
+                            {[
+                              "Separate Floor for reception and living areas, and another floor for bedrooms",
+                              "All spaces combined on a single floor",
+                              "Guest Bedroom with Bathroom",
+                              "Guest Bedroom without Bathroom",
+                              "External Reception with Restroom",
+                              "Reception + Dining Room + Restroom",
+                              "Men’s Reception with Separate Restroom",
+                              "Women’s Reception with Separate Restroom",
+                              "Living Room",
+                              "Closed Kitchen",
+                              "Open Kitchen",
+                              "Separate Hot/Cold Kitchen",
+                              "Dining Area",
+                              "Master Bedroom with Bathroom",
+                              "Master Bedroom with Dressing Room & Bathroom",
+                              "Children’s Bedrooms (number)",
+                              "One",
+                              "Two",
+                              "Three",
+                              "Four or More",
+                              "Maid’s Room",
+                              "Driver’s Room",
+                              "Laundry Room",
+                              "Storage Room",
+                              "Cinema Room",
+                              "Recreation/Gym Room",
+                              "Indoor Courtyard",
+                              "Swimming Pool",
+                            ].map((option) => (
+                              <Form.Check
+                                key={option}
+                                inline
+                                type="radio"
+                                label={option}
+                                name="design_preferences"
+                                value={option}
+                                checked={
+                                  designForm.design_preferences === option
+                                }
+                                onChange={(e) =>
+                                  setDesignForm({
+                                    ...designForm,
+                                    design_preferences: e.target.value,
+                                  })
+                                }
+                              />
+                            ))}
                           </Form.Group>
                         </Col>
                       </Row>

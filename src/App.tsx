@@ -17,12 +17,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Inquirypage from './page/Inquirypage'
+import Exteriorpage from './page/Exteriorpage'
+import Error from './page/Error'
 import './App.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
-import Inquirypage from './page/Inquirypage'
-import Exteriorpage from './page/Exteriorpage'
-
 const App: React.FC = () => {
   useEffect(() => {
     AOS.init({
@@ -47,6 +47,7 @@ const App: React.FC = () => {
           <Route path="/interior" element={<Interiorpage />} />
           <Route path="/inquiry" element={<Inquirypage />} />
           <Route path="/exterior" element={<Exteriorpage />} />
+          <Route path="*" element={<Error />} />
         </Route>
       </Routes>
       <Footer />
