@@ -1,0 +1,68 @@
+import React, { useEffect } from "react";
+import { Container } from "react-bootstrap";
+import Slider from "react-slick";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPartners } from "../../../redux/slice/homepage/partnersSlice";
+import type { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../loader/Loader";
+
+const Partner: React.FC = () => {
+  const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
+  const { data: partners, partnersLoading } = useSelector(
+    (state: RootState) => state.partners
+  );
+
+  useEffect(() => {
+    dispatch(fetchPartners());
+  }, [dispatch]);
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    autoplay: true,
+    speed: 500,
+    centerMode: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    responsive: [
+      { breakpoint: 1199, settings: { slidesToShow: 4 } },
+      { breakpoint: 991, settings: { slidesToShow: 3 } },
+      { breakpoint: 767, settings: { slidesToShow: 2 } },
+      { breakpoint: 575, settings: { slidesToShow: 1 } },
+    ],
+  };
+
+  return (
+    <section className="partner">
+      <Container>
+        <h2>{t("partner.title")}</h2>
+        <p>{t("partner.description")}</p>
+      </Container>
+
+      <div className="slider-partner">
+        {partnersLoading ? (
+          <Loader />
+        ) : (
+          <Slider {...settings}>
+            {partners.map((partner) => (
+              <div key={partner.id} data-aos="fade-up">
+                <div className="partner-image-box">
+                  <img
+                    src={partner.images_url}
+                    alt={partner.name_en}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default Partner;
