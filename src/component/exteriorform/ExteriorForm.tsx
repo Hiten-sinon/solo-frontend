@@ -1481,17 +1481,60 @@ function ExteriorForm() {
                                       })
                                     }
                                   />
-                                  <Form.Group
-                                    className="mt-2"
-                                    controlId="childrenBedrooms"
-                                  >
+
+                                  <Form.Group className="mt-2 mb-4" controlId="childrenBedrooms">
                                     <Form.Label>
                                       {t("DesingInfoForm.children_bedrooms")}
                                     </Form.Label>
-                                    <Form.Control
-                                      type="text"
-                                      placeholder="e.g. Two"
-                                      value={designForm.children_bedrooms}
+
+                                    <Form.Check
+                                      type="radio"
+                                      name="children_bedrooms"
+                                      label={t("DesingInfoForm.one")}
+                                      value="one"
+                                      checked={designForm.children_bedrooms === "one"}
+                                      onChange={(e) =>
+                                        setDesignForm({
+                                          ...designForm,
+                                          children_bedrooms: e.target.value,
+                                        })
+                                      }
+                                    />
+
+                                    <Form.Check
+                                      type="radio"
+                                      name="children_bedrooms"
+                                      label={t("DesingInfoForm.two")}
+                                      value="two"
+                                      checked={designForm.children_bedrooms === "two"}
+                                      onChange={(e) =>
+                                        setDesignForm({
+                                          ...designForm,
+                                          children_bedrooms: e.target.value,
+                                        })
+                                      }
+                                    />
+
+                                    <Form.Check
+                                      type="radio"
+                                      name="children_bedrooms"
+                                      label={t("DesingInfoForm.three")}
+                                      value="three"
+                                      checked={designForm.children_bedrooms === "three"}
+                                      onChange={(e) =>
+                                        setDesignForm({
+                                          ...designForm,
+                                          children_bedrooms: e.target.value,
+                                        })
+                                      }
+                                    />
+
+                                    <Form.Check
+                                      type="radio"
+                                      name="children_bedrooms"
+                                      label={t("DesingInfoForm.four")}
+                                      value="four"
+                                      checked={designForm.children_bedrooms === "four"}
                                       onChange={(e) =>
                                         setDesignForm({
                                           ...designForm,
@@ -1500,6 +1543,7 @@ function ExteriorForm() {
                                       }
                                     />
                                   </Form.Group>
+
                                   <Form.Check
                                     type="checkbox"
                                     label={t("DesingInfoForm.maid_room")}
@@ -2231,9 +2275,8 @@ function ExteriorForm() {
                 return (
                   <div className="new-image-interior" key={example}>
                     <div
-                      className={`example-card border rounded position-relative ${
-                        isSelected ? "border-teal shadow-sm" : "border-light"
-                      }`}
+                      className={`example-card border rounded position-relative ${isSelected ? "border-teal shadow-sm" : "border-light"
+                        }`}
                       style={{ cursor: "pointer", transition: "all 0.2s ease" }}
                       onClick={() => handleImageSelect(example)}
                     >
@@ -2246,11 +2289,10 @@ function ExteriorForm() {
                       />
                       {/* Radio/checkbox-like indicator */}
                       <div
-                        className={`select-indicator position-absolute top-0 end-0 m-2 rounded-circle border ${
-                          isSelected
+                        className={`select-indicator position-absolute top-0 end-0 m-2 rounded-circle border ${isSelected
                             ? "bg-teal border-teal"
                             : "bg-white border-secondary"
-                        }`}
+                          }`}
                         style={{
                           width: "22px",
                           height: "22px",
