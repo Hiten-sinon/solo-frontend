@@ -237,8 +237,10 @@ function ExteriorForm() {
       if (isEmpty(designForm.project_location))
         errors.project_location = "Project location is required.";
     } else if (step === "designinfo") {
-      if(isEmpty(designForm.desired_area_from)) errors.desired_area_from = "Please enter desired area from.";
-      if(isEmpty(designForm.desired_area_to)) errors.desired_area_to = "Please enter desired area to.";
+      if (isEmpty(designForm.desired_area_from))
+        errors.desired_area_from = "Please enter desired area from.";
+      if (isEmpty(designForm.desired_area_to))
+        errors.desired_area_to = "Please enter desired area to.";
 
       if (isEmpty(designForm.number_of_floors))
         errors.number_of_floors = "Please choose number of floors.";
@@ -545,7 +547,10 @@ function ExteriorForm() {
           college_major: "",
           status: "",
           year_of_graduation: "",
+          project_location: "",
           worked_in_finishing_field: false,
+          site_area: "",
+          vehicle_type: "",
         });
       }
     } catch (err: any) {
@@ -730,17 +735,15 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12}>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="constructionProjectArea"
-                    >
-                      <Form.Label>
+                    <Form.Group className="mb-3">
+                      <Form.Label htmlFor="constructionProjectArea1">
                         {" "}
                         {t("ConstructionWorkForm.project_area")}{" "}
                       </Form.Label>
                       <Row>
                         <Col md={4}>
                           <Form.Control
+                            id="constructionProjectArea1"
                             type="number"
                             name="project_area"
                             placeholder={t(
@@ -757,6 +760,7 @@ function ExteriorForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
+                            id="constructionProjectArea2"
                             type="number"
                             name="project_area"
                             placeholder={t(
@@ -773,6 +777,7 @@ function ExteriorForm() {
                         </Col>
                         <Col md={4}>
                           <Form.Control
+                            id="constructionProjectArea3"
                             type="number"
                             name="project_area"
                             placeholder={t(
@@ -792,10 +797,7 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="constructionSpaceType"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("ConstructionWorkForm.type_of_space")}
                       </Form.Label>
@@ -1072,10 +1074,7 @@ function ExteriorForm() {
                           </Form.Group>
                         </Col>
                         <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3 radio-btn"
-                            controlId="designsketchdrawing"
-                          >
+                          <Form.Group className="mb-3 radio-btn">
                             <Form.Label className="p-type">
                               {" "}
                               {t("ProjectInfoForm.sketch_drawing")}
@@ -1147,19 +1146,17 @@ function ExteriorForm() {
                       <Row>
                         {/* Desired Built-Up Area */}
                         <Col md={12}>
-                          <Form.Group
-                            className="mb-3"
-                            controlId="designDesiredBuiltUpArea"
-                          >
+                          <Form.Group className="mb-3">
                             <Form.Label>
                               {t("DesingInfoForm.desired_built_up_area")}
                             </Form.Label>
                             <Row>
                               <Col md={6} lg={3}>
-                                <Form.Label>
+                                <Form.Label htmlFor="designDesiredBuiltUpAreaFrom">
                                   {t("DesingInfoForm.from")}
                                 </Form.Label>
                                 <Form.Control
+                                  id="designDesiredBuiltUpAreaFrom"
                                   type="text"
                                   name="desired_area_from"
                                   value={designForm.desired_area_from}
@@ -1178,10 +1175,11 @@ function ExteriorForm() {
                               </Col>
 
                               <Col md={6} lg={3}>
-                                <Form.Label>
+                                <Form.Label htmlFor="designDesiredBuiltUpAreaTo">
                                   {t("DesingInfoForm.to")}
                                 </Form.Label>
                                 <Form.Control
+                                  id="designDesiredBuiltUpAreaTo"
                                   type="text"
                                   name="desired_area_to"
                                   value={designForm.desired_area_to}
@@ -1205,10 +1203,7 @@ function ExteriorForm() {
                         {/* Number of Floors */}
                         <Col md={12}>
                           <div className="mb-3 radio-btn het-rad">
-                            <Form.Group
-                              className="mb-3"
-                              controlId="designNumberOfFloors"
-                            >
+                            <Form.Group className="mb-3">
                               <Form.Label>
                                 {t("DesingInfoForm.number_of_floors")}
                               </Form.Label>
@@ -1252,19 +1247,17 @@ function ExteriorForm() {
                         {/* Design Preferences - keep UI similar to original but as checkboxes */}
                         <Col md={12}>
                           <div className="mb-3 radio-btn het-rad">
-                            <Form.Group
-                              className="mb-3"
-                              controlId="designPreferences"
-                            >
+                            <Form.Group className="mb-3">
                               <Form.Label>
                                 {t("DesingInfoForm.design_preferences")}
                               </Form.Label>
                               <p>{t("DesingInfoForm.note1")}</p>
-
                               <Row>
                                 <Col md={12} lg={6}>
                                   <Form.Check
                                     type="checkbox"
+                                    id="designSeparateFloorForReceptionAndLivingAreasAndAnotherFloorForBedrooms"
+                                    name="separate_floor_reception_living"
                                     label={t(
                                       "DesingInfoForm.separate_floor_for_reception_and_living_areas_and_another_floor_for_bedrooms"
                                     )}
@@ -1281,6 +1274,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designAllSpacesCombinedOnASingleFloor"
+                                    name="combined_floor"
                                     label={t(
                                       "DesingInfoForm.all_spaces_combined_on_a_single_floor"
                                     )}
@@ -1294,6 +1289,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designGuestBedroomWithBathroom"
+                                    name="guest_bedroom_with_bathroom"
                                     label={t(
                                       "DesingInfoForm.guest_bedroom_with_bathroom"
                                     )}
@@ -1310,6 +1307,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designGuestBedroomWithoutBathroom"
+                                    name="guest_bedroom_without_bathroom"
                                     label={t(
                                       "DesingInfoForm.guest_bedroom_without_bathroom"
                                     )}
@@ -1326,6 +1325,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designExternalReceptionWithRestroom"
+                                    name="external_reception_restroom"
                                     label={t(
                                       "DesingInfoForm.external_reception_with_restroom"
                                     )}
@@ -1342,6 +1343,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designReceptionDiningRoomRestroom"
+                                    name="reception_dining_restroom"
                                     label={t(
                                       "DesingInfoForm.reception_dining_room_restroom"
                                     )}
@@ -1360,6 +1363,8 @@ function ExteriorForm() {
                                 <Col md={12} lg={6}>
                                   <Form.Check
                                     type="checkbox"
+                                    id="designMenReceptionWithSeparateRestroom"
+                                    name="men_reception_separate_restroom"
                                     label={t(
                                       "DesingInfoForm.men_reception_with_separate_restroom"
                                     )}
@@ -1376,6 +1381,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designWomenReceptionWithSeparateRestroom"
+                                    name="women_reception_separate_restroom"
                                     label={t(
                                       "DesingInfoForm.women_reception_with_separate_restroom"
                                     )}
@@ -1392,6 +1399,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designLivingRoom"
+                                    name="living_room"
                                     label={t("DesingInfoForm.living_room")}
                                     checked={designForm.living_room}
                                     onChange={(e) =>
@@ -1414,6 +1423,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designOpenKitchen"
+                                    name="open_kitchen"
                                     label={t("DesingInfoForm.open_kitchen")}
                                     checked={designForm.open_kitchen}
                                     onChange={(e) =>
@@ -1425,6 +1436,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designSeparateHotColdKitchen"
+                                    name="separate_hot_cold_kitchen"
                                     label={t(
                                       "DesingInfoForm.separate_hotcold_kitchen"
                                     )}
@@ -1443,6 +1456,8 @@ function ExteriorForm() {
                                 <Col md={12} className="mt-2">
                                   <Form.Check
                                     type="checkbox"
+                                    id="designDiningArea"
+                                    name="dining_area"
                                     label={t("DesingInfoForm.dining_area")}
                                     checked={designForm.dining_area}
                                     onChange={(e) =>
@@ -1454,6 +1469,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designMasterBedroomWithBathroom"
+                                    name="master_bedroom_with_bathroom"
                                     label={t(
                                       "DesingInfoForm.master_bedroom_with_bathroom"
                                     )}
@@ -1470,6 +1487,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designMasterBedroomWithDressingRoomAndBathroom"
+                                    name="master_bedroom_with_dressing_bathroom"
                                     label={t(
                                       "DesingInfoForm.master_bedroom_with_dressing_room_and_bathroom"
                                     )}
@@ -1485,17 +1504,20 @@ function ExteriorForm() {
                                     }
                                   />
 
-                                  <Form.Group className="mt-2 mb-4" controlId="childrenBedrooms">
+                                  <Form.Group className="mt-2 mb-4">
                                     <Form.Label>
                                       {t("DesingInfoForm.children_bedrooms")}
                                     </Form.Label>
 
                                     <Form.Check
+                                      id="childrenBedrooms1"
                                       type="radio"
                                       name="children_bedrooms"
                                       label={t("DesingInfoForm.one")}
                                       value="one"
-                                      checked={designForm.children_bedrooms === "one"}
+                                      checked={
+                                        designForm.children_bedrooms === "one"
+                                      }
                                       onChange={(e) =>
                                         setDesignForm({
                                           ...designForm,
@@ -1505,11 +1527,14 @@ function ExteriorForm() {
                                     />
 
                                     <Form.Check
+                                      id="childrenBedrooms2"
                                       type="radio"
                                       name="children_bedrooms"
                                       label={t("DesingInfoForm.two")}
                                       value="two"
-                                      checked={designForm.children_bedrooms === "two"}
+                                      checked={
+                                        designForm.children_bedrooms === "two"
+                                      }
                                       onChange={(e) =>
                                         setDesignForm({
                                           ...designForm,
@@ -1519,11 +1544,14 @@ function ExteriorForm() {
                                     />
 
                                     <Form.Check
+                                      id="childrenBedrooms3"
                                       type="radio"
                                       name="children_bedrooms"
                                       label={t("DesingInfoForm.three")}
                                       value="three"
-                                      checked={designForm.children_bedrooms === "three"}
+                                      checked={
+                                        designForm.children_bedrooms === "three"
+                                      }
                                       onChange={(e) =>
                                         setDesignForm({
                                           ...designForm,
@@ -1533,11 +1561,14 @@ function ExteriorForm() {
                                     />
 
                                     <Form.Check
+                                      id="childrenBedrooms4"
                                       type="radio"
                                       name="children_bedrooms"
                                       label={t("DesingInfoForm.four")}
                                       value="four"
-                                      checked={designForm.children_bedrooms === "four"}
+                                      checked={
+                                        designForm.children_bedrooms === "four"
+                                      }
                                       onChange={(e) =>
                                         setDesignForm({
                                           ...designForm,
@@ -1549,6 +1580,8 @@ function ExteriorForm() {
 
                                   <Form.Check
                                     type="checkbox"
+                                    id="designMaidRoom"
+                                    name="maids_room"
                                     label={t("DesingInfoForm.maid_room")}
                                     checked={designForm.maids_room}
                                     onChange={(e) =>
@@ -1560,6 +1593,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designDriverRoom"
+                                    name="drivers_room"
                                     label={t("DesingInfoForm.driver_room")}
                                     checked={designForm.drivers_room}
                                     onChange={(e) =>
@@ -1571,6 +1606,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designLaundryRoom"
+                                    name="laundry_room"
                                     label={t("DesingInfoForm.laundry_room")}
                                     checked={designForm.laundry_room}
                                     onChange={(e) =>
@@ -1582,6 +1619,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="storage_room"
+                                    name="storage_room"
                                     label={t("DesingInfoForm.storage_room")}
                                     checked={designForm.storage_room}
                                     onChange={(e) =>
@@ -1593,6 +1632,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designCinemaRoom"
+                                    name="cinema_room"
                                     label={t("DesingInfoForm.cinema_room")}
                                     checked={designForm.cinema_room}
                                     onChange={(e) =>
@@ -1604,6 +1645,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designRecreationGymRoom"
+                                    name="recreation_gym_room"
                                     label={t(
                                       "DesingInfoForm.recreation_gym_room"
                                     )}
@@ -1617,6 +1660,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="indoor_courtyard"
+                                    name="indoor_courtyard"
                                     label={t("DesingInfoForm.indoor_courtyard")}
                                     checked={designForm.indoor_courtyard}
                                     onChange={(e) =>
@@ -1628,6 +1673,8 @@ function ExteriorForm() {
                                   />
                                   <Form.Check
                                     type="checkbox"
+                                    id="designSwimmingPool"
+                                    name="swimming_pool"
                                     label={t("DesingInfoForm.swimming_pool")}
                                     checked={designForm.swimming_pool}
                                     onChange={(e) =>
@@ -1854,10 +1901,7 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3"
-                      controlId="finishingProjectArea"
-                    >
+                    <Form.Group className="mb-3">
                       <Form.Label>
                         {" "}
                         {t("FinishingWorkForm.project_area")}
@@ -1866,6 +1910,7 @@ function ExteriorForm() {
                         <Col md={4}>
                           <Form.Control
                             type="number"
+                            id="finishingProjectArea1"
                             name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
@@ -1882,6 +1927,7 @@ function ExteriorForm() {
                         <Col md={4}>
                           <Form.Control
                             type="number"
+                            id="finishingProjectArea2"
                             name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
@@ -1898,6 +1944,7 @@ function ExteriorForm() {
                         <Col md={4}>
                           <Form.Control
                             type="number"
+                            id="finishingProjectArea3"
                             name="site_area"
                             placeholder={t(
                               "FinishingWorkForm.enter_project_area"
@@ -1922,10 +1969,7 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="finishingVacuumType"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("FinishingWorkForm.vacuum_type")}
                       </Form.Label>
@@ -2132,10 +2176,7 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="soloStatus"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("SoloLearnForm.status")}{" "}
                       </Form.Label>
@@ -2199,10 +2240,7 @@ function ExteriorForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="soloWorkedField"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("SoloLearnForm.worked_in_finishing_field")}
                       </Form.Label>
@@ -2278,8 +2316,9 @@ function ExteriorForm() {
                 return (
                   <div className="new-image-interior" key={example}>
                     <div
-                      className={`example-card border rounded position-relative ${isSelected ? "border-teal shadow-sm" : "border-light"
-                        }`}
+                      className={`example-card border rounded position-relative ${
+                        isSelected ? "border-teal shadow-sm" : "border-light"
+                      }`}
                       style={{ cursor: "pointer", transition: "all 0.2s ease" }}
                       onClick={() => handleImageSelect(example)}
                     >
@@ -2292,10 +2331,11 @@ function ExteriorForm() {
                       />
                       {/* Radio/checkbox-like indicator */}
                       <div
-                        className={`select-indicator position-absolute top-0 end-0 m-2 rounded-circle border ${isSelected
+                        className={`select-indicator position-absolute top-0 end-0 m-2 rounded-circle border ${
+                          isSelected
                             ? "bg-teal border-teal"
                             : "bg-white border-secondary"
-                          }`}
+                        }`}
                         style={{
                           width: "22px",
                           height: "22px",

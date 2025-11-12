@@ -289,7 +289,7 @@ function InquiryForm() {
     if (isEmpty(finishingForm.site_area))
       errors.site_area = "Project area is required.";
     if (isEmpty(finishingForm.vehicle_type))
-      errors.vehicle_type = "Select vehicle type.";
+      errors.vehicle_type = "Select vacuum type.";
     setFinishingErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -401,6 +401,7 @@ function InquiryForm() {
       // Reset form only on success
       if (isSuccess) {
         setDesignForm({
+          type: "internal",
           full_name: "",
           phone_number: "",
           city: "",
@@ -517,8 +518,13 @@ function InquiryForm() {
           type: "internal",
           full_name: "",
           phone_number: "",
+          date_of_birth: "",
           place_of_residence: "",
+          college_major: "",
+          status: "",
+          year_of_graduation: "",
           project_location: "",
+          worked_in_finishing_field: false,
           site_area: "",
           vehicle_type: "",
         });
@@ -744,10 +750,7 @@ function InquiryForm() {
                   </Col>
 
                   <Col md={12}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="constructionSpaceType"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("ConstructionWorkForm.type_of_space")}
                       </Form.Label>
@@ -985,10 +988,7 @@ function InquiryForm() {
                     <div className="personal-info-box building-info-box">
                       <Row>
                         <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3 radio-btn"
-                            controlId="designProjectType"
-                          >
+                          <Form.Group className="mb-3 radio-btn">
                             <Form.Label className="p-type">
                               {t("ProjectInfoForm.project_type")}
                             </Form.Label>
@@ -1086,10 +1086,7 @@ function InquiryForm() {
                         </Col>
 
                         <Col md={12} lg={6}>
-                          <Form.Group
-                            className="mb-3 radio-btn"
-                            controlId="designArchitecturalPlan"
-                          >
+                          <Form.Group className="mb-3 radio-btn">
                             <Form.Label className="p-type">
                               {t(
                                 "ProjectInfoForm.is_an_architectural_plan_available"
@@ -1372,7 +1369,7 @@ function InquiryForm() {
                 <Row>
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingFullName">
-                      <Form.Label htmlFor="finishingFullName">
+                      <Form.Label>
                         {t("FinishingWorkForm.full_name")}
                       </Form.Label>
                       <Form.Control
@@ -1397,7 +1394,7 @@ function InquiryForm() {
 
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingPhone">
-                      <Form.Label htmlFor="finishingPhone">
+                      <Form.Label>
                         {t("FinishingWorkForm.phone_number")}
                       </Form.Label>
                       <Form.Control
@@ -1422,7 +1419,7 @@ function InquiryForm() {
 
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3" controlId="finishingResidency">
-                      <Form.Label htmlFor="finishingResidency">
+                      <Form.Label>
                         {t("FinishingWorkForm.residency")}
                       </Form.Label>
                       <Form.Control
@@ -1451,7 +1448,7 @@ function InquiryForm() {
                       className="mb-3"
                       controlId="finishingProjectLocation"
                     >
-                      <Form.Label htmlFor="finishingProjectLocation">
+                      <Form.Label>
                         {t("FinishingWorkForm.project_location")}
                       </Form.Label>
                       <Form.Control
@@ -1545,14 +1542,8 @@ function InquiryForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="finishingVacuumType"
-                    >
-                      <Form.Label
-                        className="p-type"
-                        htmlFor="finishingVacuumType"
-                      >
+                    <Form.Group className="mb-3 radio-btn">
+                      <Form.Label className="p-type">
                         {t("FinishingWorkForm.vacuum_type")}
                       </Form.Label>
                       <Form.Check
@@ -1756,10 +1747,7 @@ function InquiryForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="soloStatus"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("SoloLearnForm.status")}
                       </Form.Label>
@@ -1823,10 +1811,7 @@ function InquiryForm() {
                   </Col>
 
                   <Col md={12} lg={6}>
-                    <Form.Group
-                      className="mb-3 radio-btn"
-                      controlId="soloWorkedField"
-                    >
+                    <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("SoloLearnForm.worked_in_finishing_field")}
                       </Form.Label>
