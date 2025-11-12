@@ -45,7 +45,7 @@ const Team: React.FC = () => {
     <section className="team-sec overflow-hidden">
       <Container>
         <Row>
-          <Col className="col-md-12 col-lg-3">
+          <Col className="col-12 col-md-12 col-lg-3">
             <div className="solo-member-text" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
               <h3>{t("team_sec.title")}</h3>
               <p>{t("team_sec.description")}</p>
@@ -60,7 +60,7 @@ const Team: React.FC = () => {
             </div>
           </Col>
 
-          <Col className="col-md-8 col-lg-6">
+          <Col className="col-12 col-md-8 col-lg-6">
             {teamsloading ? (
               <Loader />
             ) : (

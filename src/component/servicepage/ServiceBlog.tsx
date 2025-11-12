@@ -14,7 +14,7 @@ const ServiceBlog: React.FC = () => {
     (state: RootState) => state.blogSlice
   );
 
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
 
   useEffect(() => {
