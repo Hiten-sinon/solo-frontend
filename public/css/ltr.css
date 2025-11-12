@@ -158,6 +158,8 @@ body {
 .home-btn i{
   transform: scaleX(-1);
 }
+
+.ab-info .about-text h1{text-align: left;}
 @media (max-width: 1199px) {
   .feature-info {
     left: 50px;

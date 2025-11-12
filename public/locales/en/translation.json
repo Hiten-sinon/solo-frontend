@@ -270,5 +270,16 @@
     "subtitle": "Oops! Page Not Found",
     "description": "The page you’re looking for doesn’t exist or has been moved.",
     "backhome": "Go Back Home"
-  }
+  },
+"testimonial":{
+    "what_our_clients_say": "What our clients say about us"
+},
+
+"Services":{
+    "services_title": "Our Services"
+},
+"Btninquiry":{
+   "inquiry_now":"Inquiry Now"
+}
+
 }

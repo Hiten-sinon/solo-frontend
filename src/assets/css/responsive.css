@@ -1123,6 +1123,22 @@
     padding-bottom: 40px;
   }
 
+  .servicetab-btn {
+    border-bottom: 0px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    height: 60px;
+    overflow-x: scroll;
+    position: relative;
+    z-index: 1;
+    scrollbar-color: #000 transparent;
+  }
+
+      .service-tab-content .tab-content .tab-pane .tab-content {
+        margin-top: -75px;
+    }
+
 }
 
 /* blog details */
@@ -1373,6 +1389,7 @@
     flex-wrap: nowrap;
     overflow: hidden;
     overflow-x: scroll;
+    scrollbar-color: #000 transparent;
   }
 
   ul#tabbing-form-design li,
@@ -1480,40 +1497,47 @@
 }
 
 /*error*/
-@media(max-width:991px){
-  .error-content h1{
+@media(max-width:991px) {
+  .error-content h1 {
     font-size: 140px;
     margin-bottom: 0px;
   }
-  .error-content h2{
+
+  .error-content h2 {
     font-size: 40px;
     margin: 30px 0;
   }
 
 }
-@media(max-width:767px){
-  .error-content h1{
+
+@media(max-width:767px) {
+  .error-content h1 {
     font-size: 120px;
     margin-bottom: 0px;
   }
-  .error-content h2{
+
+  .error-content h2 {
     font-size: 36px;
     margin: 30px 0;
   }
-  .error-content p{
+
+  .error-content p {
     font-size: 16px;
   }
 }
-@media(max-width:575px){
-  .error-content h1{
+
+@media(max-width:575px) {
+  .error-content h1 {
     font-size: 100px;
     margin-bottom: 0px;
   }
-  .error-content h2{
+
+  .error-content h2 {
     font-size: 32px;
     margin: 30px 0;
   }
-  .error-content p{
+
+  .error-content p {
     font-size: 16px;
     line-height: 24px;
   }

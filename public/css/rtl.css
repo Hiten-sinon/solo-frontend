@@ -72,7 +72,7 @@ body {
 }
 
 .banner-text-info {
-  right: 0;
+  right: 16%;
   left: auto;
   text-align: right;
 }
@@ -238,23 +238,25 @@ body {
 }
 
 .blog-content:before {
-  left: -2px;
+  right: -2px;
   transform: scaleX(-1);
 }
 
 .blog-text {
-  left: 0;
-  padding: 30px 95px 10px 30px;
-  text-align: left;
+  right: 0;
+  padding: 30px 30px 10px 95px;
+  text-align: right;
 }
 
 .blog-item:before {
-  left: 0px;
+  left: auto;
   transform: scaleX(-1);
+  right: -2px;
 }
 
 .blog-text-list {
-  left: 5px;
+  left: auto;
+
 }
 
 .blogdetails-banner.blog-banner-section .blog-content .blog-text {
@@ -289,9 +291,42 @@ body {
   bottom: -2px;
   padding-top: 36px;
 }
-.home-btn span{
+
+.home-btn span {
   margin-right: 10px;
 }
+
+.banner-text-info .btn-teal {
+  order: 2;
+}
+
+.banner-btn {
+  justify-content: end;
+}
+
+.banner-content h1 {
+  width: 65% !important;
+}
+
+.solo-member-text .banner-btn {
+  justify-content: start;
+}
+
+.ab-info .about-text h1 {
+  text-align: right;
+}
+
+.blog-content:before,
+.blog-item:before {
+  transform: skew(0deg, 180deg);
+}
+
+@media (max-width: 1499px) {
+  .banner-text-info {
+    right: 5%
+  }
+}
+
 @media (max-width: 1199px) {
   .feature-info {
     right: 50px;
@@ -308,6 +343,7 @@ body {
     margin-right: auto !important;
     margin-left: 0px !important;
   }
+
   .offcanvas-header .btn-close:focus,
   .offcanvas-header .btn-close:focus-visible {
     box-shadow: none !important;
@@ -343,6 +379,23 @@ body {
   .designtype-text {
     height: 96px;
   }
+
+  .feature ul {
+    z-index: 2;
+  }
+
+  .feature .tab-content:before {
+    z-index: 1;
+  }
+
+  .solo-member-text .btn.btn-teal {
+    min-width: 80% !important;
+  }
+
+  .service-banner-content {
+    right: 0 !important;
+    left: auto !important;
+  }
 }
 
 @media (max-width: 575px) {
@@ -353,4 +406,38 @@ body {
   .blog-slider .slick-slide .blog-item:before {
     left: -1px;
   }
+
+  .blog-content:before {
+    height: 191px !important;
+
+  }
+
+  .blog-text {
+    background: #1e1e1e;
+    border-radius: 40px 0;
+  }
+
+  .blog-content:before {
+    display: none;
+  }
+
+  .blog-item:before {
+    display: none;
+  }
+
+  .blog-text-list {
+    bottom: 6px;
+    right: 0;
+    background: #1e1e1e;
+    padding: 13px;
+    border-radius: 20px 0;
+  }
+}
+
+@media(max-width:413px) {
+  .feature .tab-content {
+    margin-top: -112px !important;
+  }
+
+
 }

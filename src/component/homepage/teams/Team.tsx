@@ -49,7 +49,7 @@ const Team: React.FC = () => {
             <div className="solo-member-text" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
               <h3>{t("team_sec.title")}</h3>
               <p>{t("team_sec.description")}</p>
-              <Link to="#" className="banner-btn">
+              <Link to="/about" className="banner-btn">
                 <Button className="btn btn-teal">
                   {t("team_sec.allTeam")}
                 </Button>
@@ -103,7 +103,7 @@ const Team: React.FC = () => {
                 </h4>
               </div>
               <div className="apply-btn">
-                <Button className="btn btn-teal">
+                <Button className="btn btn-teal" >
                   {t("team_sec.applyNow")}
                 </Button>
               </div>

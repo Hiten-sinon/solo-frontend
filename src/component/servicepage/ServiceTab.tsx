@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchServices } from "../../redux/slice/servicepage/serviceTabSlice";
 import type { RootState, AppDispatch } from "../../redux/store";
 import Loader from "../loader/Loader";
+import { useTranslation } from "react-i18next";
 
 const ServiceTab: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -11,15 +12,18 @@ const ServiceTab: React.FC = () => {
     (state: RootState) => state.serviceTab
   );
 
+  const { i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
+
   const [parentKey, setParentKey] = useState("0");
   const [childKey, setChildKey] = useState("0");
 
-  // Fetch services on mount
+  // Fetch services
   useEffect(() => {
     dispatch(fetchServices());
   }, [dispatch]);
 
-  // Set default parent/child keys when data is loaded
+  // Set default parent/child keys
   useEffect(() => {
     if (services.length > 0) {
       setParentKey(String(services[0].id));
@@ -29,7 +33,7 @@ const ServiceTab: React.FC = () => {
     }
   }, [services]);
 
-  // Reset childKey when parentKey changes
+  // Reset childKey when parent changes
   useEffect(() => {
     const parent = services.find((s) => String(s.id) === parentKey);
     if (parent && parent.sub_features?.length > 0) {
@@ -38,23 +42,31 @@ const ServiceTab: React.FC = () => {
   }, [parentKey, services]);
 
   if (serviceTabloading) return <Loader />;
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
 
   return (
-    <section className="service-tab">
+    <section
+      className={`service-tab ${isArabic ? "rtl" : "ltr"}`}
+      dir={isArabic ? "rtl" : "ltr"}
+      lang={i18n.language}
+    >
       <Container>
         <div className="service-tab-content">
           <Tabs
             id="parent-tabs"
             activeKey={parentKey}
             onSelect={(k) => setParentKey(k as string)}
-            className="mb-5"
+            className="mb-5 parent-tab-nav"
           >
             {services.map((service) => (
               <Tab
                 key={service.id}
                 eventKey={String(service.id)}
-                title={service.name_en}
+                title={
+                  isArabic
+                    ? service.name_ar || service.name_en
+                    : service.name_en
+                }
               >
                 <Tabs
                   id={`child-tabs-${service.id}`}
@@ -66,18 +78,30 @@ const ServiceTab: React.FC = () => {
                     <Tab
                       key={sub.id}
                       eventKey={String(sub.id)}
-                      title={sub.name_en}
+                      title={
+                        isArabic
+                          ? sub.name_ar || sub.name_en
+                          : sub.name_en
+                      }
                     >
                       <div className="feature-content">
                         <div className="feature-image">
                           <img
                             src={sub.images_url}
-                            alt={sub.name_en}
+                            alt={
+                              isArabic
+                                ? sub.name_ar || sub.name_en
+                                : sub.name_en
+                            }
                             loading="lazy"
                           />
                         </div>
                         <div className="feature-info">
-                          <p>{sub.discription_en}</p>
+                          <p>
+                            {isArabic
+                              ? sub.discription_ar || sub.discription_en
+                              : sub.discription_en}
+                          </p>
                         </div>
                       </div>
                     </Tab>
