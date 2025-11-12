@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../../../redux/store";
 import { fetchAboutData } from "../../../redux/slice/aboutpage/aboutBannerSlice";
 import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Partnership: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -19,6 +21,16 @@ const Partnership: React.FC = () => {
       dispatch(fetchAboutData());
     }
   }, [dispatch, data]);
+
+  // Initialize AOS animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true, // run once per scroll
+      easing: "ease-in-out",
+      offset: 100,
+    });
+  }, []);
 
   const section2Items =
     data &&
@@ -63,7 +75,7 @@ const Partnership: React.FC = () => {
 
   return (
     <section
-      className={`partnership ${isArabic ? "rtl" : "ltr"}`}
+      className={`partnership py-5 ${isArabic ? "rtl" : "ltr"}`}
       dir={isArabic ? "rtl" : "ltr"}
       lang={i18n.language}
     >
@@ -72,20 +84,32 @@ const Partnership: React.FC = () => {
           {loading && <p>Loading...</p>}
           {error && <p className="text-danger">{error}</p>}
 
-          <Row>
+          <Row className="g-4 justify-content-center">
             {section2Items &&
               section2Items.map((item, index) => (
-                <Col lg={3} md={6} key={index}>
-                  <div className="partner-box">
+                <Col
+                  lg={3}
+                  md={6}
+                  key={index}
+                  data-aos="zoom-in"
+                  data-aos-delay={index * 150} // stagger animation
+                >
+                  <div
+                    className="partner-box shadow-sm"
+                    style={{
+                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                    }}
+                  >
                     <div className="partner-image mb-3">
                       <img
                         src={item.icon}
                         alt={`Partner ${index + 1}`}
+                        className="img-fluid"
                         loading="lazy"
                       />
                     </div>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
+                    <h3 className=" mb-2">{item.title}</h3>
+                    <p className="small mb-0">{item.description}</p>
                   </div>
                 </Col>
               ))}
