@@ -285,7 +285,21 @@
   "Services": {
     "services_title": "خدماتنا"
   },
-"Btninquiry":{
-   "inquiry_now":"استفسار الآن"
-}
+  "Btninquiry": {
+    "inquiry_now": "استفسار الآن"
+  },
+  "mdlImageShow": {
+    "confirm_selection": "تأكيد الاختيار",
+    "selected": "تم الاختيار",
+    "cancel": "إلغاء",
+    "select_examples_for": "اختر أمثلة لـ",
+    "image": "صورة"
+  },
+  "servicePage": {
+    "blog_articles": "مقالات المدونة",
+    "by": "بواسطة",
+    "see_all_articles": "عرض جميع المقالات",
+    "loading_blog_articles": "جارٍ تحميل مقالات المدونة...",
+    "error": "خطأ"
+  }
 }

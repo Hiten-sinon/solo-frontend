@@ -16,6 +16,7 @@ const ServiceBlog: React.FC = () => {
 
   const { i18n } = useTranslation();
   const isArabic = i18n.language === "ar";
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchBlogs());
@@ -40,8 +41,13 @@ const ServiceBlog: React.FC = () => {
     ],
   };
 
-  if (blogcardloading) return <p>Loading blog articles...</p>;
-  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
+  if (blogcardloading) return <p>{t("servicePage.loading_blog_articles")}</p>;
+  if (error)
+    return (
+      <p style={{ color: "red" }}>
+        {t("servicePage.error")}: {error}
+      </p>
+    );
 
   return (
     <section
@@ -51,7 +57,7 @@ const ServiceBlog: React.FC = () => {
     >
       <Container>
         <div className="service-blog-title text-center mb-4">
-          <h2>Blog Articles</h2>
+          <h2>{t("servicePage.blog_articles")}</h2>
         </div>
 
         <div className="service-blog-content">
@@ -61,7 +67,11 @@ const ServiceBlog: React.FC = () => {
                 <Link to={`/blog/${post.id}`} className="blog-item">
                   <img
                     src={post.images_url}
-                    alt={isArabic ? post.blog_title_ar || post.blog_title_en : post.blog_title_en}
+                    alt={
+                      isArabic
+                        ? post.blog_title_ar || post.blog_title_en
+                        : post.blog_title_en
+                    }
                     loading="lazy"
                     className="img-fluid"
                   />
@@ -72,8 +82,10 @@ const ServiceBlog: React.FC = () => {
                         : post.blog_title_en}
                     </h3>
                     <p>
-                      By{" "}
-                      {isArabic ? post.author_ar || post.author_en : post.author_en}
+                      {t("servicePage.by")}{" "}
+                      {isArabic
+                        ? post.author_ar || post.author_en
+                        : post.author_en}
                     </p>
                   </div>
                 </Link>
@@ -83,7 +95,7 @@ const ServiceBlog: React.FC = () => {
 
           <div className="blog-list-items-button text-center mt-4">
             <Link to="/blog" className="btn btn-teal">
-              See All Articles
+              {t("servicePage.see_all_articles")}
             </Link>
           </div>
         </div>
