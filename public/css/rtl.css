@@ -321,6 +321,7 @@ body {
   transform: skew(0deg, 180deg);
 }
 
+.blog-text-list{right: 0;}
 @media (max-width: 1499px) {
   .banner-text-info {
     right: 5%

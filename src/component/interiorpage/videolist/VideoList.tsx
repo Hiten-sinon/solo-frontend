@@ -64,7 +64,7 @@ const VideoList: React.FC = () => {
         <section className='video-lists'>
             <Container>
                 <div className="blog-list-content video-content">
-                    <h2>Recent blog posts</h2>
+                    <h2>Recent Video posts</h2>
                 </div>
                 <div className="blog-list-items">
                     <Row>

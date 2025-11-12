@@ -6,6 +6,8 @@ import { fetchServices } from "../../redux/slice/servicepage/servicescardSlice";
 import type { RootState, AppDispatch } from "../../redux/store";
 import Loader from "../loader/Loader";
 import { useTranslation } from "react-i18next";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ServiceCard: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -20,6 +22,16 @@ const ServiceCard: React.FC = () => {
   useEffect(() => {
     dispatch(fetchServices());
   }, [dispatch]);
+
+  // Initialize AOS animation
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true, // animate only once per element
+      easing: "ease-in-out",
+      offset: 100,
+    });
+  }, []);
 
   if (servicecardloading) {
     return <Loader />;
@@ -36,8 +48,15 @@ const ServiceCard: React.FC = () => {
 
         <Row>
           {Array.isArray(services) && services.length > 0 ? (
-            services.map((service) => (
-              <Col key={service.id} md={6} lg={4} className="mb-4">
+            services.map((service, index) => (
+              <Col
+                key={service.id}
+                md={6}
+                lg={4}
+                className="mb-4"
+                data-aos="fade-up"
+                data-aos-delay={index * 150} // stagger effect
+              >
                 <div className="service-card-item">
                   <div className="service-image">
                     <img
