@@ -265,21 +265,34 @@
   "ExteriorPage": {
     "title": "Exterior"
   },
-  "Error":{
+  "Error": {
     "title": "404",
     "subtitle": "Oops! Page Not Found",
     "description": "The page you’re looking for doesn’t exist or has been moved.",
     "backhome": "Go Back Home"
   },
-"testimonial":{
+  "testimonial": {
     "what_our_clients_say": "What our clients say about us"
-},
+  },
 
-"Services":{
+  "Services": {
     "services_title": "Our Services"
-},
-"Btninquiry":{
-   "inquiry_now":"Inquiry Now"
-}
-
+  },
+  "Btninquiry": {
+    "inquiry_now": "Inquiry Now"
+  },
+  "mdlImageShow": {
+    "confirm_selection": "Confirm Selection",
+    "selected": "Selected",
+    "cancel": "Cancel",
+    "select_examples_for": "Select Examples for",
+    "image": "image"
+  },
+  "servicePage": {
+    "blog_articles": "Blog Articles",
+    "by": "By",
+    "see_all_articles": "See All Articles",
+    "loading_blog_articles": "Loading blog articles...",
+    "error": "Error"
+  }
 }

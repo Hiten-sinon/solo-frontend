@@ -2304,7 +2304,9 @@ function ExteriorForm() {
         className="de-chose-image"
       >
         <Modal.Header closeButton>
-          <Modal.Title>Select Examples for {selectedStyle}</Modal.Title>
+          <Modal.Title>
+            {t("mdlImageShow.select_examples_for")} {selectedStyle}
+          </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
@@ -2365,20 +2367,20 @@ function ExteriorForm() {
         <Modal.Footer className="d-flex justify-content-between">
           <div className="text-muted">
             {" "}
-            Selected: {selectedImages.length} image{" "}
-            {selectedImages.length !== 1 && "s"}
+            {t("mdlImageShow.selected")}: {selectedImages.length}{" "}
+            {t("mdlImageShow.image")} {selectedImages.length !== 1 && "s"}
           </div>
           <div>
             <Button variant="secondary" onClick={handleCloseModal}>
               {" "}
-              Cancel
+              {t("mdlImageShow.cancel")}
             </Button>
             <Button
               className="btn btn-teal ms-2"
               onClick={handleConfirmSelection}
             >
               {" "}
-              Confirm Selection
+              {t("mdlImageShow.confirm_selection")}
             </Button>
           </div>
         </Modal.Footer>
