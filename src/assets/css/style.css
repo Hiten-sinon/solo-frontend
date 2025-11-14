@@ -2378,20 +2378,39 @@ label.form-label {
 }
 
 .mb-3.radio-btn p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-.radio-btn.het-rad .form-check{
+.radio-btn.het-rad .form-check {
   display: flex;
   margin-bottom: 10px;
   align-items: center;
 }
 
-.personal-info-box .radio-btn.het-rad input, .personal-info-box .radio-btn.het-rad input:focus{
+.personal-info-box .radio-btn.het-rad input,
+.personal-info-box .radio-btn.het-rad input:focus {
   margin-bottom: 0;
 }
 
 ul#child-tabs-2 {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
+}
+
+ul#uncontrolled-tab-example {
+  justify-content: center;
+  border: none;
+  margin-bottom: 40px !important;
+}
+
+ul#uncontrolled-tab-example button {
+    border-radius: 30px !important;
+    padding: 10px 22px;
+    color: #fff;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+ul#uncontrolled-tab-example button.active{
+  background-color:#2ea19b !important;
+
 }
