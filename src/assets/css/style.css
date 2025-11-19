@@ -2414,3 +2414,9 @@ ul#uncontrolled-tab-example button.active{
   background-color:#2ea19b !important;
 
 }
+
+.servicetab-btn {
+    border-bottom: 0px;
+    position: relative;
+    z-index: 1;
+}

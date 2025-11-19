@@ -149,7 +149,7 @@ const ContactForm: React.FC = () => {
               </Col>
 
               {/* Submit */}
-              <Col md={12} className="text-center mt-4">
+              <Col md={12} className="het-right">
                 <Button
                   type="submit"
                   className="btn btn-teal"

@@ -249,7 +249,7 @@ function ExteriorForm() {
       recreation_gym_room: Boolean(designForm.recreation_gym_room),
       indoor_courtyard: Boolean(designForm.indoor_courtyard),
       swimming_pool: Boolean(designForm.swimming_pool),
-      design_style: designForm.design_style,
+      design_style: selectedStyle || designForm.design_style,
       notes: designForm.notes,
       selected_examples: selectedImages
         .map((img) => img.split("/").pop())
