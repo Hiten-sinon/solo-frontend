@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container } from "react-bootstrap";
 import CountUp from "react-countup";
 import { useTranslation } from "react-i18next";
@@ -15,14 +15,39 @@ const Number: React.FC = () => {
     (state: RootState) => state.numbers
   );
 
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [startCount, setStartCount] = useState(false);
+
+  // Fetch API data
   useEffect(() => {
     dispatch(fetchNumbers());
   }, [dispatch]);
 
+  // Intersection Observer to trigger animation on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStartCount(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="number">
+    <section className="number" ref={sectionRef}>
       <Container>
-        <div className="number-title" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
+        <div
+          className="number-title"
+          data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}
+        >
           <h2>{t("number.title")}</h2>
           <p>{t("number.desc")}</p>
         </div>
@@ -34,14 +59,22 @@ const Number: React.FC = () => {
           <div className="row g-4 justify-content-center">
             {Array.isArray(numbers) && numbers.length > 0 ? (
               numbers.map((item) => (
-                <div key={item.id} className="col-12 col-sm-6 col-md-6 col-lg-3">
+                <div
+                  key={item.id}
+                  className="col-12 col-sm-6 col-md-6 col-lg-3"
+                >
                   <div
                     className="p-4 text-center bg-white shadow-sm box-number"
                     style={{ minHeight: "150px" }}
                     data-aos="flip-up"
                   >
                     <h3 className="fw-bold">
-                      <CountUp end={item.value} duration={2} />+
+                      {startCount ? (
+                        <CountUp end={item.value} duration={2} start={0} />
+                      ) : (
+                        0
+                      )}
+                      +
                     </h3>
                     <p className="mb-0 small">
                       {i18n.language === "ar"
@@ -52,7 +85,9 @@ const Number: React.FC = () => {
                 </div>
               ))
             ) : (
-              !numbersLoading && <p className="text-center">No stats available</p>
+              !numbersLoading && (
+                <p className="text-center">No stats available</p>
+              )
             )}
           </div>
         </div>
