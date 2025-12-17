@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
 import { Container, Tab, Tabs } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFeatures } from "../../../redux/slice/featureSlice";
+import { fetchFeatures } from "../../../redux/slice/homepage/featureSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
-import useScrollAnimation from "../../../../useScrollAnimation";
 import { useTranslation } from "react-i18next";
+import Loader from "../../loader/Loader";
 
-function Feature() {
+const Feature: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { data, loading, error } = useSelector(
+  const { data, featureloading, error } = useSelector(
     (state: RootState) => state.features
   );
   const [key, setKey] = useState<string>("0");
-
-  const [ref, isVisible] = useScrollAnimation<HTMLDivElement>();
 
   const { i18n } = useTranslation();
   const currentLang = i18n.language;
@@ -22,11 +20,10 @@ function Feature() {
     dispatch(fetchFeatures());
   }, [dispatch]);
 
-  if (loading) return <p className="text-center">Loading...</p>;
+  if (featureloading) return <Loader />;
   if (error) return <p className="text-center text-danger">{error}</p>;
 
   return (
-    // <div ref={ref} className={`feature fade-up ${isVisible ? "visible" : ""}`}>
     <div className="feature">
       <Container className="position-relative">
         <Tabs
@@ -46,10 +43,10 @@ function Feature() {
             return (
               <Tab key={feature.id} eventKey={String(index)} title={title}>
                 <div className="feauture-content">
-                  <div className="future-image">
-                    <img src={feature.images_url} alt={title} />
+                  <div className="feature-image" data-aos="fade-up">
+                    <img src={feature.images_url} alt={title} loading="lazy" />
                   </div>
-                  <div className="future-info">
+                  <div className="feature-info" data-aos="fade-up">
                     <p>{subTitle}</p>
                   </div>
                 </div>

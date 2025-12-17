@@ -1,26 +1,28 @@
 import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import Slider from "react-slick";
-import useScrollAnimation from "../../../../useScrollAnimation";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPartners } from "../../../redux/slice/partnersSlice";
+import { fetchPartners } from "../../../redux/slice/homepage/partnersSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../loader/Loader";
 
 const Partner: React.FC = () => {
-  const [partnerRef, isVisible] = useScrollAnimation<HTMLDivElement>();
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-  const { data: partners, loading } = useSelector((state: RootState) => state.partners);
+  const { data: partners, partnersLoading } = useSelector(
+    (state: RootState) => state.partners
+  );
 
   useEffect(() => {
     dispatch(fetchPartners());
   }, [dispatch]);
 
-  var settings = {
+  const settings = {
     dots: false,
     arrows: false,
     infinite: true,
+    autoplay: true,
     speed: 500,
     centerMode: true,
     slidesToShow: 5,
@@ -34,27 +36,24 @@ const Partner: React.FC = () => {
   };
 
   return (
-    <section
-      ref={partnerRef}
-      className={`partner fade-up ${isVisible ? "visible" : ""}`}
-    >
+    <section className="partner">
       <Container>
         <h2>{t("partner.title")}</h2>
         <p>{t("partner.description")}</p>
       </Container>
 
       <div className="slider-partner">
-        {loading ? (
-          <p>Loading...</p>
+        {partnersLoading ? (
+          <Loader />
         ) : (
           <Slider {...settings}>
             {partners.map((partner) => (
-              <div key={partner.id}>
+              <div key={partner.id} data-aos="fade-up">
                 <div className="partner-image-box">
                   <img
                     src={partner.images_url}
                     alt={partner.name_en}
-                    
+                    loading="lazy"
                   />
                 </div>
               </div>

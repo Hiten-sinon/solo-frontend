@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -6,15 +6,15 @@ import { Button, Container, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSlider } from "../../../redux/slice/sliderSlice";
+import { fetchSlider } from "../../../redux/slice/homepage/sliderSlice";
 import type { AppDispatch, RootState } from "../../../redux/store";
+import Loader from "../../loader/Loader";
 
 const Banner: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: slides, loading, error } = useSelector(
+  const { data: slides, bannersliderloading, error } = useSelector(
     (state: RootState) => state.slider
   );
 
@@ -29,32 +29,34 @@ const Banner: React.FC = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: false,
+    lazyLoad: "ondemand" as "ondemand",
     rtl: i18n.language === "ar",
-    beforeChange: (_current: number, next: number) => {
-      setActiveIndex(next);
-    },
   };
 
-  if (loading) return <p>Loading slider...</p>;
+  if (bannersliderloading) return <Loader />;
   if (error) return <p>{error}</p>;
 
   return (
     <section className="banner">
       <Slider {...settings}>
         {slides.length > 0 &&
-          slides.map((slide, index) => (
+          slides.map((slide) => (
             <div key={slide.id}>
               <div className="banner-content">
                 <div className="banner-image">
-                  <Image src={slide.images_url} alt={slide.title_en} fluid />
+                  <Image
+                    src={slide.images_url}
+                    alt={slide.title_en}
+                    fluid
+                    loading="lazy"
+                  />
                 </div>
                 <Container>
                   <div className="banner-text-info">
-                    <div
-                      className={`${
-                        i18n.language === "ar" ? "fade-right" : "fade-left"
-                      } ${activeIndex === index ? "visible" : ""}`}
-                    >
+                    <div>
                       <h1>
                         {i18n.language === "ar"
                           ? slide.title_ar

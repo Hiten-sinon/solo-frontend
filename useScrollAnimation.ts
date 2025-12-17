@@ -8,10 +8,12 @@ function useScrollAnimation<T extends HTMLElement>(
 
   useEffect(() => {
     const node = elementRef.current;
+    console.log(node,'node');
     if (!node) return;
-
+console.log("hiiiii")
     const observer = new IntersectionObserver(
       ([entry]) => {
+        console.log(entry,'entry');
         if (entry.isIntersecting) {
           setIsVisible(true);
           observer.unobserve(entry.target);

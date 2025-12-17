@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
         <Row>
           <Col className="col-md-6">
             <div className="footer-logo">
-              <img src={LogoDark} alt="logo" />
+              <img src={LogoDark} alt="logo" loading="lazy" />
               <h4>{t("footer.workWithUs")}</h4>
               <Button className="btn btn-teal">{t("footer.inquiryBtn")}</Button>
             </div>
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               <ul>
                 <li><Link to="/">{t("footer.navigation.home")}</Link></li>
                 <li><Link to="/about">{t("footer.navigation.about")}</Link></li>
-                <li><Link to="/services">{t("footer.navigation.services")}</Link></li>
+                <li><Link to="/service">{t("footer.navigation.services")}</Link></li>
                 <li><Link to="/projects">{t("footer.navigation.projects")}</Link></li>
               </ul>
             </div>

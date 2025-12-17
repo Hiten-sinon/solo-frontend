@@ -66,7 +66,7 @@ const Header: React.FC = () => {
         >
           <Container>
             <Navbar.Brand href="/">
-              <img src={Logo} alt="Logo" />
+              <img src={Logo} alt="Logo" loading="lazy" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -82,13 +82,13 @@ const Header: React.FC = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Link to="/">{t("home")}</Link>
-                  <Link to="#">{t("services")}</Link>
-                  <NavDropdown title={t("more")} id="nav-dropdown">
-                    <NavDropdown.Item href="#">{t("team")}</NavDropdown.Item>
-                    <NavDropdown.Item href="#">{t("careers")}</NavDropdown.Item>
+                  <Link to="/service">{t("services")}</Link>
+                  <NavDropdown title={t("more")} id="nav-dropdown" className="language-dropdown">
+                    <NavDropdown.Item href="/blog">{t("blog")}</NavDropdown.Item>
+                    <NavDropdown.Item href="/interior">{t("interior")}</NavDropdown.Item>
                   </NavDropdown>
-                  <Link to="#">{t("about")}</Link>
-                  <Link to="#">{t("contact")}</Link>
+                  <Link to="/about">{t("about")}</Link>
+                  <Link to="/contact">{t("contact")}</Link>
                 </Nav>
 
                 {/* Language Switcher */}
@@ -106,9 +106,8 @@ const Header: React.FC = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Link to="#" className="btn btn-teal">
-                    {t("inquiry")}
-                  </Link>
+                  <Link to="/inquiry" className="btn btn-teal">{t("inquiry")}</Link>
+                    
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

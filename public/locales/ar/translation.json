@@ -6,6 +6,8 @@
   "team": "الفريق",
   "careers": "الوظائف",
   "about": "معلومات عنا",
+  "blog": "الأخبار",
+  "interior": "التصميم الداخلي",
   "contact": "اتصل بنا",
   "inquiry": "نموذج الاستفسار",
   "banner": {
@@ -74,9 +76,18 @@
     "bePart": "كن جزءًا من فريقنا",
     "applyNow": "قدّم الآن",
     "members": [
-      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" },
-      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" },
-      { "name": "الاسم الكامل", "title": "المسمى الوظيفي" }
+      {
+        "name": "الاسم الكامل",
+        "title": "المسمى الوظيفي"
+      },
+      {
+        "name": "الاسم الكامل",
+        "title": "المسمى الوظيفي"
+      },
+      {
+        "name": "الاسم الكامل",
+        "title": "المسمى الوظيفي"
+      }
     ]
   },
   "partner": {
@@ -100,5 +111,195 @@
       "address": "2972 شارع ويستهايمر، سانتا آنا، إلينوي 85486"
     },
     "copyright": "© 2025 جميع الحقوق محفوظة"
+  },
+  "ConstructionWorkForm": {
+    "title": "أعمال البناء",
+    "fullname": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "residency": "الإقامة",
+    "enter_residency": "أدخل الإقامة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "project_area": "منطقة المشروع",
+    "enter_project_area": "أدخل منطقة المشروع",
+    "type_of_space": "نوع المساحة",
+    "administratitive": "إداري",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "note": "ملحوظة",
+    "contruction_note": "يجب تعبئة النموذج بالكامل. لا تترك أي حقول مطلوبة فارغة.",
+    "submit": "إرسال"
+  },
+  "DesignWorkForm": {
+    "title": "أعمال التصميم",
+    "personal_info_tab_title": "المعلومات الشخصية",
+    "fullname": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "city": "مدينة",
+    "enter_city": "أدخل المدينة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "place_of_residence": "مكان الإقامة",
+    "enter_place_of_residence": "أدخل مكان الإقامة",
+    "next": "التالي"
+  },
+  "ProjectInfoForm": {
+    "title": "معلومات المشروع",
+    "project_type": "نوع المشروع",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "area": "المساحة (بالقدم المربع)",
+    "enter_area": "أدخل المساحة",
+    "project_area": "مساحة المشروع (م²)",
+    "preferred_colors": "الألوان المفضلة",
+    "is_an_architectural_plan_available": "هل تتوفر خطة معمارية؟",
+    "yes": "نعم",
+    "no": "لا",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "place_of_residence": "مكان الإقامة",
+    "sketch_drawing": "رسم تخطيطي",
+    "available": "متاح",
+    "not_available": "غير متوفر",
+    "next": "التالي",
+    "back": "خلف"
+  },
+  "DesingInfoForm": {
+    "title": "معلومات التصميم",
+    "number_of_main_users_of_the_space": "عدد المستخدمين الرئيسيين للمساحة",
+    "age_range_of_users": "الفئة العمرية للمستخدمين",
+    "special_notes": "ملاحظات خاصة",
+    "other_notes": "ملاحظات أخرى",
+    "previous": "سابق",
+    "next": "التالي",
+    "desired_built_up_area": "المساحة المبنية المطلوبة",
+    "to": "ل",
+    "from": "من",
+    "number_of_floors": "عدد الطوابق",
+    "design_preferences": "تفضيلات التصميم",
+    "note1": "يرجى اختيار المساحات بناءً على احتياجاتك الشخصية ومتطلبات نمط حياتك",
+    "note2": "الرجاء اختيار نمط التصميم المعماري المفضل لديك من الكتيبات المرفقة وإدراج اختيارك مع هذا النموذج",
+    "ground_floor": "الطابق الأرضي",
+    "two_floors": "طابقان",
+    "three_floors": "ثلاثة طوابق",
+    "four_floors_or_more": "أربعة طوابق أو أكثر",
+    "separate_floor_for_reception_and_living_areas_and_another_floor_for_bedrooms": "طابق منفصل للاستقبال وغرف المعيشة وطابق آخر لغرف النوم",
+    "all_spaces_combined_on_a_single_floor": "جميع المساحات مجتمعة في طابق واحد",
+    "guest_bedroom_with_bathroom": "غرفة ضيوف مع حمام",
+    "guest_bedroom_without_bathroom": "غرفة ضيوف بدون حمام",
+    "external_reception_with_restroom": "استقبال خارجي مع دورة مياه",
+    "reception_dining_room_restroom": "استقبال + غرفة طعام + دورة مياه",
+    "men_reception_with_separate_restroom": "استقبال الرجال مع دورة مياه مستقلة",
+    "women_reception_with_separate_restroom": "استقبال النساء مع دورة مياه مستقلة",
+    "living_room": "غرفة المعيشة",
+    "closed_kitchen": "مطبخ مغلق",
+    "open_kitchen": "مطبخ مفتوح",
+    "separate_hotcold_kitchen": "مطبخ منفصل (ساخن/بارد)",
+    "dining_area": "منطقة الطعام",
+    "master_bedroom_with_bathroom": "غرفة نوم رئيسية مع حمام",
+    "master_bedroom_with_dressing_room_and_bathroom": "غرفة نوم رئيسية مع غرفة ملابس وحمام",
+    "children_bedrooms": "غرف الأطفال (العدد)",
+    "one": "واحدة",
+    "two": "اثنتان",
+    "three": "ثلاث",
+    "four": "أربع أو أكثر",
+    "maid_room": "غرفة الخادمة",
+    "driver_room": "غرفة السائق",
+    "laundry_room": "غرفة الغسيل",
+    "storage_room": "غرفة التخزين",
+    "cinema_room": "غرفة السينما",
+    "recreation_gym_room": "غرفة ترفيه / صالة رياضية",
+    "indoor_courtyard": "فناء داخلي",
+    "swimming_pool": "مسبح"
+  },
+  "DesignTypeForm": {
+    "title": "نوع التصميم",
+    "design_style": "نوع التصميم",
+    "select_design_style": "حدد نوع التصميم ومدرسة الهندسة المعمارية التي تريدها",
+    "submit": "إرسال",
+    "previous": "سابق",
+    "see_examples": "انظر الأمثلة",
+    "design": "تصميم",
+    "note1": "يجب أن تستند اختياراتكم وطلبات التصميم إلى احتياجاتكم الوظيفية وتفضيلاتكم لأسلوب حياة عائلتكم. لن يُنظر في النماذج غير المكتملة أو المعلومات الناقصة. يُرجى التأكد من ملء جميع الحقول بدقة قبل التقديم."
+  },
+  "FinishingWorkForm": {
+    "title": "أعمال التشطيب",
+    "full_name": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "residency": "الإقامة",
+    "enter_residency": "أدخل الإقامة",
+    "project_location": "موقع المشروع",
+    "enter_project_location": "أدخل موقع المشروع",
+    "project_area": "منطقة المشروع",
+    "enter_project_area": "أدخل منطقة المشروع",
+    "vacuum_type": "نوع الفراغ",
+    "administratitive": "إداري",
+    "commmercial": "تجاري",
+    "residential": "سكني",
+    "note": "ملحوظة",
+    "fininsh_work_note": "يجب تعبئة النموذج بالكامل. لا تترك أي حقول مطلوبة فارغة.",
+    "submit": "يُقدِّم"
+  },
+  "SoloLearnForm": {
+    "title": "سولوليرن",
+    "full_name": "الاسم الكامل",
+    "enter_name": "أدخل الاسم",
+    "phone_number": "رقم التليفون",
+    "enter_phone_number": "أدخل رقم الهاتف",
+    "date_of_birth": "تاريخ الميلاد",
+    "place_of_residence": "مكان الإقامة",
+    "enter_place_of_residence": "أدخل مكان الإقامة",
+    "college_major": "الكلية/التخصص",
+    "enter_college_major": "دخول الكلية/التخصص",
+    "status": "حالة",
+    "student": "طالب",
+    "graduate": "متخرج",
+    "year_of_graduation": "سنة التخرج",
+    "enter_year_of_graduation": "أدخل سنة التخرج",
+    "worked_in_finishing_field": "هل سبق لك العمل أو المشاركة في مجال التشطيب؟",
+    "yes": "نعم",
+    "no": "لا",
+    "submit": "يُقدِّم"
+  },
+  "InquiryForm": {
+    "title": "نموذج الاستفسار"
+  },
+  "ExteriorPage": {
+    "title": "الخارج"
+  },
+  "Error": {
+    "title": "٤٠٤",
+    "subtitle": "عذراً! الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backhome": "العودة إلى الصفحة الرئيسية"
+  },
+  "testimonial": {
+    "what_our_clients_say": "ماذا يقول عملاؤنا عنا"
+  },
+  "Services": {
+    "services_title": "خدماتنا"
+  },
+  "Btninquiry": {
+    "inquiry_now": "استفسار الآن"
+  },
+  "mdlImageShow": {
+    "confirm_selection": "تأكيد الاختيار",
+    "selected": "تم الاختيار",
+    "cancel": "إلغاء",
+    "select_examples_for": "اختر أمثلة لـ",
+    "image": "صورة"
+  },
+  "servicePage": {
+    "blog_articles": "مقالات المدونة",
+    "by": "بواسطة",
+    "see_all_articles": "عرض جميع المقالات",
+    "loading_blog_articles": "جارٍ تحميل مقالات المدونة...",
+    "error": "خطأ"
   }
 }
