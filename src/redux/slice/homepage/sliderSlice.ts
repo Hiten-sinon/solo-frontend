@@ -13,6 +13,9 @@ interface SliderItem {
   sub_title_en: string;
   sub_title_ar: string;
   images_url: string;
+  button_name_en: string;
+  button_name_ar: string;
+  button_link: string;
 }
 
 interface SliderState {

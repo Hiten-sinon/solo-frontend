@@ -1,23 +1,34 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeams } from "../../../redux/slice/homepage/teamsSlice";
+import { fetchManageTitleBySlug } from "../../../redux/slice/homepage/manageTitleSlice";
 import type { RootState, AppDispatch } from "../../../redux/store";
 import teamImage from "../../../assets/images/team-3.webp";
 import Loader from "../../loader/Loader";
 
 const Team: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
+
+  // Teams slice
   const { data: teams, teamsloading } = useSelector(
     (state: RootState) => state.teams
   );
 
+  // Manage title slice
+  const { data: manageTitleData, loading: titleLoading, error: titleError } =
+    useSelector((state: RootState) => state.manageTitle);
+
+  // Memoize teamSection
+  const teamSection = useMemo(() => manageTitleData["solo-team"], [manageTitleData]);
+
   useEffect(() => {
     dispatch(fetchTeams());
+    dispatch(fetchManageTitleBySlug("solo-team"));
   }, [dispatch]);
 
   const lang = i18n.language;
@@ -41,26 +52,56 @@ const Team: React.FC = () => {
     ],
   };
 
+  // Combine loaders
+  const isLoading = titleLoading || teamsloading;
+
   return (
     <section className="team-sec overflow-hidden">
       <Container>
         <Row>
-          <Col className="col-12 col-md-12 col-lg-3">
-            <div className="solo-member-text" data-aos={i18n.language === "ar" ? "fade-left" : "fade-right"}>
-              <h3>{t("team_sec.title")}</h3>
-              <p>{t("team_sec.description")}</p>
-              <Link to="/about" className="banner-btn">
-                <Button className="btn btn-teal">
-                  {t("team_sec.allTeam")}
-                </Button>
-                <span className="arrow-btn">
-                  <i className="bi bi-arrow-right"></i>
-                </span>
-              </Link>
+          {/* LEFT CONTENT */}
+          <Col lg={3}>
+            <div
+              className="solo-member-text"
+              data-aos={lang === "ar" ? "fade-left" : "fade-right"}
+            >
+              {isLoading ? (
+                <Loader />
+              ) : titleError ? (
+                <p className="text-danger">{titleError}</p>
+              ) : (
+                <>
+                  <h3>
+                    {lang === "ar"
+                      ? teamSection?.title_ar
+                      : teamSection?.title_en}
+                  </h3>
+
+                  <p>
+                    {lang === "ar"
+                      ? teamSection?.sub_title_ar
+                      : teamSection?.sub_title_en}
+                  </p>
+
+                  {teamSection?.button_link && (
+                    <Link to={teamSection.button_link} className="banner-btn">
+                      <Button className="btn btn-teal">
+                        {lang === "ar"
+                          ? teamSection.button_name_ar
+                          : teamSection.button_name_en}
+                      </Button>
+                      <span className="arrow-btn">
+                        <i className="bi bi-arrow-right"></i>
+                      </span>
+                    </Link>
+                  )}
+                </>
+              )}
             </div>
           </Col>
 
-          <Col className="col-12 col-md-8 col-lg-6">
+          {/* TEAM SLIDER */}
+          <Col lg={6} md={8}>
             {teamsloading ? (
               <Loader />
             ) : (
@@ -71,7 +112,7 @@ const Team: React.FC = () => {
                       <div className="team-image">
                         <img
                           src={member.images_url}
-                          alt={member.name_en}
+                          alt={lang === "ar" ? member.name_ar : member.name_en}
                           loading="lazy"
                         />
                       </div>
@@ -80,9 +121,7 @@ const Team: React.FC = () => {
                           <span>
                             {lang === "ar" ? member.name_ar : member.name_en} -
                           </span>{" "}
-                          {lang === "ar"
-                            ? member.job_title_ar
-                            : member.job_title_en}
+                          {lang === "ar" ? member.job_title_ar : member.job_title_en}
                         </h4>
                       </div>
                     </div>
@@ -92,20 +131,19 @@ const Team: React.FC = () => {
             )}
           </Col>
 
-          <Col className="col-md-4 col-lg-3">
+          {/* JOIN TEAM CARD */}
+          <Col lg={3} md={4}>
             <div className="team-content team-join" data-aos="fade-up">
               <div className="team-image">
                 <img src={teamImage} alt="Join us" loading="lazy" />
               </div>
               <div className="team-title">
                 <h4>
-                  <span>{t("team_sec.maybeYou")}</span> {t("team_sec.bePart")}
+                  <span>Maybe You -</span> Be part of our team
                 </h4>
               </div>
               <div className="apply-btn">
-                <Button className="btn btn-teal" >
-                  {t("team_sec.applyNow")}
-                </Button>
+                <Button className="btn btn-teal">Apply Now</Button>
               </div>
             </div>
           </Col>

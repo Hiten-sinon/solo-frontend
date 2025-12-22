@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { LogoDark } from "../../assets/images";
+import { Logo } from "../../assets/images";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         <Row>
           <Col md={6}>
             <div className="footer-logo">
-              <img src={LogoDark} alt="logo" loading="lazy" />
+              <img src={Logo} alt="logo" loading="lazy" />
               <h4>{t("footer.workWithUs")}</h4>
               <Button className="btn btn-teal">
                 {t("footer.inquiryBtn")}

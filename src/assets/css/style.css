@@ -616,7 +616,6 @@ body {
 
 /* Footer */
 .footer {
-  background: #fff;
   padding: 50px 0 10px;
 }
 
@@ -626,6 +625,7 @@ body {
   line-height: 90px;
   margin-bottom: 31px;
   width: 70%;
+  color: #fff;
 }
 
 .footer-logo img {
@@ -641,16 +641,16 @@ body {
 .navigation h5 {
   font-size: 16px;
   font-weight: 400;
-  color: #737373;
   margin-bottom: 20px;
   line-height: normal;
   font-family: var(--font-family-tertiary);
+  color: var(--text-teal);
 }
 
 .navigation ul li a {
   font-size: 20px;
   font-weight: 400;
-  color: #000;
+  color: #fff;
   line-height: normal;
   text-decoration: none;
   font-family: var(--font-family-tertiary);
@@ -661,7 +661,7 @@ body {
 .contact-link h5 {
   font-size: 16px;
   font-weight: 400;
-  color: #737373;
+  color:var(--text-teal);
   margin-bottom: 20px;
   line-height: normal;
   font-family: var(--font-family-tertiary);
@@ -676,12 +676,16 @@ body {
 .contact-link ul li a {
   font-size: 20px;
   font-weight: 400;
-  color: #000;
+  color: #fff;
   line-height: normal;
   text-decoration: none;
   font-family: var(--font-family-tertiary);
   margin-bottom: 10px;
   display: block;
+}
+
+.contact-link ul li{
+  color: #fff;
 }
 
 .footer-logo .btn.btn-teal {
@@ -695,7 +699,7 @@ body {
 .footer-bottom {
   padding: 17px 0 10px;
   margin-top: 50px;
-  border-top: 1px solid var(--background-dark);
+  border-top: 1px solid #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -704,7 +708,7 @@ body {
 .footer-bottom p {
   font-size: 18px;
   font-weight: 400;
-  color: #000;
+  color: #fff;
   line-height: normal;
   font-family: var(--font-family-tertiary);
   text-transform: uppercase;
@@ -719,7 +723,7 @@ body {
 
 .footer-bottom .social-media li a {
   font-size: 20px;
-  color: #000;
+  color: #fff;
   display: block;
 }
 
@@ -1107,7 +1111,7 @@ body {
 
 .testimonial-item {
   position: relative;
-  height: 250px;
+  min-height: 340px;
   background: #fff;
   border-radius: 30px;
   width: 90%;
@@ -1121,7 +1125,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 65px;
+  height: 77px;
   background: rgba(0, 0, 0, 0.7);
   background: url("../../assets/images/shape-5.webp");
   background-size: contain;

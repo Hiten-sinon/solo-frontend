@@ -1135,9 +1135,9 @@
     scrollbar-color: #000 transparent;
   }
 
-      .service-tab-content .tab-content .tab-pane .tab-content {
-        margin-top: -75px;
-    }
+  .service-tab-content .tab-content .tab-pane .tab-content {
+    margin-top: -75px;
+  }
 
 }
 
@@ -1180,6 +1180,12 @@
 
   .personal-info-box label {
     font-size: 16px;
+  }
+}
+
+@media (min-width:1200px) and (max-width:1399px) {
+  .testimonial-item {
+    min-height: 390px;
   }
 }
 
@@ -1252,6 +1258,29 @@
 
   .radio-btn .form-check-inline label {
     font-size: 16px;
+  }
+
+  .testimonial-item {
+    min-height: 380px;
+  }
+
+  .testimonial-item::after {
+    height: 65px;
+  }
+
+  .testimonial-item h5 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px 12px;
+    background-color: var(--background-teal);
+    color: var(--text-color);
+    font-family: var(--font-family-tertiary);
+    font-size: 11px;
+    z-index: 2;
+    border-radius: 50px;
+    font-weight: 300;
+    width: 85%;
   }
 }
 
@@ -1339,6 +1368,14 @@
   .modal-dialog {
     max-width: 90%;
   }
+
+  .testimonial-item {
+    min-height: 340px;
+  }
+
+  .testimonial-item h5 {
+    width: 74%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1410,6 +1447,14 @@
   .btn-gray {
     width: 55%;
   }
+
+  .testimonial-item h5 {
+    width: auto;
+  }
+
+  .testimonial-item {
+    min-height: 270px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -1473,6 +1518,9 @@
     min-width: 140px;
   }
 
+  .testimonial-item {
+    min-height: 290px;
+  }
 
 }
 

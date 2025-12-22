@@ -6,10 +6,12 @@ export const fetchNumbers = createAsyncThunk("numbers/fetch", async () => {
   return response.data;
 });
 
+
 interface NumbersState {
   data: any[];
   numbersLoading: boolean;
   error: string | null;
+  
 }
 
 const initialState: NumbersState = {

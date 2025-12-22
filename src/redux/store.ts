@@ -17,6 +17,7 @@ import inquiryReducer from "./slice/inquirySlice";
 import exteriorReducer from "./slice/exteriorSlice";
 import numberBannerReducer from "./slice/homepage/numberBannerSlice";
 import linksFooterReducer from "./slice/homepage/linksFooterSlice";
+import manageTitleReducer from "./slice/homepage/manageTitleSlice";
 export const store = configureStore({
   reducer: {
     partners: partnersReducer,
@@ -37,6 +38,7 @@ export const store = configureStore({
     exterior: exteriorReducer,
     numberBanner: numberBannerReducer,
     linksFooter: linksFooterReducer,
+    manageTitle: manageTitleReducer,
   },
 });
 

@@ -11,7 +11,7 @@ import type { AppDispatch, RootState } from "../../../redux/store";
 import Loader from "../../loader/Loader";
 
 const Banner: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
   const { data: slides, bannersliderloading, error } = useSelector(
@@ -67,9 +67,11 @@ const Banner: React.FC = () => {
                           ? slide.sub_title_ar
                           : slide.sub_title_en}
                       </p>
-                      <Link to="#" className="banner-btn">
+                      <Link to={slide.button_link} className="banner-btn">
                         <Button className="btn btn-teal">
-                          {t("banner.button")}
+                          {i18n.language === "ar"
+                          ? slide.button_name_ar
+                          : slide.button_name_en}
                         </Button>
                         <span className="arrow-btn">
                           <i className="bi bi-arrow-right"></i>
