@@ -18,6 +18,9 @@ import exteriorReducer from "./slice/exteriorSlice";
 import numberBannerReducer from "./slice/homepage/numberBannerSlice";
 import linksFooterReducer from "./slice/homepage/linksFooterSlice";
 import manageTitleReducer from "./slice/homepage/manageTitleSlice";
+import headerReducer from "./slice/headerSlice";
+import footerReducer from "./slice/footerSlice";
+
 export const store = configureStore({
   reducer: {
     partners: partnersReducer,
@@ -39,6 +42,8 @@ export const store = configureStore({
     numberBanner: numberBannerReducer,
     linksFooter: linksFooterReducer,
     manageTitle: manageTitleReducer,
+    header: headerReducer,
+    footer: footerReducer,
   },
 });
 

@@ -7,13 +7,27 @@ import {
   NavDropdown,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Logo } from "../../assets/images";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { fetchHeader } from "../../redux/slice/headerSlice";
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [isSticky, setIsSticky] = useState(false);
   const [lang, setLang] = useState("English");
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const { data: headerData } = useSelector(
+    (state: RootState) => state.header
+  );
+
+  useEffect(() => {
+    dispatch(fetchHeader());
+  }, [dispatch]);
+
 
   // Sticky header on scroll
   useEffect(() => {
@@ -66,7 +80,7 @@ const Header: React.FC = () => {
         >
           <Container>
             <Navbar.Brand href="/">
-              <img src={Logo} alt="Logo" loading="lazy" />
+              <img src={headerData?.logo_url} alt="Logo" loading="lazy" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -83,9 +97,17 @@ const Header: React.FC = () => {
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Link to="/">{t("home")}</Link>
                   <Link to="/service">{t("services")}</Link>
-                  <NavDropdown title={t("more")} id="nav-dropdown" className="language-dropdown">
-                    <NavDropdown.Item href="/blog">{t("blog")}</NavDropdown.Item>
-                    <NavDropdown.Item href="/interior">{t("interior")}</NavDropdown.Item>
+                  <NavDropdown
+                    title={t("more")}
+                    id="nav-dropdown"
+                    className="language-dropdown"
+                  >
+                    <NavDropdown.Item href="/blog">
+                      {t("blog")}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/interior">
+                      {t("interior")}
+                    </NavDropdown.Item>
                   </NavDropdown>
                   <Link to="/about">{t("about")}</Link>
                   <Link to="/contact">{t("contact")}</Link>
@@ -106,8 +128,11 @@ const Header: React.FC = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Link to="/inquiry" className="btn btn-teal">{t("inquiry")}</Link>
-                    
+                  <Link to="/inquiry" className="btn btn-teal">
+                    {i18n.language === "ar"
+                      ? headerData?.buttont_name_ar
+                      : headerData?.buttont_name_en}
+                  </Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
