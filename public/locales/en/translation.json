@@ -294,5 +294,23 @@
     "see_all_articles": "See All Articles",
     "loading_blog_articles": "Loading blog articles...",
     "error": "Error"
+  },
+  "Career": {
+    "title": "Career",
+    "career_form":{
+      "Name" : "Name",
+      "Phone" : "Phone",
+      "Email" : "Email",
+      "Message" : "Message",
+      "Position" : "Position",
+      "Submit" : "Submit",
+      "Placeholder": {
+        "Name" : "Enter your name",
+        "Phone" : "Enter your phone number",
+        "Email" : "Enter your email",
+        "Message" : "Enter your message",
+        "Position" : "Enter your position"
+      }
+    }
   }
 }

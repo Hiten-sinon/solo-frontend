@@ -1,66 +1,69 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosAPIInstace } from "../../../utils/axiosInstance";
 
-interface ContactFormPayload {
+export type InquiryType = "contact" | "career";
+
+export interface InquiryPayload {
   name: string;
   phone_number: string;
   email_address: string;
   message: string;
+  type: InquiryType;
 }
 
-interface ContactFormState {
-  contactformloading: boolean;
+interface InquiryState {
+  loading: boolean;
   success: boolean;
   error: string | null;
 }
 
-const initialState: ContactFormState = {
-  contactformloading: false,
+const initialState: InquiryState = {
+  loading: false,
   success: false,
   error: null,
 };
 
-// Async thunk
-export const submitContactForm = createAsyncThunk<
-  any, 
-  ContactFormPayload
->("contactForm/submit", async (formData, { rejectWithValue }) => {
+export const submitInquiryForm = createAsyncThunk<
+  any,
+  InquiryPayload,
+  { rejectValue: string }
+>("inquiry/submit", async (payload, { rejectWithValue }) => {
   try {
-    const res = await axiosAPIInstace.post("/contactusforminquiry", formData);
-    return res.data;
-  } catch (err: any) {
-    return rejectWithValue(err.response?.data?.message || "Something went wrong");
+    const url = "/contactusforminquiry";
+
+    const response = await axiosAPIInstace.post(url, payload);
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(
+      error?.response?.data?.message || "Something went wrong"
+    );
   }
 });
 
-const contactFormSlice = createSlice({
-  name: "contactForm",
+const inquirySlice = createSlice({
+  name: "inquiry",
   initialState,
   reducers: {
-    resetFormState: (state) => {
-      state.contactformloading = false;
-      state.success = false;
-      state.error = null;
-    },
+    resetInquiryState: () => initialState,
   },
   extraReducers: (builder) => {
     builder
-      .addCase(submitContactForm.pending, (state) => {
-        state.contactformloading = true;
+      .addCase(submitInquiryForm.pending, (state) => {
+        state.loading = true;
         state.success = false;
         state.error = null;
       })
-      .addCase(submitContactForm.fulfilled, (state) => {
-        state.contactformloading = false;
+      .addCase(submitInquiryForm.fulfilled, (state) => {
+        state.loading = false;
         state.success = true;
       })
-      .addCase(submitContactForm.rejected, (state, action) => {
-        state.contactformloading = false;
+      .addCase(submitInquiryForm.rejected, (state, action) => {
+        state.loading = false;
         state.success = false;
-        state.error = action.payload as string;
+        state.error = action.payload ?? "Submission failed";
       });
   },
 });
 
-export const { resetFormState } = contactFormSlice.actions;
-export default contactFormSlice.reducer;
+export const { resetInquiryState } = inquirySlice.actions;
+export default inquirySlice.reducer;

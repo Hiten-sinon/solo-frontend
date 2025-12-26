@@ -301,5 +301,24 @@
     "see_all_articles": "عرض جميع المقالات",
     "loading_blog_articles": "جارٍ تحميل مقالات المدونة...",
     "error": "خطأ"
+  },
+
+  "Career": {
+    "title": "الوظائف",
+    "career_form": {
+      "Name": "الاسم",
+      "Phone": "رقم الهاتف",
+      "Email": "البريد الإلكتروني",
+      "Message": "الرسالة",
+      "Position": "المنصب",
+      "Submit": "إرسال",
+      "Placeholder": {
+        "Name": "أدخل اسمك",
+        "Phone": "أدخل رقم هاتفك",
+        "Email": "أدخل بريدك الإلكتروني",
+        "Message": "أدخل رسالتك",
+        "Position": "أدخل المنصب"
+      }
+    }
   }
 }

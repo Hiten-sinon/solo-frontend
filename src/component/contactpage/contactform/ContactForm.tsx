@@ -1,22 +1,23 @@
-import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import { Border } from "../../../assets/images";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import type { RootState, AppDispatch } from "../../../redux/store";
-import { submitContactForm } from "../../../redux/slice/contactpage/contactFormSlice";
+import {
+  submitInquiryForm,
+  resetInquiryState,
+} from "../../../redux/slice/contactpage/contactFormSlice";
 import Loader from "../../loader/Loader";
 import { useTranslation } from "react-i18next";
+import { Border } from "../../../assets/images";
 
-const ContactForm: React.FC = () => {
+const ContactForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { i18n, t } = useTranslation();
 
-  const { data } = useSelector((state: RootState) => state.contactBanner);
-  const { contactformloading, success, error } = useSelector(
+  const { loading, success, error } = useSelector(
     (state: RootState) => state.contactForm
   );
+  const { data } = useSelector((state: RootState) => state.contactBanner);
 
   const isArabic = i18n.language === "ar";
 
@@ -27,28 +28,39 @@ const ContactForm: React.FC = () => {
     message: "",
   });
 
-  const [validationError, setValidationError] = useState("");
+  useEffect(() => {
+    if (success) {
+      setFormData({
+        name: "",
+        phone_number: "",
+        email_address: "",
+        message: "",
+      });
+
+      setTimeout(() => {
+        dispatch(resetInquiryState());
+      }, 3000);
+    }
+  }, [success, dispatch]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setValidationError(""); // clear previous error
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Simple client-side validation
-    if (!formData.name || !formData.phone_number || !formData.email_address || !formData.message) {
-      setValidationError(t("Please fill all fields") || "Please fill all fields");
-      return;
-    }
-
-    dispatch(submitContactForm(formData));
+    dispatch(
+      submitInquiryForm({
+        ...formData,
+        type: "contact",
+      })
+    );
   };
 
-  if (contactformloading) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <section
@@ -100,7 +112,9 @@ const ContactForm: React.FC = () => {
                     name="phone_number"
                     value={formData.phone_number}
                     onChange={handleChange}
-                    placeholder={t("Enter your phone number") || "Enter your phone number"}
+                    placeholder={
+                      t("Enter your phone number") || "Enter your phone number"
+                    }
                   />
                 </Form.Group>
               </Col>
@@ -129,10 +143,7 @@ const ContactForm: React.FC = () => {
 
               {/* Message */}
               <Col md={12}>
-                <Form.Group
-                  controlId="Message"
-                  data-aos="fade-up"
-                >
+                <Form.Group controlId="Message" data-aos="fade-up">
                   <Form.Label>{t("Message")}</Form.Label>
                   <div className="form-textarea position-relative">
                     <Form.Control
@@ -141,7 +152,9 @@ const ContactForm: React.FC = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder={t("Enter your message") || "Enter your message"}
+                      placeholder={
+                        t("Enter your message") || "Enter your message"
+                      }
                     />
                     <img src={Border} alt="border design" />
                   </div>
@@ -153,20 +166,19 @@ const ContactForm: React.FC = () => {
                 <Button
                   type="submit"
                   className="btn btn-teal"
-                  disabled={contactformloading}
+                  disabled={loading}
                   data-aos="fade-up"
                 >
-                  {contactformloading ? t("Sending...") : t("Send")}
+                  {loading ? t("Sending...") : t("Send")}
                 </Button>
               </Col>
 
               {/* Messages */}
               <Col md={12} className="text-center mt-3">
-                {validationError && (
-                  <p className="text-warning">{validationError}</p>
-                )}
                 {success && (
-                  <p className="text-success">{t("Message sent successfully!")}</p>
+                  <p className="text-success">
+                    {t("Message sent successfully!")}
+                  </p>
                 )}
                 {error && <p className="text-danger">{error}</p>}
               </Col>

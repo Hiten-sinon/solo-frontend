@@ -349,3 +349,15 @@ a.navbar-brand img {
   font-weight: 300;
   color: var(--background-light);
 }
+
+.career-form{
+  padding: 150px 0;
+}
+.career-form .title h2{
+  font-size: 64px;
+  font-weight: 500;
+  color:var(--background-light);
+  font-family: var(--font-family-secondary);
+  text-align: center;
+  margin-bottom: 40px;
+}
