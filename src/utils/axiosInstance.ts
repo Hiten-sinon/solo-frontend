@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? "https://api.solo-group.co/api";
+const apiBaseUrl =
+  import.meta.env.VITE_API_BASE_URL ?? "https://solo-group.sinontechs.com/api";
 
 export const axiosAPIInstace = axios.create({
   baseURL: apiBaseUrl,

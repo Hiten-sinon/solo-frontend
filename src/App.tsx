@@ -23,6 +23,7 @@ import Error from './page/Error'
 import './App.css'
 import './assets/css/style.css'
 import './assets/css/responsive.css'
+import Careerpage from './page/Careerpage'
 const App: React.FC = () => {
   useEffect(() => {
     AOS.init({
@@ -47,6 +48,7 @@ const App: React.FC = () => {
           <Route path="/interior" element={<Interiorpage />} />
           <Route path="/inquiry" element={<Inquirypage />} />
           <Route path="/exterior" element={<Exteriorpage />} />
+          <Route path="/career" element={<Careerpage />} />
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
