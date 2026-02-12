@@ -23,13 +23,21 @@ body {
   font-size: 15px;
   color: #fff;
   font-weight: 300;
-  padding: 15px 30px;
+  padding: 15px 20px 12px !important;
   text-decoration: none;
   font-family: var(--font-family);
   text-transform: uppercase;
-  line-height: 24px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
+  margin: 0 10px;
 }
-
+.offcanvas-body .navbar-nav a:hover,.offcanvas-body .navbar-nav a:focus, .offcanvas-body .navbar-nav a:active, .offcanvas-body .navbar-nav a:focus-visible {
+  background-color: var(--background-teal) !important;
+  color: var(--text-color) !important;
+}
+.language-dropdown .dropdown-item{
+  width: auto;
+}
 .language-dropdown .dropdown-item:hover,
 .language-dropdown .dropdown-item:focus,
 .language-dropdown .dropdown-item:active,
@@ -603,6 +611,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   height: 100%;
+  object-fit: contain;
 }
 
 .partner-image-box {
@@ -891,12 +900,11 @@ body {
 }
 
 .service-card-content h3 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 500;
   color: #000;
   line-height: normal;
   font-family: var(--font-family-secondary);
-  width: 75%;
   margin-bottom: 20px;
 }
 
@@ -1671,7 +1679,7 @@ body {
   background-color: #fff;
   border: 1px solid #000;
   border-radius: 50px;
-  min-height: 518px;
+  min-height: 560px;
 }
 
 .service-card .service-card-item img {
@@ -1687,12 +1695,11 @@ body {
 }
 
 .service-card-content h3 {
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 500;
   color: #000;
   line-height: normal;
   font-family: var(--font-family-secondary);
-  width: 75%;
   margin-bottom: 20px;
 }
 
