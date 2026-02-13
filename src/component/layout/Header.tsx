@@ -128,11 +128,11 @@ const Header: React.FC = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
 
-                  <Link to="/inquiry" className="btn btn-teal">
+                  {/* <Link to="/inquiry" className="btn btn-teal">
                     {i18n.language === "ar"
                       ? headerData?.buttont_name_ar
                       : headerData?.buttont_name_en}
-                  </Link>
+                  </Link> */}
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

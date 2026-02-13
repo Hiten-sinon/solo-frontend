@@ -61,11 +61,11 @@ const Partner: React.FC = () => {
           <p className="text-danger text-center">{titleError}</p>
         ) : (
           <>
-            <h2>
+            {/* <h2>
               {i18n.language === "ar"
                 ? partnerSection?.title_ar
                 : partnerSection?.title_en}
-            </h2>
+            </h2> */}
 
             <p>
               {i18n.language === "ar"
