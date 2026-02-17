@@ -96,21 +96,26 @@ const Header: React.FC = () => {
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Link to="/">{t("home")}</Link>
-                  <Link to="/service">{t("services")}</Link>
                   <NavDropdown
-                    title={t("more")}
+                     title={t("services")}
                     id="nav-dropdown"
                     className="language-dropdown"
                   >
-                    <NavDropdown.Item href="/blog">
-                      {t("blog")}
+                    <NavDropdown.Item href="/service">
+                      {t("serviceslist")}
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="/exterior">
+                      {t("exterior")}
                     </NavDropdown.Item>
                     <NavDropdown.Item href="/interior">
                       {t("interior")}
                     </NavDropdown.Item>
                   </NavDropdown>
+                  
+                  <Link to="/blog">{t("blog")}</Link>
                   <Link to="/about">{t("about")}</Link>
                   <Link to="/contact">{t("contact")}</Link>
+                  <Link to="/inquiry">{t("inquiry")}</Link>
                 </Nav>
 
                 {/* Language Switcher */}

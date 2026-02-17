@@ -882,7 +882,7 @@ body {
 
 .service-card .service-card-item {
   padding: 30px;
-  background-color: #fff;
+  background-color: #dfdfdf;
   border: 1px solid #000;
   border-radius: 50px;
 }
@@ -1676,7 +1676,7 @@ body {
 
 .service-card .service-card-item {
   padding: 30px;
-  background-color: #fff;
+  background-color: #dfdfdf;
   border: 1px solid #000;
   border-radius: 50px;
   min-height: 560px;
@@ -1737,11 +1737,10 @@ body {
   top: -8px;
   width: 80px;
   height: 30px;
-  background-image: url("../../assets/images/shape.png");
+  background-image: url("../../assets/images/shape0111.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0) invert(1);
 }
 
 .service-card-content .service-card-link a i {
@@ -1771,7 +1770,7 @@ body {
 
 .service-card .service-card-item:hover .service-card-content .service-card-link::before,
 .service-card .service-card-item:focus .service-card-content .service-card-link::before {
-  filter: unset;
+ background-image: url("../../assets/images/shape.png");
 }
 
 .service-card .service-card-item:hover .service-card-content .service-card-link a i,
@@ -2431,3 +2430,30 @@ ul#uncontrolled-tab-example button.active{
     position: relative;
     z-index: 1;
 }
+
+.team-content {
+  position: relative;
+  overflow: hidden;
+  padding-left:0 ;
+}
+
+.team-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+  top: 0;
+}
+
+.team-content:hover .team-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+

@@ -431,13 +431,13 @@ function InquiryForm() {
                     </Form.Group>
                   </Col>
 
-                  <Col md={12}>
+                  <Col md={6}>
                     <Form.Group className="mb-3">
                       <Form.Label htmlFor="constructionProjectArea1">
                         {t("ConstructionWorkForm.project_area")}
                       </Form.Label>
                       <Row>
-                        <Col md={4}>
+                        <Col md={12}>
                           <Form.Control
                             id="constructionProjectArea1"
                             type="number"
@@ -454,7 +454,7 @@ function InquiryForm() {
                             }
                           />
                         </Col>
-                        <Col md={4}>
+                        {/* <Col md={4}>
                           <Form.Control
                             id="constructionProjectArea2"
                             type="number"
@@ -487,12 +487,12 @@ function InquiryForm() {
                               })
                             }
                           />
-                        </Col>
+                        </Col> */}
                       </Row>
                     </Form.Group>
                   </Col>
 
-                  <Col md={12}>
+                  <Col md={6}>
                     <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
                         {t("ConstructionWorkForm.type_of_space")}
@@ -705,7 +705,7 @@ function InquiryForm() {
                         {t("FinishingWorkForm.project_area")}
                       </Form.Label>
                       <Row>
-                        <Col md={4}>
+                        <Col md={12}>
                           <Form.Control
                             id="finishingProjectArea1"
                             type="number"
@@ -722,7 +722,7 @@ function InquiryForm() {
                             }
                           />
                         </Col>
-                        <Col md={4}>
+                        {/* <Col md={4}>
                           <Form.Control
                             id="finishingProjectArea2"
                             type="number"
@@ -755,7 +755,7 @@ function InquiryForm() {
                               })
                             }
                           />
-                        </Col>
+                        </Col> */}
                       </Row>
 
                       {finishingErrors.site_area && (

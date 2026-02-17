@@ -2,29 +2,18 @@ import React, { useEffect } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { BlogOne } from '../../../assets/images';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchInteriorVideos } from '../../../redux/slice/interiorpage/InteriorVideoSlice';
-import { fetchInteriorBanner } from '../../../redux/slice/interiorpage/interiorBanner.slice';
+import { fetchExteriorVideos } from '../../../redux/slice/exteriorpage/ExteriorVideoSlice';
 import type { AppDispatch, RootState } from '../../../redux/store';
 import { useTranslation } from 'react-i18next';
 
-const VideoList: React.FC = () => {
+const ExteriorVideoList: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
-
     const { i18n } = useTranslation();
 
-    const { data: videos, loading, error } = useSelector(
-        (state: RootState) => state.interiorVideos
-    );
-
-    const { data: bannerData } = useSelector(
-        (state: RootState) => state.interiorBanner as any
-    );
-
-    const banner = bannerData;
+    const { data: videos, loading, error } = useSelector((state: RootState) => state.exteriorVideos);
 
     useEffect(() => {
-        dispatch(fetchInteriorVideos());
-        dispatch(fetchInteriorBanner());
+        dispatch(fetchExteriorVideos());
     }, [dispatch]);
 
     if (loading) return <p>Loading videos...</p>;
@@ -36,18 +25,13 @@ const VideoList: React.FC = () => {
         <section className='video-lists'>
             <Container>
                 <div className="blog-list-content video-content">
-                    <h2>
-                        {i18n.language === 'ar'
-                            ? banner?.sub_title_ar || banner?.sub_title_en || ''
-                            : banner?.sub_title_en || banner?.sub_title_ar || ''}
-                    </h2>
+                    <h2>{i18n.language === 'ar' ? 'مشاركات الفيديو الأخيرة' : 'Recent Video posts'}</h2>
                 </div>
                 <div className="blog-list-items">
                     <Row>
                         {list.slice(0, 9).map((post) => (
                             <Col md={6} lg={4} key={post.id}>
                                 <div className="blog-item video-item">
-                                    {/* prefer API `image` (may be filename); fallback to `BlogOne` */}
                                     {(() => {
                                         const base = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/api\/?$/,'');
                                         const src1 = post.image_url
@@ -90,4 +74,4 @@ const VideoList: React.FC = () => {
     )
 }
 
-export default VideoList
+export default ExteriorVideoList

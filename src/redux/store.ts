@@ -20,6 +20,10 @@ import linksFooterReducer from "./slice/homepage/linksFooterSlice";
 import manageTitleReducer from "./slice/homepage/manageTitleSlice";
 import headerReducer from "./slice/headerSlice";
 import footerReducer from "./slice/footerSlice";
+import interiorBannerReducer from "./slice/interiorpage/interiorBanner.slice";
+import interiorVideoReducer from "./slice/interiorpage/InteriorVideoSlice";
+import exteriorBannerReducer from "./slice/exteriorpage/ExteriorBannerSlice";
+import exteriorVideoReducer from "./slice/exteriorpage/ExteriorVideoSlice";
 
 export const store = configureStore({
   reducer: {
@@ -44,6 +48,10 @@ export const store = configureStore({
     manageTitle: manageTitleReducer,
     header: headerReducer,
     footer: footerReducer,
+    interiorBanner: interiorBannerReducer,
+    interiorVideos: interiorVideoReducer,
+    exteriorBanner: exteriorBannerReducer,
+    exteriorVideos: exteriorVideoReducer,
   },
 });
 

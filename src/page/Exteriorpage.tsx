@@ -1,11 +1,12 @@
-import ExteriorBanner from "../component/exteriorform/ExteriorBanner";
-import ExteriorForm from "../component/exteriorform/ExteriorForm";
+
+import ExteriorBannerNew from "../component/exteriorpage/exteriorbanner/ExteriorBannerNew";
+import ExteriorVideoList from "../component/exteriorpage/exteriorvideolist/ExteriorVideoList";
 
 const Exteriorpage = () => {
   return (
     <>
-      <ExteriorBanner />
-      <ExteriorForm />
+      <ExteriorBannerNew />
+      <ExteriorVideoList />
     </>
   );
 };

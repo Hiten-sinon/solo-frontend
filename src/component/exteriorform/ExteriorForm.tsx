@@ -1209,8 +1209,7 @@ function ExteriorForm() {
                           />
                           <div className="designtype-text">
                             <h4>
-                              {" "}
-                              {style} {t("DesignTypeForm.design")}
+                              {t(`DesignStyles.${style}`)} {t("DesignTypeForm.design")}
                             </h4>
                             <Button
                               className="btn-gray"

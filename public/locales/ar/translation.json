@@ -2,6 +2,7 @@
   "menu": "القائمة",
   "home": "الرئيسية",
   "services": "الخدمات",
+  "serviceslist": "قائمة الخدمات",
   "more": "المزيد",
   "team": "الفريق",
   "careers": "الوظائف",
@@ -113,10 +114,10 @@
     "copyright": "© 2025 جميع الحقوق محفوظة"
   },
   "ConstructionWorkForm": {
-    "title": "أعمال البناء",
+    "title": "طلب البناء",
     "fullname": "الاسم الكامل",
     "enter_name": "أدخل الاسم",
-    "phone_number": "رقم التليفون",
+    "phone_number": "رقم الهاتف - يدعم واتساب",
     "enter_phone_number": "أدخل رقم الهاتف",
     "residency": "الإقامة",
     "enter_residency": "أدخل الإقامة",
@@ -133,14 +134,14 @@
     "submit": "إرسال"
   },
   "DesignWorkForm": {
-    "title": "أعمال التصميم",
+    "title": "طلب التصميم",
     "personal_info_tab_title": "المعلومات الشخصية",
     "fullname": "الاسم الكامل",
     "enter_name": "أدخل الاسم",
-    "phone_number": "رقم التليفون",
+    "phone_number": "رقم الهاتف - يدعم واتساب",
     "enter_phone_number": "أدخل رقم الهاتف",
-    "city": "مدينة",
-    "enter_city": "أدخل المدينة",
+    "city": "مكان الاقامة",
+    "enter_city": "أدخل مكان الاقامة",
     "project_location": "موقع المشروع",
     "enter_project_location": "أدخل موقع المشروع",
     "place_of_residence": "مكان الإقامة",
@@ -227,10 +228,10 @@
     "note1": "يجب أن تستند اختياراتكم وطلبات التصميم إلى احتياجاتكم الوظيفية وتفضيلاتكم لأسلوب حياة عائلتكم. لن يُنظر في النماذج غير المكتملة أو المعلومات الناقصة. يُرجى التأكد من ملء جميع الحقول بدقة قبل التقديم."
   },
   "FinishingWorkForm": {
-    "title": "أعمال التشطيب",
+    "title": "طلب التشطيب",
     "full_name": "الاسم الكامل",
     "enter_name": "أدخل الاسم",
-    "phone_number": "رقم التليفون",
+    "phone_number": "رقم الهاتف - يدعم واتساب",
     "enter_phone_number": "أدخل رقم الهاتف",
     "residency": "الإقامة",
     "enter_residency": "أدخل الإقامة",
@@ -247,10 +248,10 @@
     "submit": "يُقدِّم"
   },
   "SoloLearnForm": {
-    "title": "سولوليرن",
+    "title": "أكاديمية سولو",
     "full_name": "الاسم الكامل",
     "enter_name": "أدخل الاسم",
-    "phone_number": "رقم التليفون",
+    "phone_number": "رقم الهاتف - يدعم واتساب",
     "enter_phone_number": "أدخل رقم الهاتف",
     "date_of_birth": "تاريخ الميلاد",
     "place_of_residence": "مكان الإقامة",
@@ -268,7 +269,7 @@
     "submit": "يُقدِّم"
   },
   "InquiryForm": {
-    "title": "نموذج الاستفسار"
+    "title": "نموذج الطلب"
   },
   "ExteriorPage": {
     "title": "الخارج"
@@ -320,5 +321,21 @@
         "Position": "أدخل المنصب"
       }
     }
-  }
+  },
+  "DesignStyles": {
+  "Andalusian": "الأندلسي",
+  "Classic": "كلاسيكي",
+  "Industrial": "صناعي",
+  "Japandi": "يابندي",
+  "Meditrranean": "متوسطي",
+    "Mediterranean": "متوسطي",
+  "Minimalism": "بساطة",
+  "Modern": "حديث",
+  "Newclassic": "كلاسيكي جديد",
+  "Scandinavian": "اسكندنافي",
+    "NewClassic": "كلاسيكي جديد",
+    "Minimalist": "بسيط",
+    "Bohemian": "بوهيمي"
+}
+
 }

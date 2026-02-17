@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
                 alt="footer logo"
                 loading="lazy"
               />
-              <h4>
+              {/* <h4>
                 {i18n.language === "ar"
                   ? footerData?.heading_ar
                   : footerData?.heading_en}
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
                 {i18n.language === "ar"
                   ? footerData?.button_name_ar
                   : footerData?.button_name_en}
-              </Button>
+              </Button> */}
             </div>
           </Col>
 
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                   <Link to="/service">{t("footer.navigation.services")}</Link>
                 </li>
                 <li>
-                  <Link to="/projects">{t("footer.navigation.projects")}</Link>
+                  <Link to="/contact">{t("contact")}</Link>
                 </li>
               </ul>
             </div>
@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p className="copy-text">{footerData?.copyright_text}</p>
+          <p className="copy-text"> © {new Date().getFullYear()} {footerData?.copyright_text}</p>
 
           {/* IMPORTANT: keep <ul> always rendered to avoid layout shift */}
           <ul className="social-media">

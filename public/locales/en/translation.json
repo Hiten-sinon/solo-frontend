@@ -2,12 +2,14 @@
   "menu": "Menu",
   "home": "Home",
   "services": "Services",
+  "serviceslist": "Services List",
   "more": "More",
   "team": "Team",
   "careers": "Careers",
   "about": "About Us",
   "blog": "Blog",
   "interior": "Interior",
+  "exterior": "Exterior",
   "contact": "Contact Us",
   "inquiry": "Inquiry form",
   "banner": {
@@ -104,10 +106,10 @@
     "copyright": "© 2025 Copyright"
   },
   "ConstructionWorkForm": {
-    "title": "Construction Work",
+    "title": "Construction Request",
     "fullname": "Full Name",
     "enter_name": "Enter name",
-    "phone_number": "Phone Number",
+    "phone_number": "Phone Number - WhatsApp Enabled",
     "enter_phone_number": "Enter Phone Number",
     "residency": "Residency",
     "enter_residency": "Enter residency",
@@ -124,14 +126,14 @@
     "submit": "Submit"
   },
   "DesignWorkForm": {
-    "title": "Design Work",
+    "title": "Design Request",
     "personal_info_tab_title": "Personal Info",
     "fullname": "Full Name",
     "enter_name": "Enter name",
-    "phone_number": "Phone Number",
+    "phone_number": "Phone Number - WhatsApp Enabled",
     "enter_phone_number": "Enter Phone Number",
-    "city": "City",
-    "enter_city": "Enter city",
+    "city": "Place of Residence.",
+    "enter_city": "Enter place of residence",
     "project_location": "Project Location",
     "enter_project_location": "Enter project location",
     "place_of_residence": "Place of Residence",
@@ -218,10 +220,10 @@
     "note1": "Selections and design requests should be based on your functional requirements and family lifestyle preferences. Incomplete forms or missing information will not be considered. Please ensure all fields are accurately filled before submission"
   },
   "FinishingWorkForm": {
-    "title": "Finishing Work",
+    "title": "Finishing Request",
     "full_name": "Full Name",
     "enter_name": "Enter name",
-    "phone_number": "Phone Number",
+    "phone_number": "Phone Number - WhatsApp Enabled",
     "enter_phone_number": "Enter Phone Number",
     "residency": "Residency",
     "enter_residency": "Enter residency",
@@ -238,10 +240,10 @@
     "submit": "Submit"
   },
   "SoloLearnForm": {
-    "title": "Solo Learn",
+    "title": "Solo Academy",
     "full_name": "Full Name",
     "enter_name": "Enter name",
-    "phone_number": "Phone Number",
+    "phone_number": "Phone Number - WhatsApp Enabled",
     "enter_phone_number": "Enter Phone Number",
     "date_of_birth": "Date of Birth",
     "place_of_residence": "Place of Residence",
@@ -259,7 +261,7 @@
     "submit": "Submit"
   },
   "InquiryForm": {
-    "title": "Inquiry Form"
+    "title": "Request Form"
   },
 
   "ExteriorPage": {
@@ -312,5 +314,20 @@
         "Position" : "Enter your position"
       }
     }
-  }
+  },
+  "DesignStyles": {
+  "Andalusian": "Andalusian",
+  "Classic": "Classic",
+  "Industrial": "Industrial",
+  "Japandi": "Japandi",
+  "Meditrranean": "Mediterranean",
+  "Mediterranean": "Mediterranean",
+  "Minimalism": "Minimalism",
+  "Modern": "Modern",
+  "Newclassic": "New Classic",
+  "Scandinavian": "Scandinavian",
+    "NewClassic": "New Classic",
+    "Minimalist": "Minimalist",
+    "Bohemian": "Bohemian"
+}
 }

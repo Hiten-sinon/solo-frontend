@@ -17,7 +17,7 @@ const TabbingDesign = () => {
     const dispatch = useDispatch<AppDispatch>();
     const inquiryState = useSelector((state: RootState) => state.inquiry);
     const designExamples: DesignExamples = {
-        Bohemian: [
+        Andalusian: [
             "/DesignFormPhotos/Bohemian/IMG_3174.JPEG",
             "/DesignFormPhotos/Bohemian/IMG_3175.JPEG",
             "/DesignFormPhotos/Bohemian/IMG_3176.JPEG",
@@ -53,7 +53,7 @@ const TabbingDesign = () => {
             "/DesignFormPhotos/Industrial/IMG_3162.JPEG",
             "/DesignFormPhotos/Industrial/IMG_3163.JPEG",
         ],
-        Japandish: [
+        Japandi: [
             "/DesignFormPhotos/Japndi/IMG_3039.JPG",
             "/DesignFormPhotos/Japndi/IMG_3040.JPG",
             "/DesignFormPhotos/Japndi/IMG_3041.JPG",
@@ -135,8 +135,6 @@ const TabbingDesign = () => {
     const [designErrors, setDesignErrors] = useState<{ [key: string]: string }>(
         {}
     );
-
-
 
 
     // Design Work form
@@ -782,9 +780,7 @@ const TabbingDesign = () => {
                                                                 } // fallback image
                                                             />
                                                             <div className="designtype-text">
-                                                                <h4>
-                                                                    {style} {t("DesignTypeForm.design")}
-                                                                </h4>
+                                                                <h4>{t(`DesignStyles.${style}`)} {t("DesignTypeForm.design")}</h4>
                                                                 <Button
                                                                     className="btn-gray"
                                                                     type="button"
