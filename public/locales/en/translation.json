@@ -297,6 +297,20 @@
     "loading_blog_articles": "Loading blog articles...",
     "error": "Error"
   },
+  "BlogDetails": {
+    "loading": "Loading...",
+    "no_blog": "No blog found",
+    "link_copied": "Link copied to clipboard!",
+    "link_copy_failed": "Failed to copy link!",
+    "quotes_heading": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "quotes_alt": "quotes",
+    "recent_image_alt": "blog"
+  },
+  "BlogBanner": {
+    "featured": "Featured",
+    "title": "Visualizing trends in Libyan architecture culture",
+    "by": "By Ahemd Salen"
+  },
   "Career": {
     "title": "Career",
     "career_form":{

@@ -5,6 +5,7 @@ import print from "../../assets/images/print.png";
 import copy from "../../assets/images/copy.png";
 import Quotes from "../../assets/images/inverted-commas.png";
 import Slider from "react-slick";
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../redux/store";
 import { fetchBlogDetails } from "../../redux/slice/blogdetailsSlice";
@@ -19,6 +20,9 @@ const BlogDetails: React.FC = () => {
     (state: RootState) => state.blogdetails
   );
 
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
+
   useEffect(() => {
     if (id) dispatch(fetchBlogDetails(id));
   }, [dispatch, id]);
@@ -27,8 +31,8 @@ const BlogDetails: React.FC = () => {
     const currentUrl = window.location.href;
     navigator.clipboard
       .writeText(currentUrl)
-      .then(() => showSuccess("Link copied to clipboard!"))
-      .catch(() => showError("Failed to copy link!"));
+      .then(() => showSuccess(t('BlogDetails.link_copied')))
+      .catch(() => showError(t('BlogDetails.link_copy_failed')));
   };
 
   const handlePrint = () => window.print();
@@ -80,9 +84,9 @@ const BlogDetails: React.FC = () => {
     ],
   };
 
-  if (blogdetailsloading) return <p>Loading...</p>;
+  if (blogdetailsloading) return <p>{t('BlogDetails.loading')}</p>;
   if (error) return <p>{error}</p>;
-  if (!blogdetail) return <p>No blog found</p>;
+  if (!blogdetail) return <p>{t('BlogDetails.no_blog')}</p>;
 
   const blogImages = [
     blogdetail.images_url,
@@ -114,8 +118,8 @@ const BlogDetails: React.FC = () => {
             </Col>
             <Col lg={11} md={11} sm={12} xs={12}>
               <div className="blog-details-content">
-                <h3>{blogdetail.blog_title_en}</h3>
-                <p>{blogdetail.description_en}</p>
+                <h3>{isArabic ? (blogdetail as any).blog_title_ar : (blogdetail as any).blog_title_en}</h3>
+                <p>{isArabic ? (blogdetail as any).description_ar : (blogdetail as any).description_en}</p>
 
                 {/* Image Slider */}
                 <div className="blog-img-slider">
@@ -129,13 +133,8 @@ const BlogDetails: React.FC = () => {
                 </div>
 
                 <div className="blog-details-quotes">
-                  <img src={Quotes} alt="quotes" />
-                  <h3>
-                    Consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi
-                    ut aliquip ex ea commodo consequat.
-                  </h3>
+                  <img src={Quotes} alt={t('BlogDetails.quotes_alt')} />
+                  <h3>{t('BlogDetails.quotes_heading')}</h3>
                 </div>
 
                 <p>
@@ -157,12 +156,12 @@ const BlogDetails: React.FC = () => {
           <Slider {...blogSlider}>
             {recentBlogs.map((blog) => (
               <Link to={`/blog/${blog.id}`} key={blog.id}>
-                <div className="blog-item">
-                  <img src={blog.images_url} alt="blog" />
-                  <div className="blog-text-list">
-                    <h3>{blog.blog_title_en}</h3>
-                  </div>
-                </div>
+                    <div className="blog-item">
+                      <img src={blog.images_url} alt={t('BlogDetails.recent_image_alt')} />
+                      <div className="blog-text-list">
+                        <h3>{isArabic ? (blog as any).blog_title_ar : (blog as any).blog_title_en}</h3>
+                      </div>
+                    </div>
               </Link>
             ))}
           </Slider>

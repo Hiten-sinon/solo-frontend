@@ -1193,8 +1193,8 @@ function ExteriorForm() {
             {/* DESIGN TYPE */}
             <Tab eventKey="designtype" title={t("DesignTypeForm.title")}>
               <div className="design-type-box">
-                <h3>{t("DesignTypeForm.design_style")}</h3>
-                <p>{t("DesignTypeForm.note2")}</p>
+                <h3 className="mb-2">{t("DesignTypeForm.design_style")}</h3>
+                {/* <p>{t("DesignTypeForm.note2")}</p> */}
                 <div className="design-type-categories">
                   <Row>
                     {Object.keys(designExamples).map((style, i) => (

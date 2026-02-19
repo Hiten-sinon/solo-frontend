@@ -761,8 +761,8 @@ const TabbingDesign = () => {
                                 {/* DESIGN TYPE */}
                                 <Tab eventKey="designtype" title={t("DesignTypeForm.title")}>
                                     <div className="design-type-box">
-                                        <h3>{t("DesignTypeForm.design_style")}</h3>
-                                        <p>{t("DesignTypeForm.select_design_style")}</p>
+                                        <h3 className="mb-2">{t("DesignTypeForm.design_style")}</h3>
+                                        {/* <p>{t("DesignTypeForm.select_design_style")}</p> */}
                                         <div className="design-type-categories">
                                             <Row>
                                                 {Object.keys(designExamples).map((style, i) => (

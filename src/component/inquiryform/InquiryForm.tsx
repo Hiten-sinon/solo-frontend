@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   Button,
@@ -19,25 +19,39 @@ import {
   submitSoloLearnInquiry,
 } from "../../redux/slice/inquirySlice";
 import TabbingDesign from "../Tabs/TabbingDesign";
-
+import { useSearchParams } from "react-router-dom";
 
 function InquiryForm() {
   const dispatch = useDispatch<AppDispatch>();
   const inquiryState = useSelector((state: RootState) => state.inquiry);
+  const { t } = useTranslation();
 
   const [message, setMessage] = useState<{ type: string; text: string } | null>(
     null
   );
-  const [constructionErrors, setConstructionErrors] = useState<{
-    [key: string]: string;
-  }>({});
 
-  const [finishingErrors, setFinishingErrors] = useState<{
-    [key: string]: string;
-  }>({});
-  const [soloErrors, setSoloErrors] = useState<{ [key: string]: string }>({});
+  /* ================= TAB CONTROL ================= */
 
-  // Construction Work form
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get("tab");
+
+  const [activeTab, setActiveTab] = useState("construction");
+
+  useEffect(() => {
+    if (tabFromUrl === "design") setActiveTab("design");
+    else if (tabFromUrl === "finishing") setActiveTab("finishing");
+    else if (tabFromUrl === "solo") setActiveTab("solo");
+    else setActiveTab("construction");
+  }, [tabFromUrl]);
+
+  /* ================= ERROR STATES ================= */
+
+  const [constructionErrors, setConstructionErrors] = useState<any>({});
+  const [finishingErrors, setFinishingErrors] = useState<any>({});
+  const [soloErrors, setSoloErrors] = useState<any>({});
+
+  /* ================= FORMS ================= */
+
   const [constructionForm, setConstructionForm] = useState({
     type: "internal",
     name: "",
@@ -50,8 +64,6 @@ function InquiryForm() {
     image: null as File | null,
   });
 
-
-  // Finishing Work form
   const [finishingForm, setFinishingForm] = useState({
     type: "internal",
     name: "",
@@ -62,21 +74,7 @@ function InquiryForm() {
     vehicle_type: "",
   });
 
-  // Solo Learn form
-  const [soloForm, setSoloForm] = useState<{
-    type: string;
-    full_name: string;
-    phone_number: string;
-    date_of_birth: string;
-    place_of_residence: string;
-    college_major: string;
-    status: string;
-    year_of_graduation: string;
-    worked_in_finishing_field: boolean;
-    project_location: string;
-    site_area: string;
-    vehicle_type: string;
-  }>({
+  const [soloForm, setSoloForm] = useState({
     type: "internal",
     full_name: "",
     phone_number: "",
@@ -91,7 +89,8 @@ function InquiryForm() {
     vehicle_type: "",
   });
 
-  // ------------------ VALIDATION HELPERS ------------------ //
+  /* ================= VALIDATION ================= */
+
   const isEmpty = (val: any) => !val || val.toString().trim() === "";
 
   const validateConstruction = () => {
@@ -110,7 +109,6 @@ function InquiryForm() {
     setConstructionErrors(errors);
     return Object.keys(errors).length === 0;
   };
-
 
   const validateFinishing = () => {
     let errors: any = {};
@@ -147,155 +145,27 @@ function InquiryForm() {
     return Object.keys(errors).length === 0;
   };
 
-  // ------------------ SUBMIT HANDLERS ------------------ //
-  const handleConstructionSubmit = async (e: React.FormEvent) => {
+  /* ================= SUBMIT HANDLERS ================= */
+
+  const handleConstructionSubmit = async (e: any) => {
     e.preventDefault();
     if (!validateConstruction()) return;
-    try {
-      const res: any = await dispatch(submitInquiry(constructionForm) as any);
-      const payload = res?.payload;
-
-      // Determine success or failure based on presence of errors
-      const isError = !!payload?.errors;
-      const isSuccess = !isError && !!payload?.data;
-
-      // Build error message if errors exist
-      let messageText = "";
-      if (isError) {
-        const errorMessages = Object.values(payload.errors).flat().join(" "); // combine all validation errors into a single string
-        messageText =
-          errorMessages || "Submission failed. Please check your inputs.";
-      } else {
-        messageText = payload?.message || "Submitted successfully!";
-      }
-
-      setMessage({
-        type: isSuccess ? "success" : "danger",
-        text: messageText,
-      });
-
-      if (isSuccess) {
-        setConstructionForm({
-          type: "internal",
-          name: "",
-          phone_number: "",
-          place_of_residence: "",
-          project_location: "",
-          project_area: "",
-          type_of_space: "",
-          sketch_available: false,
-          image: null,
-        });
-      }
-    } catch (err) {
-      setMessage({ type: "danger", text: "Something went wrong." });
-    }
+    await dispatch(submitInquiry(constructionForm) as any);
   };
 
-
-
-  const handleFinishingSubmit = async (e: React.FormEvent) => {
+  const handleFinishingSubmit = async (e: any) => {
     e.preventDefault();
     if (!validateFinishing()) return;
-    try {
-      const res: any = await dispatch(
-        submitFinishingInquiry(finishingForm) as any
-      );
-
-      const payload = res?.payload;
-
-      // Detect success or failure based on the presence of 'errors'
-      const isError = !!payload?.errors;
-      const isSuccess = !isError && !!payload?.data;
-
-      // Prepare message text
-      let messageText = "";
-      if (isError) {
-        const errorMessages = Object.values(payload.errors).flat().join(" ");
-        messageText =
-          errorMessages ||
-          "Finishing inquiry failed. Please check your inputs.";
-      } else {
-        messageText = payload?.message || "Finishing inquiry submitted!";
-      }
-
-      setMessage({
-        type: isSuccess ? "success" : "danger",
-        text: messageText,
-      });
-
-      if (isSuccess) {
-        setFinishingForm({
-          type: "internal",
-          name: "",
-          phone_number: "",
-          place_of_residence: "",
-          project_location: "",
-          site_area: "",
-          vehicle_type: "",
-        });
-      }
-    } catch (err) {
-      setMessage({ type: "danger", text: "Something went wrong." });
-    }
+    await dispatch(submitFinishingInquiry(finishingForm) as any);
   };
-  
 
-  // ------------------ SUBMIT HANDLERS ------------------ //
-  const handleSoloSubmit = async (e: React.FormEvent) => {
+  const handleSoloSubmit = async (e: any) => {
     e.preventDefault();
     if (!validateSolo()) return;
-
-    try {
-      const res: any = await dispatch(submitSoloLearnInquiry(soloForm) as any);
-
-      // handle both unwrap() and regular dispatch cases
-      const payload = res?.payload || res;
-
-      const isError = !!payload?.errors;
-      const isSuccess = !isError && !!payload?.data;
-
-      let messageText = "";
-      if (isError) {
-        const errorMessages = Object.values(payload.errors).flat().join(" ");
-        messageText =
-          errorMessages ||
-          "Sololearn inquiry failed. Please check your inputs.";
-      } else {
-        messageText = payload?.message || "Sololearn inquiry submitted!";
-      }
-
-      setMessage({
-        type: isSuccess ? "success" : "danger",
-        text: messageText,
-      });
-
-      if (isSuccess) {
-        setSoloForm({
-          type: "internal",
-          full_name: "",
-          phone_number: "",
-          date_of_birth: "",
-          place_of_residence: "",
-          college_major: "",
-          status: "",
-          year_of_graduation: "",
-          project_location: "",
-          worked_in_finishing_field: false,
-          site_area: "",
-          vehicle_type: "",
-        });
-      }
-    } catch (err: any) {
-      console.error("SoloLearn Inquiry Error:", err);
-      setMessage({
-        type: "danger",
-        text: err?.message || "Something went wrong.",
-      });
-    }
+    await dispatch(submitSoloLearnInquiry(soloForm) as any);
   };
 
-  const { t } = useTranslation();
+  /* ================= UI ================= */
 
   return (
     <section className="inquiry-form-section">
@@ -312,9 +182,10 @@ function InquiryForm() {
           </Alert>
         )}
 
-        <Tabs defaultActiveKey="design" id="tabbing-form" className="mb-3">
+        <Tabs defaultActiveKey="construction" id="tabbing-form" className="mb-3" activeKey={activeTab}
+          onSelect={(k) => setActiveTab(k || "construction")}>
           {/* ---------------- CONSTRUCTION TAB ---------------- */}
-          <Tab eventKey="construction" title={t("ConstructionWorkForm.title")}>
+          <Tab eventKey="construction" title={t("ConstructionWorkForm.title")} id="construction-het" className="mb-3">
             <div className="personal-info-box custruction-info-box">
               <Form onSubmit={handleConstructionSubmit}>
                 <Row>
@@ -582,7 +453,7 @@ function InquiryForm() {
           </Tab>
 
           {/* ---------------- DESIGN TAB ---------------- */}
-          <Tab eventKey="design" title={t("DesignWorkForm.title")}>
+          <Tab eventKey="design" title={t("DesignWorkForm.title")} id="design-het">
             <TabbingDesign />
           </Tab>
 

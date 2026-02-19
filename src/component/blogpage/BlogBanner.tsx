@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { BBanner } from '../../assets/images';
+import { useTranslation } from 'react-i18next';
 
 interface BlogBannerProps {
   className?: string;
@@ -8,6 +9,8 @@ interface BlogBannerProps {
 }
 
 const BlogBanner: React.FC<BlogBannerProps> = ({ className = 'blog-banner-section', showFeatured = true }) => {
+  const { t } = useTranslation();
+
   return (
     <section className={className}>
       <Container>
@@ -16,9 +19,9 @@ const BlogBanner: React.FC<BlogBannerProps> = ({ className = 'blog-banner-sectio
             <img src={BBanner} alt="Blog Banner" />
           </div>
           <div className='blog-text'>
-            {showFeatured && <h5>Featured</h5>}
-            <h1>Visualizing trends in Libyan architecture culture</h1>
-            <p>By Ahemd Salen</p>
+            {showFeatured && <h5>{t('BlogBanner.featured')}</h5>}
+            <h1>{t('BlogBanner.title')}</h1>
+            <p>{t('BlogBanner.by')}</p>
           </div>
         </div>
       </Container>

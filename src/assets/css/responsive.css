@@ -1187,6 +1187,10 @@
   .testimonial-item {
     min-height: 390px;
   }
+  .service-card .service-card-item{min-height: 600px;}
+  .offcanvas-body .navbar-nav a{
+    padding: 15px 5px 12px !important;
+  }
 }
 
 @media (max-width: 1299px) {
@@ -1282,6 +1286,11 @@
     font-weight: 300;
     width: 85%;
   }
+  .service-card .service-card-item{min-height: 720px;}
+  .offcanvas-body .navbar-nav a{
+    padding: 15px 5px 12px !important;
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1376,6 +1385,7 @@
   .testimonial-item h5 {
     width: 74%;
   }
+  .service-card .service-card-item{min-height: 630px;}
 }
 
 @media (max-width: 767px) {
@@ -1455,6 +1465,9 @@
   .testimonial-item {
     min-height: 270px;
   }
+  .service-card .service-card-item {
+        min-height: auto;
+    }
 }
 
 @media (max-width: 575px) {

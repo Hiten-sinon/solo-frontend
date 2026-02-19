@@ -9,6 +9,7 @@
   "about": "معلومات عنا",
   "blog": "الأخبار",
   "interior": "التصميم الداخلي",
+  "exterior": "الخارج",
   "contact": "اتصل بنا",
   "inquiry": "نموذج الاستفسار",
   "banner": {
@@ -239,7 +240,7 @@
     "enter_project_location": "أدخل موقع المشروع",
     "project_area": "منطقة المشروع",
     "enter_project_area": "أدخل منطقة المشروع",
-    "vacuum_type": "نوع الفراغ",
+    "vacuum_type": "نوع المساحة",
     "administratitive": "إداري",
     "commmercial": "تجاري",
     "residential": "سكني",
@@ -302,6 +303,22 @@
     "see_all_articles": "عرض جميع المقالات",
     "loading_blog_articles": "جارٍ تحميل مقالات المدونة...",
     "error": "خطأ"
+  },
+
+  "BlogDetails": {
+    "loading": "جارٍ التحميل...",
+    "no_blog": "لا توجد مقالات",
+    "link_copied": "تم نسخ الرابط إلى الحافظة!",
+    "link_copy_failed": "فشل نسخ الرابط!",
+    "quotes_heading": "لوريم إيبسوم هو نص شكلي يستخدم في صناعة الطباعة والتنضيد.",
+    "quotes_alt": "اقتباسات",
+    "recent_image_alt": "مقال"
+  },
+
+  "BlogBanner": {
+    "featured": "مميز",
+    "title": "عرض اتجاهات الثقافة المعمارية الليبية",
+    "by": "بواسطة أحمد سالم"
   },
 
   "Career": {

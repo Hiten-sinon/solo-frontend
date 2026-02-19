@@ -70,38 +70,40 @@ const Team: React.FC = () => {
         </Row>
 
         {/* GRID TEAM */}
-        <Row>
+        <Row className="justify-content-center">
           {teamsloading ? (
             <Loader />
           ) : (
             displayTeams.map((member) => (
               <Col lg={3} md={4} sm={6} xs={12} key={member.id} className="mb-4">
                 <div className="team-content">
-                  <div className="team-image">
-                    <img
-                      src={member.images_url}
-                      alt={
-                        lang === "ar"
-                          ? member.name_ar
-                          : member.name_en
-                      }
-                      loading="lazy"
-                    />
-                  </div>
+                  <a href="/career" target="_blank" rel="noopener noreferrer">
+                    <div className="team-image">
+                      <img
+                        src={member.images_url}
+                        alt={
+                          lang === "ar"
+                            ? member.name_ar
+                            : member.name_en
+                        }
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="team-title">
-                    <h4>
-                      <span>
+                    <div className="team-title">
+                      <h4>
+                        <span>
+                          {lang === "ar"
+                            ? member.name_ar
+                            : member.name_en}
+                        </span>
+                        {" - "}
                         {lang === "ar"
-                          ? member.name_ar
-                          : member.name_en}
-                      </span>
-                      {" - "}
-                      {lang === "ar"
-                        ? member.job_title_ar
-                        : member.job_title_en}
-                    </h4>
-                  </div>
+                          ? member.job_title_ar
+                          : member.job_title_en}
+                      </h4>
+                    </div>
+                  </a>
                 </div>
               </Col>
             ))
