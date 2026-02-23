@@ -70,6 +70,9 @@
   "dream": {
     "title": "Your Dream Building Awaits!"
   },
+  "ProjectInfoForms": {
+    "upload_plan": "Upload Architectural Plan"
+  },
   "team_sec": {
     "title": "Solo Team",
     "description": "Our people who can make magic",
@@ -145,7 +148,7 @@
     "project_type": "Project Type",
     "commmercial": "Commercial",
     "residential": "Residential",
-    "area": "Area (in sq.ft)",
+    "area": "Area (in square meters)",
     "enter_area": "Enter area",
     "project_area": "Project Area (m²)",
     "preferred_colors": "Preferred Colors",
@@ -283,6 +286,12 @@
   "Btninquiry": {
     "inquiry_now": "Inquiry Now"
   },
+  "InteriorDesign": {
+    "title": "Interior Design"
+  },
+  "ExteriorDesign": {
+    "title": "Exterior Design"
+  },
   "mdlImageShow": {
     "confirm_selection": "Confirm Selection",
     "selected": "Selected",
@@ -344,4 +353,5 @@
     "Minimalist": "Minimalist",
     "Bohemian": "Bohemian"
 }
+
 }

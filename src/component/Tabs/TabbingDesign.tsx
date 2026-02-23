@@ -148,10 +148,11 @@ const TabbingDesign = () => {
         area: "",
         preferred_colors: "",
         architectural_plan: false,
+        architectural_plan_image: null as File | null,   // ✅ ADD THIS
         number_of_users: "",
         age_range: "",
         special_notes: "",
-        other_notes: "",
+        // other_notes: "",
         design_style: "",
         selected_examples: [] as string[],
     });
@@ -184,8 +185,8 @@ const TabbingDesign = () => {
                 errors.age_range = "Age range is required.";
             if (isEmpty(designForm.special_notes))
                 errors.special_notes = "Special notes are required.";
-            if (isEmpty(designForm.other_notes))
-                errors.other_notes = "Other notes are required.";
+            // if (isEmpty(designForm.other_notes))
+            //     errors.other_notes = "Other notes are required.";
         }
         setDesignErrors(errors);
         return Object.keys(errors).length === 0;
@@ -204,6 +205,7 @@ const TabbingDesign = () => {
             const payload = {
                 ...designForm,
                 design_style: selectedStyle || designForm.design_style,
+                architectural_plan_image: designForm.architectural_plan_image, 
                 //selected_examples: selectedImages.map((img) => img.split("/").pop()),
                 selected_examples: selectedImages
                     .map((img) => img.split("/").pop())
@@ -249,10 +251,11 @@ const TabbingDesign = () => {
                     area: "",
                     preferred_colors: "",
                     architectural_plan: false,
+                    architectural_plan_image: null,
                     number_of_users: "",
                     age_range: "",
                     special_notes: "",
-                    other_notes: "",
+                    // other_notes: "",
                     design_style: "",
                     selected_examples: [],
                 });
@@ -303,7 +306,7 @@ const TabbingDesign = () => {
                 id="uncontrolled-tab-example"
                 className="mb-3"
             >
-                <Tab eventKey="interior" title="Interior Design">
+                <Tab eventKey="interior" title={t("InteriorDesign.title")}>
                     <div className="fomr-design-box">
                         {/* ✅ Entire Design Form wrapped in <Form onSubmit={handleDesignSubmit}> */}
                         <Form onSubmit={handleDesignSubmit}>
@@ -587,6 +590,51 @@ const TabbingDesign = () => {
                                                         }
                                                     />
                                                 </Form.Group>
+                                                {/* ✅ SHOW FILE INPUT ONLY WHEN YES */}
+                                                {/* {designForm.architectural_plan === true && (
+                                                    <Form.Group className="mb-3">
+                                                        <Form.Label>
+                                                            {t("ProjectInfoForms.upload_plan")}
+                                                        </Form.Label>
+
+                                                        <Form.Control
+                                                            type="file"
+                                                            accept=".pdf,.png,.jpg,.jpeg"
+                                                            onChange={(e: any) =>
+                                                                setDesignForm({
+                                                                    ...designForm,
+                                                                    architectural_plan_image: e.target.files[0],
+                                                                })
+                                                            }
+                                                        />
+                                                    </Form.Group>
+                                                )} */}
+                                                {designForm.architectural_plan === true && (
+                                                    <Form.Group className="mb-3">
+                                                        <Form.Label>
+                                                            {t("ProjectInfoForms.upload_plan")}
+                                                        </Form.Label>
+
+                                                        <Form.Control
+                                                            type="file"
+                                                            accept=".pdf,.png,.jpg,.jpeg"
+                                                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                                                const file = e.target.files?.[0] || null;
+
+                                                                setDesignForm({
+                                                                    ...designForm,
+                                                                    architectural_plan_image: file,
+                                                                });
+                                                            }}
+                                                        />
+
+                                                        {designForm.architectural_plan_image && (
+                                                            <small className="text-success">
+                                                                {designForm.architectural_plan_image.name}
+                                                            </small>
+                                                        )}
+                                                    </Form.Group>
+                                                )}
                                             </Col>
 
                                             <Col
@@ -705,7 +753,7 @@ const TabbingDesign = () => {
                                                 </Form.Group>
                                             </Col>
 
-                                            <Col md={12}>
+                                            {/* <Col md={12}>
                                                 <Form.Group
                                                     className="mb-3"
                                                     controlId="designOtherNotes"
@@ -731,7 +779,7 @@ const TabbingDesign = () => {
                                                         </small>
                                                     )}
                                                 </Form.Group>
-                                            </Col>
+                                            </Col> */}
                                         </Row>
 
                                         <div className="d-flex justify-content-between mt-3">
@@ -833,7 +881,7 @@ const TabbingDesign = () => {
                         </Alert>
                     )}
                 </Tab>
-                <Tab eventKey="exterior" title="Exterior Design">
+                <Tab eventKey="exterior" title={t("ExteriorDesign.title")}>
                     <ExteriorForm />
                 </Tab>
             </Tabs>
@@ -849,7 +897,8 @@ const TabbingDesign = () => {
             >
                 <Modal.Header closeButton>
                     <Modal.Title>
-                        {t("mdlImageShow.select_examples_for")} {selectedStyle}
+                        {t("mdlImageShow.select_examples_for")} {t(`DesignStyles.${selectedStyle}`)}
+
                     </Modal.Title>
                 </Modal.Header>
 

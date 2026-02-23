@@ -36,30 +36,87 @@ export const submitInquiry = createAsyncThunk(
 );
 
 // 🧩 Async thunk to submit design inquiry form
+// export const submitDesignInquiry = createAsyncThunk(
+//   "inquiry/submitDesign",
+//   async (formData: DesignInquiryFormData, { rejectWithValue }) => {
+//     try {
+//       const payload = {
+//         type: "internal",
+//         full_name: formData.full_name,
+//         phone_number: formData.phone_number,
+//         city: formData.city,
+//         project_location: formData.project_location,
+//         project_type: formData.project_type,
+//         area: formData.area,
+//         preferred_colors: formData.preferred_colors,
+//         architectural_plan: formData.architectural_plan ? 1 : 0,
+//         architectural_plan_image: formData.architectural_plan_image,
+//         number_of_users: formData.number_of_users,
+//         age_range: formData.age_range,
+//         special_notes: formData.special_notes,
+//         other_notes: formData.other_notes,
+//         design_style: formData.design_style,
+//         selected_examples: formData.selected_examples,
+//       };
+//       const response = await axiosAPIInstace.post("/design-inquiry", payload, {
+//         headers: { "Content-Type": "application/json" },
+//       });
+//       return response.data;
+//     } catch (error: any) {
+//       return rejectWithValue(
+//         error.response?.data?.message || "Failed to submit design inquiry"
+//       );
+//     }
+//   }
+// );
+
 export const submitDesignInquiry = createAsyncThunk(
   "inquiry/submitDesign",
   async (formData: DesignInquiryFormData, { rejectWithValue }) => {
     try {
-      const payload = {
-        type: "internal",
-        full_name: formData.full_name,
-        phone_number: formData.phone_number,
-        city: formData.city,
-        project_location: formData.project_location,
-        project_type: formData.project_type,
-        area: formData.area,
-        preferred_colors: formData.preferred_colors,
-        architectural_plan: formData.architectural_plan ? 1 : 0,
-        number_of_users: formData.number_of_users,
-        age_range: formData.age_range,
-        special_notes: formData.special_notes,
-        other_notes: formData.other_notes,
-        design_style: formData.design_style,
-        selected_examples: formData.selected_examples,
-      };
-      const response = await axiosAPIInstace.post("/design-inquiry", payload, {
-        headers: { "Content-Type": "application/json" },
+      const payload = new FormData();
+
+      payload.append("type", "internal");
+      payload.append("full_name", formData.full_name);
+      payload.append("phone_number", formData.phone_number);
+      payload.append("city", formData.city);
+      payload.append("project_location", formData.project_location);
+      payload.append("project_type", formData.project_type);
+      payload.append("area", formData.area);
+      payload.append("preferred_colors", formData.preferred_colors);
+      payload.append(
+        "architectural_plan",
+        formData.architectural_plan ? "1" : "0"
+      );
+      payload.append("number_of_users", formData.number_of_users);
+      payload.append("age_range", formData.age_range);
+      payload.append("special_notes", formData.special_notes);
+      payload.append("other_notes", formData.other_notes);
+      payload.append("design_style", formData.design_style);
+
+      // ✅ ARRAY
+      formData.selected_examples.forEach((item, index) => {
+        payload.append(`selected_examples[${index}]`, item);
       });
+
+      // ✅ FILE APPEND HERE
+      if (formData.architectural_plan_image) {
+        payload.append(
+          "architectural_plan_image",
+          formData.architectural_plan_image
+        );
+      }
+
+      const response = await axiosAPIInstace.post(
+        "/design-inquiry",
+        payload,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
       return response.data;
     } catch (error: any) {
       return rejectWithValue(

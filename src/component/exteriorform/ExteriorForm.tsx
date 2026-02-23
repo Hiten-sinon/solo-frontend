@@ -113,6 +113,7 @@ function ExteriorForm() {
     project_location: "",
     project_area: "",
     sketch_drawing: false,
+    sketch_drawing_image: null,
     desired_area_from: "",
     desired_area_to: "",
     number_of_floors: "",
@@ -206,6 +207,7 @@ function ExteriorForm() {
       project_location: designForm.project_location,
       project_area: String(designForm.project_area || ""),
       sketch_drawing: Boolean(designForm.sketch_drawing),
+      sketch_drawing_image: designForm.sketch_drawing_image, // file object or null
       desired_area_from: designForm.desired_area_from,
       desired_area_to: designForm.desired_area_to,
       number_of_floors: designForm.number_of_floors,
@@ -275,6 +277,7 @@ function ExteriorForm() {
           project_location: "",
           project_area: "",
           sketch_drawing: false,
+          sketch_drawing_image: null,
           desired_area_from: "",
           desired_area_to: "",
           number_of_floors: "",
@@ -551,16 +554,15 @@ function ExteriorForm() {
                   <Col md={12} lg={6}>
                     <Form.Group className="mb-3 radio-btn">
                       <Form.Label className="p-type">
-                        {" "}
                         {t("ProjectInfoForm.sketch_drawing")}
                       </Form.Label>
+
                       <Form.Check
                         inline
                         type="radio"
                         id="designYes"
                         label={t("ProjectInfoForm.available")}
                         name="sketch_drawing"
-                        value="Yes"
                         checked={designForm.sketch_drawing === true}
                         onChange={() =>
                           setDesignForm({
@@ -569,22 +571,38 @@ function ExteriorForm() {
                           })
                         }
                       />
+
                       <Form.Check
                         inline
                         type="radio"
                         id="designNo"
                         label={t("ProjectInfoForm.not_available")}
                         name="sketch_drawing"
-                        value="No"
                         checked={designForm.sketch_drawing === false}
                         onChange={() =>
                           setDesignForm({
                             ...designForm,
                             sketch_drawing: false,
+                            sketch_drawing_image: null, // reset file when NO
                           })
                         }
                       />
                     </Form.Group>
+                    {designForm.sketch_drawing && (
+                      <Form.Group className="mb-3">
+                        <Form.Label>Upload Sketch</Form.Label>
+                        <Form.Control
+                          type="file"
+                          accept=".pdf,.png,.jpg,.jpeg"
+                          onChange={(e) =>
+                            setDesignForm({
+                              ...designForm,
+                              sketch_drawing_image: e.target.files[0],
+                            })
+                          }
+                        />
+                      </Form.Group>
+                    )}
                   </Col>
 
                   <Col

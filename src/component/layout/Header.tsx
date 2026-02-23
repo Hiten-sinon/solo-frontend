@@ -115,7 +115,7 @@ const Header: React.FC = () => {
                   <Link to="/blog">{t("blog")}</Link>
                   <Link to="/about">{t("about")}</Link>
                   <Link to="/contact">{t("contact")}</Link>
-                  <Link to="/inquiry">{t("inquiry")}</Link>
+                  {/* <Link to="/inquiry">{t("inquiry")}</Link> */}
                 </Nav>
 
                 {/* Language Switcher */}

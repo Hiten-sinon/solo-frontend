@@ -1,17 +1,18 @@
 import React, { useEffect, useMemo } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeams } from "../../../redux/slice/homepage/teamsSlice";
 import { fetchManageTitleBySlug } from "../../../redux/slice/homepage/manageTitleSlice";
 import type { RootState, AppDispatch } from "../../../redux/store";
 import Loader from "../../loader/Loader";
+import { Link } from "react-router-dom";
 
 const Team: React.FC = () => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { data: teams, teamsloading } = useSelector(
+  const { data: teams = [], teamsloading } = useSelector(
     (state: RootState) => state.teams
   );
 
@@ -32,10 +33,9 @@ const Team: React.FC = () => {
   }, [dispatch]);
 
   const lang = i18n.language;
-
   const isLoading = teamsloading || titleLoading;
 
-  // 👉 take first 7 members for 4+3 layout
+  // 👉 show first 7 items (including "main" if present)
   const displayTeams = teams.slice(0, 7);
 
   return (
@@ -69,41 +69,63 @@ const Team: React.FC = () => {
           </Col>
         </Row>
 
-        {/* GRID TEAM */}
+        {/* TEAM GRID */}
         <Row className="justify-content-center">
           {teamsloading ? (
             <Loader />
           ) : (
             displayTeams.map((member) => (
-              <Col lg={3} md={4} sm={6} xs={12} key={member.id} className="mb-4">
+              <Col
+                lg={3}
+                md={4}
+                sm={6}
+                xs={12}
+                key={member.id}
+                className="mb-4"
+              >
                 <div className="team-content">
-                  <a href="/career" target="_blank" rel="noopener noreferrer">
-                    <div className="team-image">
-                      <img
-                        src={member.images_url}
-                        alt={
-                          lang === "ar"
-                            ? member.name_ar
-                            : member.name_en
-                        }
-                        loading="lazy"
-                      />
-                    </div>
 
-                    <div className="team-title">
-                      <h4>
-                        <span>
-                          {lang === "ar"
-                            ? member.name_ar
-                            : member.name_en}
-                        </span>
-                        {" - "}
+                  {/* IMAGE */}
+                  <div className="team-image">
+                    <img
+                      src={member.images_url}
+                      alt={
+                        lang === "ar"
+                          ? member.name_ar
+                          : member.name_en
+                      }
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* NAME + TITLE */}
+                  <div className="team-title">
+                    <h4>
+                      <span>
                         {lang === "ar"
-                          ? member.job_title_ar
-                          : member.job_title_en}
-                      </h4>
+                          ? member.name_ar
+                          : member.name_en}
+                      </span>
+                      {" - "}
+                      {lang === "ar"
+                        ? member.job_title_ar
+                        : member.job_title_en}
+                    </h4>
+                  </div>
+
+                  {/* APPLY BUTTON ONLY FOR MAIN */}
+                  {member.flag === "main" && member.button_link && (
+                    <div className="apply-btn">
+                      <Link to={member.button_link}>
+                        <Button className="btn btn-teal w-100">
+                          {lang === "ar"
+                            ? member.button_name_ar
+                            : member.button_name_en}
+                        </Button>
+                      </Link>
                     </div>
-                  </a>
+                  )}
+
                 </div>
               </Col>
             ))

@@ -70,6 +70,9 @@
   "dream": {
     "title": "مبناك الحلم بانتظارك!"
   },
+  "ProjectInfoForms": {
+    "upload_plan": "تحميل المخطط المعماري"
+  },
   "team_sec": {
     "title": "فريق سولو",
     "description": "أشخاصنا الذين يصنعون السحر",
@@ -154,7 +157,7 @@
     "project_type": "نوع المشروع",
     "commmercial": "تجاري",
     "residential": "سكني",
-    "area": "المساحة (بالقدم المربع)",
+    "area": "المساحة (بالمتر المربع)",
     "enter_area": "أدخل المساحة",
     "project_area": "مساحة المشروع (م²)",
     "preferred_colors": "الألوان المفضلة",
@@ -246,7 +249,7 @@
     "residential": "سكني",
     "note": "ملحوظة",
     "fininsh_work_note": "يجب تعبئة النموذج بالكامل. لا تترك أي حقول مطلوبة فارغة.",
-    "submit": "يُقدِّم"
+    "submit": "إرسال"
   },
   "SoloLearnForm": {
     "title": "أكاديمية سولو",
@@ -267,7 +270,7 @@
     "worked_in_finishing_field": "هل سبق لك العمل أو المشاركة في مجال التشطيب؟",
     "yes": "نعم",
     "no": "لا",
-    "submit": "يُقدِّم"
+    "submit": "إرسال"
   },
   "InquiryForm": {
     "title": "نموذج الطلب"
@@ -289,6 +292,12 @@
   },
   "Btninquiry": {
     "inquiry_now": "استفسار الآن"
+  },
+   "InteriorDesign": {
+    "title": "تصميم داخلي"
+  },
+  "ExteriorDesign": {
+    "title": "تصميم خارجي"
   },
   "mdlImageShow": {
     "confirm_selection": "تأكيد الاختيار",
@@ -340,19 +349,19 @@
     }
   },
   "DesignStyles": {
-  "Andalusian": "الأندلسي",
-  "Classic": "كلاسيكي",
-  "Industrial": "صناعي",
-  "Japandi": "يابندي",
-  "Meditrranean": "متوسطي",
-    "Mediterranean": "متوسطي",
-  "Minimalism": "بساطة",
-  "Modern": "حديث",
-  "Newclassic": "كلاسيكي جديد",
-  "Scandinavian": "اسكندنافي",
-    "NewClassic": "كلاسيكي جديد",
-    "Minimalist": "بسيط",
-    "Bohemian": "بوهيمي"
+  "Andalusian": "تصميم الأندلسي",
+  "Classic": "تصميم كلاسيكي",
+  "Industrial": "تصميم صناعي",
+  "Japandi": "تصميم يابندي",
+  "Meditrranean": "تصميم متوسطي",
+    "Mediterranean": "تصميم متوسطي",
+  "Minimalism": "تصميم بساطة",
+  "Modern": "تصميم حديث",
+  "Newclassic": "تصميم كلاسيكي جديد",
+  "Scandinavian": "تصميم اسكندنافي",
+    "NewClassic": "تصميم كلاسيكي جديد",
+    "Minimalist": "تصميم بسيط",
+    "Bohemian": "تصميم بوهيمي"
 }
 
 }
