@@ -322,25 +322,31 @@ body {
   transform: skew(0deg, 180deg);
 }
 
-.blog-text-list{right: 0;}
+.blog-text-list {
+  right: 0;
+}
 
-.ct-right{
+.ct-right {
   border-radius: 0 30px 0 0 !important;
 }
-.radio-btn.het-rad .form-check{
+
+.radio-btn.het-rad .form-check {
   padding-right: 1.5rem;
 }
+
 .form-check .form-check-input {
-    margin-left: 8px !important;
-    margin-right: -32px;
+  margin-left: 8px !important;
+  margin-right: -32px;
 }
 
-.personal-info-box .form-check{
+.personal-info-box .form-check {
   padding-right: 1.5rem;
   padding-left: 0;
 }
 
-.form-check .form-check-input{float: right !important;}
+.form-check .form-check-input {
+  float: right !important;
+}
 
 @media (max-width: 1499px) {
   .banner-text-info {
@@ -461,4 +467,22 @@ body {
   }
 
 
+}
+
+.carousel-control-prev {
+  left: 40px !important;
+  right: auto !important;
+
+}
+
+
+
+.carousel-control-next {
+  left: 40px !important;
+  right: auto !important;
+
+}
+
+.feature-content {
+  overflow: hidden;
 }

@@ -638,7 +638,7 @@
 
   .feature-info {
     left: 0;
-    bottom: 30px;
+    bottom: 60px;
     z-index: 1;
     width: 90%;
     right: 0;
@@ -831,6 +831,9 @@
   .blog-item.video-item:before {
     height: 103px;
     bottom: -2px;
+  }
+  .carousel-control-prev{
+    top: 43%;
   }
 }
 

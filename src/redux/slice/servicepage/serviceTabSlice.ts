@@ -2,15 +2,25 @@ import { createSlice, createAsyncThunk, type PayloadAction } from "@reduxjs/tool
 import { axiosAPIInstace } from "../../../utils/axiosInstance"; 
 
 // Define TypeScript interfaces
+interface Item {
+  id: number;
+  feature_id: number;
+  image: string | null;
+  image_url: string | null;
+  description_en?: string | null;
+  description_ar?: string | null;
+}
+
 interface SubFeature {
   id: number;
   parent_id: number | null;
   name_en: string;
   name_ar: string;
-  discription_en: string;
-  discription_ar: string;
-  images: string;
-  images_url: string;
+  discription_en: string | null;
+  discription_ar: string | null;
+  images: string | null;
+  images_url: string | null;
+  items?: Item[];
 }
 
 export interface Service {
