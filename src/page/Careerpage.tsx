@@ -17,7 +17,13 @@ const Careerpage = () => {
     (state: RootState) => state.contactForm
   );
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    phone_number: string;
+    email_address: string;
+    message: string;
+    cv: File | null;
+  }>({
     name: "",
     phone_number: "",
     email_address: "",

@@ -22,7 +22,7 @@ const designSlice = createSlice({
   initialState: {},
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(submitDesignInquiry.fulfilled, (state, action) => {
+    builder.addCase(submitDesignInquiry.fulfilled, (_state, action) => {
       return action.payload;
     });
   },

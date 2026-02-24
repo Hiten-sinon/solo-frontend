@@ -106,9 +106,9 @@ const ServiceTab: React.FC = () => {
                         data-aos-delay={subIndex * 150}
                       >
                         <Carousel
-                          indicators={sub.items?.length > 1}
-                          controls={sub.items?.length > 1}
-                          interval={sub.items?.length > 1 ? 3000 : null}
+                          indicators={(sub.items?.length ?? 0) > 1}
+                          controls={(sub.items?.length ?? 0) > 1}
+                          interval={(sub.items?.length ?? 0) > 1 ? 3000 : null}
                           pause="hover"
                         >
                           {sub.items && sub.items.length > 0 ? (

@@ -206,6 +206,7 @@ export interface DesignInquiryFormData {
   area: string;
   preferred_colors: string;
   architectural_plan: boolean;
+  architectural_plan_image?: File | null;
   number_of_users: string;
   age_range: string;
   special_notes: string;

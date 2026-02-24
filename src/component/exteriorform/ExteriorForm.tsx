@@ -594,10 +594,10 @@ function ExteriorForm() {
                         <Form.Control
                           type="file"
                           accept=".pdf,.png,.jpg,.jpeg"
-                          onChange={(e) =>
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setDesignForm({
                               ...designForm,
-                              sketch_drawing_image: e.target.files[0],
+                              sketch_drawing_image: e.target.files?.[0] ?? null,
                             })
                           }
                         />

@@ -152,7 +152,7 @@ const TabbingDesign = () => {
         number_of_users: "",
         age_range: "",
         special_notes: "",
-        // other_notes: "",
+        other_notes: "",
         design_style: "",
         selected_examples: [] as string[],
     });
@@ -255,7 +255,7 @@ const TabbingDesign = () => {
                     number_of_users: "",
                     age_range: "",
                     special_notes: "",
-                    // other_notes: "",
+                        other_notes: "",
                     design_style: "",
                     selected_examples: [],
                 });
