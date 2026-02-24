@@ -2458,3 +2458,6 @@ ul#uncontrolled-tab-example button.active{
   transform: translateY(0);
 }
 
+input#CV {
+    padding: 12px 35px;
+}

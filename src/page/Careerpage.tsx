@@ -22,6 +22,7 @@ const Careerpage = () => {
     phone_number: "",
     email_address: "",
     message: "",
+    cv: null,
   });
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const Careerpage = () => {
         phone_number: "",
         email_address: "",
         message: "",
+        cv: null,
       });
 
       setTimeout(() => {
@@ -42,18 +44,29 @@ const Careerpage = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target instanceof HTMLInputElement && e.target.type === "file") {
+      setFormData({ ...formData, cv: e.target.files?.[0] || null });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    dispatch(
-      submitInquiryForm({
-        ...formData,
-        type: "career",
-      })
-    );
+    const data = new FormData();
+
+    data.append("name", formData.name);
+    data.append("phone_number", formData.phone_number);
+    data.append("email_address", formData.email_address);
+    data.append("message", formData.message);
+    data.append("type", "career");
+
+    if (formData.cv) {
+      data.append("cv", formData.cv); // ✅ VERY IMPORTANT
+    }
+
+    dispatch(submitInquiryForm(data));
   };
 
   if (loading) return <Loader />;
@@ -153,6 +166,21 @@ const Careerpage = () => {
                       t("Career.career_form.Placeholder.Position") ||
                       "Enter your Position"
                     }
+                  />
+                </Form.Group>
+              </Col>
+              {/* Upload CV */}
+              <Col md={12}>
+                <Form.Group
+                  controlId="CV"
+                  className="mb-3"
+                  data-aos="fade-up"
+                >
+                  <Form.Label>{t("Career.career_form.UploadCV") || "Upload CV"}</Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="cv"
+                    onChange={handleChange}
                   />
                 </Form.Group>
               </Col>

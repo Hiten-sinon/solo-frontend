@@ -9,6 +9,7 @@ export interface InquiryPayload {
   email_address: string;
   message: string;
   type: InquiryType;
+  cv?: File | null;
 }
 
 interface InquiryState {
@@ -25,13 +26,20 @@ const initialState: InquiryState = {
 
 export const submitInquiryForm = createAsyncThunk<
   any,
-  InquiryPayload,
+  InquiryPayload | FormData,
   { rejectValue: string }
 >("inquiry/submit", async (payload, { rejectWithValue }) => {
   try {
     const url = "/contactusforminquiry";
 
-    const response = await axiosAPIInstace.post(url, payload);
+    const isFormData = payload instanceof FormData;
+
+    const response = await axiosAPIInstace.post(url, payload, {
+      headers: isFormData
+        ? { "Content-Type": "multipart/form-data" }
+        : { "Content-Type": "application/json" },
+    });
+
     return response.data;
   } catch (error: any) {
     return rejectWithValue(
